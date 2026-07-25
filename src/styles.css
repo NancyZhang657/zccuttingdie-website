@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Brand accent */
+  --accent: #2A6496;
+  --accent-hover: #1A4A6E;
+  --accent-light: #E8F2FA;
+
+  /* Surface system */
+  --surface-void: #0A0A0A;
+  --surface-dark: #1A1A1A;
+  --surface-mid: #2C2C2C;
+  --surface-light: #FFFFFF;
+  --surface-off: #F8F7F5;
+
+  /* Text */
+  --text-primary-dark: #FFFFFF;
+  --text-secondary-dark: #A0A0A0;
+  --text-label-dark: #6B6B6B;
+  --text-primary-light: #181818;
+  --text-secondary-light: #555555;
+  --text-caption: #888888;
+
+  /* Border */
+  --border-dark: rgba(255,255,255,0.12);
+  --border-light: #DDDDDD;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  /* Radii */
+  --radius-btn: 2px;
+  --radius-card: 4px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-mid: 250ms;
+
+  /* Legacy compat */
+  --color-primary: var(--accent);
+  --color-primary-hover: var(--accent-hover);
+  --color-text: var(--text-primary-light);
+  --color-border: var(--border-light);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--surface-light);
+  color: var(--text-primary-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+
+/* Ken Burns animation for hero */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.ken-burns {
+  animation: kenBurns 8s ease-in-out infinite alternate;
+}
+
+/* Market bar animation */
+@keyframes barGrow {
+  from { width: 0; }
+  to { width: var(--bar-width); }
+}
+
+/* Section label uppercase style */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+/* Ghost button on dark */
+.btn-ghost-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--radius-btn);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+.btn-ghost-dark:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.9);
+}
+
+/* Primary accent button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #FFFFFF;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* Spec tag badge */
+.spec-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--text-secondary-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns { animation: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

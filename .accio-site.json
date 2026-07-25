@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "siteId": "zhongcheng-cuttingdie-20260725154951",
+  "name": "zhongcheng-cuttingdie-20260725154951",
+  "kind": "react-vite",
+  "platform": "alibaba-international",
+  "devCommand": "vite",
+  "buildCommand": "vite build",
+  "outputDir": "dist",
+  "entry": "index.html",
+  "databaseUrl": "",
+  "createdBy": "accio-site-builder",
+  "createdAt": "2026-07-25T07:49:58Z"
+}
