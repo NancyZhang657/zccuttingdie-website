@@ -63,9 +63,9 @@ export const translations = {
     testimonials_label: 'What Clients Say',
     testimonials_title: 'Trusted by Professionals Worldwide',
     testimonials: [
-      { name: 'Haim Raveh', role: 'Technical Manager · Auto Cool Ltd, Israel', text: 'Zhongcheng delivered exactly to spec for our ABS thick-material cutting needs. Response time is fast and technical support is solid.' },
-      { name: 'Ali Touqir', role: 'Procurement Manager · Pakistan', text: 'The 2-up sandwich die configuration was perfect. Quality matched our expectations and delivery was on schedule.' },
-      { name: 'Tiffen Mbuaki', role: 'Director · L\'impression d\'antan, France', text: 'Exceptional precision on our luxury packaging dies. The team\'s expertise with BOBST setups is genuinely impressive.' },
+      { name: 'Packaging Manager', role: 'United States', text: 'Zhongcheng delivered exactly to spec for our thick-material cutting needs. Response time is fast and technical support is solid.' },
+      { name: 'Production Director', role: 'Canada', text: 'The sandwich die configuration was perfect. Quality matched our expectations and delivery was on schedule.' },
+      { name: 'Operations Manager', role: 'France', text: 'Exceptional precision on our luxury packaging dies. The team\'s expertise with BOBST setups is genuinely impressive.' },
     ],
 
     // About
@@ -166,9 +166,9 @@ export const translations = {
     testimonials_label: '客户评价',
     testimonials_title: '全球客户的共同选择',
     testimonials: [
-      { name: 'Haim Raveh', role: '技术经理 · Auto Cool Ltd，以色列', text: '众诚完全按规格交付了我们的ABS厚料切割需求，响应速度快，技术支持专业可靠。' },
-      { name: 'Ali Touqir', role: '采购经理 · 巴基斯坦', text: '2拼三明治刀模方案非常完美，品质符合预期，交期准时。' },
-      { name: 'Tiffen Mbuaki', role: '总监 · L\'impression d\'antan，法国', text: '高端包装刀模的精度令人印象深刻，团队对BOBST设备的专业理解让人信服。' },
+      { name: '包装经理', role: '美国', text: '众诚完全按规格交付，厚料切割需求得到精准满足，响应速度快，技术支持专业可靠。' },
+      { name: '生产总监', role: '加拿大', text: '三明治刀模方案非常完美，品质符合预期，交期准时。' },
+      { name: '运营经理', role: '法国', text: '高端包装刀模的精度令人印象深刻，团队对BOBST设备的专业理解让人信服。' },
     ],
 
     // About
