@@ -1,4 +1,5 @@
 import Hero from '../components/hero/Hero';
+import HeroGallery from '../components/hero/HeroGallery';
 import CountryLanguageSelector from '../components/dynamic/CountryLanguageSelector';
 import ProductCategories from '../components/categories/ProductCategories';
 import EquipmentCompatibility from '../components/features/EquipmentCompatibility';
@@ -15,8 +16,9 @@ import ContactSection from '../components/contact/ContactSection';
 
 export default function HomePage() {
   return (
-    <main style={{ paddingTop: '64px' }}>
+    <main style={{ paddingTop: '72px' }}>
       <Hero />
+      <HeroGallery />
       <CountryLanguageSelector />
       <ProductCategories />
       <DynamicProducts />

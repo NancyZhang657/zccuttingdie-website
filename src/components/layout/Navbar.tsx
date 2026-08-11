@@ -37,13 +37,13 @@ export default function Navbar() {
       }}
       data-component="Navbar"
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '64px' }}>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '72px' }}>
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 flex-shrink-0">
           <img
             src={LOGO_URL}
             alt="Jinan Zhongcheng Precision Mould"
-            className="h-14 object-contain"
+            className="h-16 object-contain"
           />
         </a>
 
