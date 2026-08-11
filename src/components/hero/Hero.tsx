@@ -90,22 +90,22 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* Text — uses % padding so it scales with the container */}
+      {/* Text — percentage padding + clamp font sizes scale with viewport */}
       <div
         className="absolute inset-0 flex flex-col justify-center z-10"
-        style={{ padding: '0 64px 32px' }}
+        style={{ padding: '0 5% 3%' }}
       >
-        <div style={{ maxWidth: '680px' }}>
+        <div style={{ maxWidth: '55%', minWidth: '280px' }}>
           <p
             key={`label-${current}`}
             className="section-label flex items-center gap-2"
             style={{
               color: 'var(--accent)',
-              marginBottom: '16px',
+              marginBottom: '2%',
               animation: 'fadeUp 0.5s ease forwards',
             }}
           >
-            <span style={{ display: 'inline-block', width: '28px', height: '3px', background: 'var(--accent)', flexShrink: 0 }} />
+            <span style={{ display: 'inline-block', width: '24px', height: '3px', background: 'var(--accent)', flexShrink: 0 }} />
             {lang === 'zh' ? slide.labelZh : slide.labelEn}
           </p>
 
@@ -115,9 +115,9 @@ export default function Hero() {
               fontFamily: 'var(--font-display)',
               color: '#FFFFFF',
               fontWeight: 400,
-              fontSize: '2.6rem',
+              fontSize: 'clamp(1.2rem, 2.8vw, 2.8rem)',
               lineHeight: 1.1,
-              marginBottom: '16px',
+              marginBottom: '1.5%',
               animation: 'fadeUp 0.6s ease 0.1s both',
             }}
           >
@@ -128,21 +128,22 @@ export default function Hero() {
             key={`sub-${current}`}
             style={{
               color: 'rgba(255,255,255,0.76)',
-              fontSize: '0.95rem',
-              lineHeight: 1.65,
-              marginBottom: '32px',
+              fontSize: 'clamp(0.7rem, 1.1vw, 0.95rem)',
+              lineHeight: 1.6,
+              marginBottom: '3%',
               animation: 'fadeUp 0.6s ease 0.2s both',
-              maxWidth: '580px',
             }}
           >
             {lang === 'zh' ? slide.subZh : slide.subEn}
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-primary"
+              style={{ fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', padding: 'clamp(8px,1vw,14px) clamp(12px,1.8vw,28px)' }}>
               {t.hero_cta1}
             </a>
-            <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark">
+            <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark"
+              style={{ fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', padding: 'clamp(8px,1vw,14px) clamp(12px,1.8vw,28px)' }}>
               {t.hero_cta2}
             </a>
           </div>
@@ -162,7 +163,7 @@ export default function Hero() {
       </button>
 
       {/* Dots + counter */}
-      <div className="absolute bottom-5 z-20 flex items-center gap-4" style={{ left: '64px' }}>
+      <div className="absolute bottom-4 z-20 flex items-center gap-4" style={{ left: '5%' }}>
         <div className="flex items-center gap-2">
           {slides.map((_, i) => (
             <button key={i} onClick={() => setCurrent(i)} aria-label={`Slide ${i + 1}`}
