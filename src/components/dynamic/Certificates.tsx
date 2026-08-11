@@ -39,10 +39,10 @@ export default function Certificates() {
 
   if (loading) {
     return (
-      <section className="py-16 px-6" style={{ background: 'var(--surface-dark)' }}>
+      <section className="py-16 px-6" style={{ background: 'var(--surface-off)' }}>
         <div className="max-w-6xl mx-auto flex flex-wrap gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-20 w-48 rounded animate-pulse" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            <div key={i} className="h-20 w-48 rounded animate-pulse" style={{ background: 'var(--border-light)' }} />
           ))}
         </div>
       </section>
@@ -54,11 +54,11 @@ export default function Certificates() {
   return (
     <section
       className="py-16 px-6"
-      style={{ background: 'var(--surface-dark)' }}
+      style={{ background: 'var(--surface-off)' }}
       data-component="Certificates"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="section-label mb-6" style={{ color: 'var(--text-secondary-dark)' }}>
+        <p className="section-label mb-6" style={{ color: 'var(--text-caption)' }}>
           Certifications &amp; Quality
         </p>
         <div className="flex flex-wrap gap-4">
@@ -67,9 +67,9 @@ export default function Certificates() {
               key={i}
               className="p-4 flex items-center gap-3"
               style={{
-                border: '1px solid var(--border-dark)',
+                border: '1px solid var(--border-light)',
                 borderRadius: 'var(--radius-card)',
-                background: 'rgba(255,255,255,0.04)',
+                background: 'var(--surface-light)',
                 minWidth: '180px',
               }}
             >

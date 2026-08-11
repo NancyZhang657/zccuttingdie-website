@@ -13,34 +13,37 @@ export default function ContactSection() {
   return (
     <section
       className="py-20 px-6 text-center"
-      style={{ background: 'var(--surface-void)' }}
+      style={{ background: 'var(--surface-light)' }}
       data-component="ContactSection"
       id="contact"
     >
       <div className="max-w-2xl mx-auto">
-        <p className="section-label mb-4" style={{ color: 'var(--accent)' }}>{t.contact_label}</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)' }}>
+        <p className="section-label mb-4 flex items-center justify-center gap-3" style={{ color: 'var(--accent)' }}>
+          <span className="accent-bar" />
+          {t.contact_label}
+        </p>
+        <h2 className="text-3xl md:text-4xl leading-tight mb-4" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}>
           {t.contact_title}
         </h2>
-        <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-secondary-dark)' }}>
+        <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-secondary-light)' }}>
           {t.contact_sub}
         </p>
 
         {/* Phone / WeChat / WhatsApp block */}
         <div
           className="inline-flex flex-col items-center gap-2 mb-8 px-6 py-4"
-          style={{ border: '1px solid var(--border-dark)', borderRadius: 'var(--radius-card)', background: 'rgba(255,255,255,0.04)' }}
+          style={{ border: '1px solid var(--border-light)', borderRadius: 'var(--radius-card)', background: 'var(--surface-off)' }}
         >
-          <p className="section-label" style={{ color: 'var(--text-secondary-dark)' }}>{t.contact_phone_label}</p>
+          <p className="section-label" style={{ color: 'var(--text-secondary-light)' }}>{t.contact_phone_label}</p>
           <a
             href={`tel:${PHONE}`}
             className="flex items-center gap-2 text-xl font-semibold"
-            style={{ color: 'var(--text-primary-dark)', fontFamily: 'var(--font-display)' }}
+            style={{ color: 'var(--text-primary-light)', fontFamily: 'var(--font-display)' }}
           >
             <Phone size={18} />
             {PHONE_DISPLAY}
           </a>
-          <p className="text-xs" style={{ color: 'var(--text-secondary-dark)' }}>
+          <p className="text-xs" style={{ color: 'var(--text-secondary-light)' }}>
             📱 WeChat · WhatsApp · Call — same number
           </p>
           <p className="text-xs" style={{ color: 'var(--accent)' }}>✓ {t.contact_response}</p>
@@ -58,7 +61,7 @@ export default function ContactSection() {
             WhatsApp / WeChat
           </a>
           <ContactButton />
-          <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark">
+          <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-ghost-light">
             {t.contact_alibaba}
           </a>
         </div>

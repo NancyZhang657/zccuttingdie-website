@@ -1,7 +1,6 @@
 import heroBg from '../../assets/images/hero-die-cutting.jpg';
 import { useLang } from '../../lib/langContext';
 
-const LOGO_URL = 'https://sc04.alicdn.com/kf/Ad2527bc70a8944bd81317d2385e11400M.jpg';
 const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
 const ALIBABA_PRODUCTS = 'https://jinanzhongcheng.en.alibaba.com/';
 
@@ -10,59 +9,60 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden flex flex-col items-center justify-center px-6"
-      style={{ background: 'var(--surface-void)', paddingTop: '140px', paddingBottom: '96px', minHeight: '600px' }}
+      className="relative overflow-hidden flex flex-col justify-center px-6"
+      style={{ background: 'var(--surface-off)', paddingTop: '150px', paddingBottom: '100px', minHeight: '640px' }}
       data-component="HeroSection"
     >
-      {/* Ken Burns background image */}
+      {/* Background image, right-aligned, light wash so dark text stays readable */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={heroBg}
           alt="Precision die cutting manufacturing"
           className="w-full h-full object-cover ken-burns"
-          style={{ maxHeight: '700px', objectPosition: 'center', opacity: 0.38 }}
+          style={{ objectPosition: 'right center', opacity: 0.5 }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(to bottom, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.88) 100%)' }}
+          style={{ background: 'linear-gradient(100deg, rgba(250,246,241,0.97) 0%, rgba(250,246,241,0.9) 42%, rgba(250,246,241,0.55) 100%)' }}
+        />
+        {/* Orange accent diagonal stripe */}
+        <div
+          className="absolute"
+          style={{
+            top: 0, bottom: 0, right: '-4%',
+            width: '10px',
+            background: 'var(--accent)',
+            transform: 'skewX(-8deg)',
+          }}
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Logo */}
-        <div className="mb-8 flex justify-center">
-          <img
-            src={LOGO_URL}
-            alt="Jinan Zhongcheng Precision Mould Co., Ltd."
-            className="h-24 object-contain px-4 py-3"
-            style={{ background: '#FFFFFF', borderRadius: '6px' }}
-          />
-        </div>
-
-        <p className="section-label mb-5" style={{ color: 'var(--accent)' }}>
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
+        <p className="section-label mb-5 flex items-center gap-3" style={{ color: 'var(--accent)' }}>
+          <span className="accent-bar" />
           {t.hero_label}
         </p>
 
+        {/* Bold Glenmore-style statement headline */}
         <h1
-          className="text-4xl md:text-6xl font-bold leading-tight mb-6"
-          style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)' }}
+          className="text-4xl md:text-6xl leading-[1.08] mb-7 max-w-3xl"
+          style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
         >
-          {t.hero_title1}<br />
-          <span style={{ color: 'var(--accent)' }}>{t.hero_title2}</span>
+          {t.hero_title}
         </h1>
 
         <p
-          className="text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto"
-          style={{ color: 'var(--text-secondary-dark)' }}
+          className="text-base md:text-lg leading-relaxed mb-10 max-w-2xl"
+          style={{ color: 'var(--text-secondary-light)' }}
         >
           {t.hero_sub}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-primary">
             {t.hero_cta1}
           </a>
-          <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark">
+          <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-light">
             {t.hero_cta2}
           </a>
         </div>

@@ -1,19 +1,15 @@
 import sandwichImg from '../../assets/images/sandwich-die-showcase.jpg';
+import { useLang } from '../../lib/langContext';
 
 const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
 
-const specs = [
-  'Speed: up to 9,000 cuts/hr (BOBST ideal conditions)',
-  'Material: HSS + precision-ground board',
-  'Compat: BOBST · Masterwork · Heidelberg',
-  'Standard prep: 3 days',
-];
-
 export default function SandwichDieSpotlight() {
+  const { t } = useLang();
+
   return (
     <section
       className="py-20 px-6"
-      style={{ background: 'var(--surface-void)' }}
+      style={{ background: 'var(--surface-light)' }}
       data-component="SandwichDieSpotlight"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
@@ -29,22 +25,23 @@ export default function SandwichDieSpotlight() {
 
         {/* Text panel — 40% on desktop */}
         <div className="w-full md:w-[42%]">
-          <p className="section-label mb-4" style={{ color: 'var(--accent)' }}>Flagship Product</p>
+          <p className="section-label mb-4 flex items-center gap-3" style={{ color: 'var(--accent)' }}>
+            <span className="accent-bar" />
+            {t.sandwich_label}
+          </p>
           <h2
-            className="text-3xl md:text-4xl font-bold mb-5 leading-tight"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)' }}
+            className="text-3xl md:text-4xl leading-tight mb-5"
+            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
           >
-            Sandwich Die —<br />The German-Quality Choice
+            {t.sandwich_title}
           </h2>
-          <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--text-secondary-dark)' }}>
-            Our sandwich die system delivers superior cut quality at the highest machine speeds.
-            Precision-machined channels, interchangeable knife strips, and seamless compatibility
-            with leading international platforms.
+          <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--text-secondary-light)' }}>
+            {t.sandwich_body}
           </p>
 
           {/* Spec tags */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {specs.map((s) => (
+            {t.sandwich_specs.map((s) => (
               <span key={s} className="spec-tag">{s}</span>
             ))}
           </div>
@@ -55,7 +52,7 @@ export default function SandwichDieSpotlight() {
             rel="noopener noreferrer"
             className="btn-primary inline-flex"
           >
-            Get Sandwich Die Quote
+            {t.sandwich_cta}
           </a>
         </div>
       </div>

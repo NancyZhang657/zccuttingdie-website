@@ -2,6 +2,7 @@ import Hero from '../components/hero/Hero';
 import CountryLanguageSelector from '../components/dynamic/CountryLanguageSelector';
 import ProductCategories from '../components/categories/ProductCategories';
 import EquipmentCompatibility from '../components/features/EquipmentCompatibility';
+import CompanyStory from '../components/about/CompanyStory';
 import WhyChooseUs from '../components/features/WhyChooseUs';
 import SandwichDieSpotlight from '../components/features/SandwichDieSpotlight';
 import GlobalClients from '../components/clients/GlobalClients';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <CountryLanguageSelector />
       <ProductCategories />
       <DynamicProducts />
+      <CompanyStory />
       <EquipmentCompatibility />
       <WhyChooseUs />
       <SandwichDieSpotlight />

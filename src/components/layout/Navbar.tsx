@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
 const LOGO_URL = 'https://sc04.alicdn.com/kf/Abd04c375b27b4694a6aa9e2b5b0076beB.jpg';
+const NAV_BG_SOLID = 'rgba(255,255,255,0.97)';
+const NAV_BG_TRANSPARENT = 'rgba(255,255,255,0.85)';
 const PHONE = '+8615066159371';
 const PHONE_DISPLAY = '+86 150 6615 9371';
-const WHATSAPP = 'https://wa.me/8615066159371';
+const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
 
 const navLinks = [
   { key: 'nav_products', href: '#products' },
@@ -28,9 +30,10 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(10,10,10,0.97)' : 'rgba(10,10,10,0.75)',
+        background: scrolled ? NAV_BG_SOLID : NAV_BG_TRANSPARENT,
         backdropFilter: 'blur(12px)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
+        borderBottom: scrolled ? '2px solid var(--accent)' : `2px solid var(--border-light)`,
+        boxShadow: scrolled ? '0 1px 8px rgba(0,0,0,0.06)' : 'none',
       }}
       data-component="Navbar"
     >
@@ -40,8 +43,7 @@ export default function Navbar() {
           <img
             src={LOGO_URL}
             alt="Jinan Zhongcheng Precision Mould"
-            className="h-10 object-contain px-2 py-1"
-            style={{ background: '#FFFFFF', borderRadius: '3px' }}
+            className="h-14 object-contain"
           />
         </a>
 
@@ -53,7 +55,7 @@ export default function Navbar() {
               href={href}
               className="text-sm font-medium transition-colors duration-150"
               style={{ color: 'var(--text-secondary-dark)', letterSpacing: '0.3px' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary-dark)')}
             >
               {t[key]}
@@ -73,20 +75,20 @@ export default function Navbar() {
             <span>{PHONE_DISPLAY}</span>
           </a>
 
-          {/* WhatsApp */}
+          {/* Get a Quote button */}
           <a
-            href={WHATSAPP}
+            href={ALIBABA_CONTACT}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium"
+            className="flex items-center px-4 py-2 text-xs font-bold uppercase tracking-wide transition-colors duration-150"
             style={{
-              background: '#25D366',
+              background: 'var(--accent)',
               color: '#fff',
-              borderRadius: 'var(--radius-btn)',
             }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'var(--accent-hover)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'var(--accent)')}
           >
-            <MessageCircle size={13} />
-            WhatsApp
+            {t.nav_quote}
           </a>
 
           {/* Lang switch */}
@@ -95,7 +97,6 @@ export default function Navbar() {
             className="text-xs font-medium px-3 py-1.5 transition-colors duration-150"
             style={{
               border: '1px solid var(--border-dark)',
-              borderRadius: 'var(--radius-btn)',
               color: 'var(--text-secondary-dark)',
               background: 'transparent',
               cursor: 'pointer',
@@ -111,9 +112,9 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className="block w-5 h-0.5 bg-white" />
-          <span className="block w-5 h-0.5 bg-white" />
-          <span className="block w-5 h-0.5 bg-white" />
+          <span className="block w-5 h-0.5" style={{ background: 'var(--text-primary-light)' }} />
+          <span className="block w-5 h-0.5" style={{ background: 'var(--text-primary-light)' }} />
+          <span className="block w-5 h-0.5" style={{ background: 'var(--text-primary-light)' }} />
         </button>
       </div>
 
@@ -121,7 +122,7 @@ export default function Navbar() {
       {menuOpen && (
         <div
           className="md:hidden px-6 pb-6 flex flex-col gap-4"
-          style={{ background: 'rgba(10,10,10,0.97)' }}
+          style={{ background: NAV_BG_SOLID }}
         >
           {navLinks.map(({ key, href }) => (
             <a
@@ -137,8 +138,14 @@ export default function Navbar() {
           <a href={`tel:${PHONE}`} className="text-sm" style={{ color: 'var(--text-secondary-dark)' }}>
             {PHONE_DISPLAY}
           </a>
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="text-sm" style={{ color: '#25D366' }}>
-            WhatsApp / WeChat: {PHONE_DISPLAY}
+          <a
+            href={ALIBABA_CONTACT}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-bold uppercase tracking-wide inline-block px-4 py-2 w-fit"
+            style={{ background: 'var(--accent)', color: '#fff' }}
+          >
+            {t.nav_quote}
           </a>
           <button
             onClick={() => { setLang(lang === 'en' ? 'zh' : 'en'); setMenuOpen(false); }}

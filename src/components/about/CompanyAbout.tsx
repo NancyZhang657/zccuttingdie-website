@@ -14,7 +14,7 @@ export default function CompanyAbout() {
   return (
     <section
       className="py-20 px-6"
-      style={{ background: 'var(--surface-dark)' }}
+      style={{ background: 'var(--surface-off)' }}
       data-component="CompanyAbout"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start">
@@ -33,7 +33,7 @@ export default function CompanyAbout() {
               <div
                 key={s.label}
                 className="p-4"
-                style={{ border: '1px solid var(--border-dark)', borderRadius: 'var(--radius-card)' }}
+                style={{ border: '1px solid var(--border-light)', borderRadius: 'var(--radius-card)', background: 'var(--surface-light)' }}
               >
                 <p className="text-2xl font-bold mb-1" style={{ color: 'var(--text-primary-dark)', fontFamily: 'var(--font-display)' }}>
                   {s.value}

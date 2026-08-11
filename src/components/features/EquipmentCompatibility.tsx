@@ -1,13 +1,16 @@
 import equipBg from '../../assets/images/equipment-workshop.jpg';
 import SectionHeading from '../common/SectionHeading';
+import { useLang } from '../../lib/langContext';
 
 const equipment = ['BOBST', 'Heidelberg', 'Masterwork (MK)', 'Sanwa', 'ETERNA'];
 
 export default function EquipmentCompatibility() {
+  const { t } = useLang();
+
   return (
     <section
       className="relative py-20 px-6 overflow-hidden"
-      style={{ background: 'var(--surface-dark)' }}
+      style={{ background: 'var(--surface-off)' }}
       data-component="EquipmentCompatibility"
     >
       {/* Background image overlay */}
@@ -16,16 +19,15 @@ export default function EquipmentCompatibility() {
           src={equipBg}
           alt="Industrial manufacturing workshop"
           className="w-full h-full object-cover"
-          style={{ maxHeight: '700px', opacity: 0.18 }}
+          style={{ maxHeight: '700px', opacity: 0.08 }}
         />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <SectionHeading
-          label="Compatible With Your Equipment"
-          title="Engineered for the World's Leading Die-Cutting Machines"
-          subtitle="From BOBST to Heidelberg, Masterwork to Sanwa — our dies are precision-manufactured to exact tolerance specs for each platform."
-          dark
+          label={t.eq_label}
+          title={t.eq_title}
+          subtitle={t.eq_sub}
           center
         />
 
@@ -35,10 +37,10 @@ export default function EquipmentCompatibility() {
               key={name}
               className="px-6 py-3 font-medium text-sm"
               style={{
-                border: '1px solid var(--border-dark)',
+                border: '1px solid var(--border-light)',
                 borderRadius: 'var(--radius-btn)',
-                color: 'var(--text-primary-dark)',
-                background: 'rgba(255,255,255,0.05)',
+                color: 'var(--text-primary-light)',
+                background: 'var(--surface-light)',
                 letterSpacing: '0.3px',
               }}
             >
@@ -49,9 +51,9 @@ export default function EquipmentCompatibility() {
 
         <p
           className="text-center mt-8 text-sm"
-          style={{ color: 'var(--text-secondary-dark)' }}
+          style={{ color: 'var(--text-secondary-light)' }}
         >
-          Also compatible with Changrong · Sanhe · Guowang · Dayuan · Huatai and all major domestic platforms.
+          {t.eq_also}
         </p>
       </div>
     </section>

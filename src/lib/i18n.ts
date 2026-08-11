@@ -7,26 +7,42 @@ export const translations = {
     nav_about: 'About',
     nav_contact: 'Contact',
     nav_lang: '中文',
+    nav_quote: 'Get a Quote',
 
-    // Hero
-    hero_label: 'Est. 1994 · 30 Years of Precision Engineering',
-    hero_title1: 'Precision Die Cutting,',
-    hero_title2: 'Built for Your Production Line',
-    hero_sub: '30 years manufacturing die-cutting molds for BOBST, Heidelberg, Masterwork & Sanwa — trusted by RR Donnelley, LEO Paper Group, and YUTO Group.',
+    // Hero — Glenmore-style bold brand statement
+    hero_label: 'Est. 1994 · Jinan, China',
+    hero_title: 'We manufacture die-cutting tools that keep your line running.',
+    hero_sub: 'Sandwich dies, stripping tools, and engraving dies precision-built for BOBST, Heidelberg, Masterwork & Sanwa — trusted by packaging plants across three continents.',
     hero_cta1: 'Request a Quote',
-    hero_cta2: 'Explore Products',
+    hero_cta2: 'View Products',
 
-    // Categories
-    cat_label: 'Product Lines',
-    cat_title: 'Six Core Product Families',
-    cat_sub: 'Precision-engineered solutions for every stage of the die-cutting process — from mold to finished box.',
-    cat_view: 'View Products →',
+    // Services (Glenmore-style cards)
+    services_label: 'What We Make',
+    services_title: 'Tooling Built for Every Stage of Your Line',
+    services: [
+      { name: 'Die Cutting Mold', desc: 'Sandwich and wooden cutting dies engineered for high-volume packaging lines.', cta: 'View Service' },
+      { name: 'Stripping & Blanking Tools', desc: 'High-speed stripping systems built for zero-waste, zero-downtime operation.', cta: 'View Service' },
+      { name: 'Engraving Blade', desc: 'Precision creasing and cutting rule blades ground to exact tolerance.', cta: 'View Service' },
+      { name: 'Hot Stamping & Embossing Die', desc: 'Magnesium, copper & brass dies for luxury packaging finishes.', cta: 'View Service' },
+      { name: 'Die Making Materials', desc: 'Pertinax boards, ejection rubber, and the consumables your line depends on.', cta: 'View Service' },
+      { name: 'Equipment & Accessories', desc: 'Retrofit parts and accessories that extend the life of your cutting machine.', cta: 'View Service' },
+    ],
 
     // Equipment
     eq_label: 'Compatible With Your Equipment',
     eq_title: "Engineered for the World's Leading Die-Cutting Machines",
     eq_sub: 'From BOBST to Heidelberg, Masterwork to Sanwa — our dies are precision-manufactured to exact tolerance specs for each platform.',
     eq_also: 'Also compatible with Changrong · Sanhe · Guowang · Dayuan · Huatai and all major domestic platforms.',
+
+    // Story (Glenmore-style narrative)
+    story_label: 'Our Story',
+    story_title: 'Three Decades. One Family Business. Zero Compromise on Precision.',
+    story_body: [
+      'Zhongcheng was founded in 1994 in Jinan, Shandong — a single workshop with a handful of skilled toolmakers and a simple ambition: build cutting dies that Chinese packaging plants could trust as much as imported German tooling.',
+      'Three decades later, that ambition has scaled into a 3,500 m² facility with over 100 employees and 20+ national patents, but the founding principle hasn\'t changed — every die that leaves our floor is verified by hand before it ships.',
+      'Today we serve packaging manufacturers across pharmaceuticals, tobacco, food, cosmetics, and electronics — from domestic printing houses to export clients in North America, the Middle East, and Southeast Asia. Same obsession with tolerance. Same commitment to zero unplanned downtime.',
+    ],
+    story_cta: 'Learn More About Us',
 
     // Why
     why_label: 'Why Zhongcheng',
@@ -59,7 +75,7 @@ export const translations = {
     clients_market_label: 'Market Distribution',
     clients_industries_label: 'Industries Served',
 
-    // Testimonials
+    // Testimonials — Marbach-style carousel
     testimonials_label: 'What Clients Say',
     testimonials_title: 'Trusted by Professionals Worldwide',
     testimonials: [
@@ -78,7 +94,7 @@ export const translations = {
 
     // Contact section
     contact_label: 'Get in Touch',
-    contact_title: 'Ready to Start Your Order?',
+    contact_title: "Let's Get Started on Your Project",
     contact_sub: 'Our technical team responds within 24 hours. Send your specifications and we\'ll provide a precision-matched solution for your production line.',
     contact_btn: 'Contact Supplier',
     contact_alibaba: 'Message on Alibaba',
@@ -102,6 +118,12 @@ export const translations = {
     stat_employees: 'Employees',
     stat_rd: 'R&D Staff',
     stat_patents: 'National Patents',
+
+    // Floating quote rail
+    rail_quote: 'Get a Quote',
+    rail_whatsapp: 'WhatsApp',
+    rail_phone: 'Call Us',
+    rail_wechat: 'WeChat',
   },
 
   zh: {
@@ -110,26 +132,42 @@ export const translations = {
     nav_about: '关于我们',
     nav_contact: '联系我们',
     nav_lang: 'English',
+    nav_quote: '获取报价',
 
     // Hero
-    hero_label: '创立于1994年 · 三十年精密制造',
-    hero_title1: '高精度刀模，',
-    hero_title2: '为您的生产线而生',
-    hero_sub: '三十年专注刀模制造，适配BOBST、海德堡、长荣MK、三和等国际主流设备，服务RR当纳利、利丰集团、裕同集团等知名企业。',
+    hero_label: '创立于1994年 · 中国济南',
+    hero_title: '我们制造让您的生产线持续运转的模切工具。',
+    hero_sub: '三明治刀模、清废分盒工具、精密电雕版，精准适配BOBST、海德堡、长荣MK、三和——全球三大洲包装工厂的信赖之选。',
     hero_cta1: '立即询价',
     hero_cta2: '浏览产品',
 
-    // Categories
-    cat_label: '产品线',
-    cat_title: '六大核心产品系列',
-    cat_sub: '覆盖模切全流程的精密解决方案——从刀模到成品纸盒，一站式供应。',
-    cat_view: '查看产品 →',
+    // Services
+    services_label: '我们的产品',
+    services_title: '覆盖生产线每一环节的精密工具',
+    services: [
+      { name: '模切刀模', desc: '为高产能包装生产线打造的三明治刀模与木板刀模。', cta: '查看详情' },
+      { name: '清废分盒工具', desc: '高速清废系统，实现零废料、零停机运转。', cta: '查看详情' },
+      { name: '精密电雕版', desc: '精密压痕与切割刀线，公差控制严谨。', cta: '查看详情' },
+      { name: '烫金凹凸版', desc: '镁/铜/黄铜材质刀模，适配高端包装工艺。', cta: '查看详情' },
+      { name: '制模材料耗材', desc: '树脂底板、弹力胶条等生产线依赖的核心耗材。', cta: '查看详情' },
+      { name: '设备与配件', desc: '延长切割设备使用寿命的改装配件。', cta: '查看详情' },
+    ],
 
     // Equipment
     eq_label: '设备兼容性',
     eq_title: '适配全球主流模切设备',
     eq_sub: '无论是BOBST还是海德堡、长荣MK还是三和，我们的刀模均按各平台精确公差规格定制生产。',
     eq_also: '同时兼容国望、大源、华泰精工等国内主流机型。',
+
+    // Story
+    story_label: '我们的故事',
+    story_title: '三十年匠心传承，精度从未妥协',
+    story_body: [
+      '众诚创立于1994年，起步于济南一间小小的模切车间——几位技艺精湛的师傅，一个朴素的愿望：做出让国内包装企业信赖、不输德系进口刀模的产品。',
+      '三十年后，这份初心壮大成一座3500平方米的工厂，超过百名员工，20余项国家专利。但最初的信条从未改变——每一套出厂的刀模，都经过人工逐一核验。',
+      '今天，我们服务医药、烟草、食品、化妆品及电子包装等领域，客户遍及国内印刷企业，也包括北美、中东、东南亚的外贸客户。对公差的执着、对零计划外停机的承诺，始终如一。',
+    ],
+    story_cta: '了解更多关于我们',
 
     // Why
     why_label: '为什么选择众诚',
@@ -181,7 +219,7 @@ export const translations = {
 
     // Contact section
     contact_label: '联系我们',
-    contact_title: '准备好开始合作了吗？',
+    contact_title: '开启您的项目合作',
     contact_sub: '我们的技术团队24小时内响应。发送您的规格需求，我们将为您提供精准匹配的解决方案。',
     contact_btn: '联系供应商',
     contact_alibaba: '阿里巴巴询盘',
@@ -205,6 +243,12 @@ export const translations = {
     stat_employees: '员工人数',
     stat_rd: '研发人员',
     stat_patents: '国家专利',
+
+    // Floating quote rail
+    rail_quote: '获取报价',
+    rail_whatsapp: 'WhatsApp',
+    rail_phone: '拨打电话',
+    rail_wechat: '微信咨询',
   },
 } as const;
 
