@@ -59,7 +59,7 @@ export default function Hero() {
     */
     <section
       className="relative w-full overflow-hidden"
-      style={{ height: '42vw', minHeight: '400px', maxHeight: '660px' }}
+      style={{ height: '560px' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       data-component="HeroSection"
