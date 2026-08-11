@@ -59,7 +59,7 @@ export default function Hero() {
     */
     <section
       className="relative w-full overflow-hidden"
-      style={{ aspectRatio: '16 / 7', minHeight: '360px', maxHeight: '720px' }}
+      style={{ height: '580px' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       data-component="HeroSection"
@@ -93,15 +93,15 @@ export default function Hero() {
       {/* Text — uses % padding so it scales with the container */}
       <div
         className="absolute inset-0 flex flex-col justify-center z-10"
-        style={{ padding: '0 6% 4%' }}
+        style={{ padding: '0 64px 32px' }}
       >
-        <div style={{ maxWidth: '58%' }}>
+        <div style={{ maxWidth: '680px' }}>
           <p
             key={`label-${current}`}
             className="section-label flex items-center gap-2"
             style={{
               color: 'var(--accent)',
-              marginBottom: '3%',
+              marginBottom: '16px',
               animation: 'fadeUp 0.5s ease forwards',
             }}
           >
@@ -115,10 +115,9 @@ export default function Hero() {
               fontFamily: 'var(--font-display)',
               color: '#FFFFFF',
               fontWeight: 400,
-              /* clamp: scales smoothly between viewport widths */
-              fontSize: 'clamp(1.4rem, 3.2vw, 3rem)',
+              fontSize: '2.6rem',
               lineHeight: 1.1,
-              marginBottom: '2.5%',
+              marginBottom: '16px',
               animation: 'fadeUp 0.6s ease 0.1s both',
             }}
           >
@@ -129,22 +128,21 @@ export default function Hero() {
             key={`sub-${current}`}
             style={{
               color: 'rgba(255,255,255,0.76)',
-              fontSize: 'clamp(0.75rem, 1.3vw, 1rem)',
-              lineHeight: 1.6,
-              marginBottom: '4%',
+              fontSize: '0.95rem',
+              lineHeight: 1.65,
+              marginBottom: '32px',
               animation: 'fadeUp 0.6s ease 0.2s both',
+              maxWidth: '580px',
             }}
           >
             {lang === 'zh' ? slide.subZh : slide.subEn}
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-primary"
-              style={{ padding: 'clamp(8px,1.2vw,14px) clamp(14px,2vw,30px)', fontSize: 'clamp(0.65rem,1vw,0.8rem)' }}>
+            <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-primary">
               {t.hero_cta1}
             </a>
-            <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark"
-              style={{ padding: 'clamp(8px,1.2vw,14px) clamp(14px,2vw,30px)', fontSize: 'clamp(0.65rem,1vw,0.8rem)' }}>
+            <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark">
               {t.hero_cta2}
             </a>
           </div>
@@ -164,7 +162,7 @@ export default function Hero() {
       </button>
 
       {/* Dots + counter */}
-      <div className="absolute bottom-3 left-[6%] z-20 flex items-center gap-4">
+      <div className="absolute bottom-5 z-20 flex items-center gap-4" style={{ left: '64px' }}>
         <div className="flex items-center gap-2">
           {slides.map((_, i) => (
             <button key={i} onClick={() => setCurrent(i)} aria-label={`Slide ${i + 1}`}
