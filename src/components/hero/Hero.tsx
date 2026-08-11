@@ -1,7 +1,7 @@
 import heroBg from '../../assets/images/hero-die-cutting.jpg';
 import { useLang } from '../../lib/langContext';
 
-const LOGO_URL = 'https://sc01.alicdn.com/kf/H809175b98cec480ca7cac89df28effe41.png';
+const LOGO_URL = 'https://sc04.alicdn.com/kf/Ad2527bc70a8944bd81317d2385e11400M.jpg';
 const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
 const ALIBABA_PRODUCTS = 'https://jinanzhongcheng.en.alibaba.com/';
 
@@ -34,8 +34,8 @@ export default function Hero() {
           <img
             src={LOGO_URL}
             alt="Jinan Zhongcheng Precision Mould Co., Ltd."
-            className="h-16 object-contain"
-            style={{ filter: 'brightness(0) invert(1)' }}
+            className="h-24 object-contain px-4 py-3"
+            style={{ background: '#FFFFFF', borderRadius: '6px' }}
           />
         </div>
 

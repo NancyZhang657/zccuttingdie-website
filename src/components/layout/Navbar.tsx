@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
-const LOGO_URL = 'https://sc01.alicdn.com/kf/H809175b98cec480ca7cac89df28effe41.png';
+const LOGO_URL = 'https://sc04.alicdn.com/kf/Abd04c375b27b4694a6aa9e2b5b0076beB.jpg';
 const PHONE = '+8615066159371';
 const PHONE_DISPLAY = '+86 150 6615 9371';
 const WHATSAPP = 'https://wa.me/8615066159371';
@@ -40,8 +40,8 @@ export default function Navbar() {
           <img
             src={LOGO_URL}
             alt="Jinan Zhongcheng Precision Mould"
-            className="h-9 object-contain"
-            style={{ filter: 'brightness(0) invert(1)' }}
+            className="h-10 object-contain px-2 py-1"
+            style={{ background: '#FFFFFF', borderRadius: '3px' }}
           />
         </a>
 
