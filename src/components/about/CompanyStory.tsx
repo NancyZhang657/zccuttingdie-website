@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import factoryImg from '../../assets/images/factory-exterior.jpg';
 import { useLang } from '../../lib/langContext';
+
+const factoryImg = 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg';
 
 const ALIBABA_PRODUCTS = 'https://jinanzhongcheng.en.alibaba.com/';
 

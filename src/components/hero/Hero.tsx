@@ -58,8 +58,8 @@ export default function Hero() {
       overflow-hidden clips the images cleanly.
     */
     <section
-      className="relative w-full overflow-hidden"
-      style={{ height: '560px' }}
+      className="relative overflow-hidden"
+      style={{ height: '560px', maxWidth: '1280px', margin: '0 auto', width: '100%' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       data-component="HeroSection"
