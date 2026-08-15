@@ -1,19 +1,21 @@
 import { motion } from 'framer-motion';
-import factoryPrecisionImg from '../../assets/images/factory-precision.jpg';
-import qualityImg from '../../assets/images/quality-inspection.jpg';
-import patentsImg from '../../assets/images/patents-innovation.jpg';
-import oemImg from '../../assets/images/oem-custom.jpg';
 import SectionHeading from '../common/SectionHeading';
 import { useLang } from '../../lib/langContext';
+
+// Real factory / product photos (no stock images)
+const factoryImg = 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg';
+const assemblyImg = 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg';
+const qcImg = 'https://sc04.alicdn.com/kf/A6d1184c19bb34453927f5a9490c580ee1.jpg';
+const dieImg = 'https://sc04.alicdn.com/kf/H6eef69bc31724dbfb7591058588adef1j.jpg';
 
 export default function WhyChooseUs() {
   const { t } = useLang();
 
   const pillars = [
-    { id: 'p1', headline: t.why_p1_title, body: t.why_p1_body, image: factoryPrecisionImg, alt: 'Precision manufacturing factory floor', imageLeft: true },
-    { id: 'p2', headline: t.why_p2_title, body: t.why_p2_body, image: qualityImg, alt: 'Quality inspection of industrial components', imageLeft: false },
-    { id: 'p3', headline: t.why_p3_title, body: t.why_p3_body, image: patentsImg, alt: 'Innovation and patent development laboratory', imageLeft: true },
-    { id: 'p4', headline: t.why_p4_title, body: t.why_p4_body, image: oemImg, alt: 'Custom OEM manufacturing production line', imageLeft: false },
+    { id: 'p1', headline: t.why_p1_title, body: t.why_p1_body, image: factoryImg, alt: 'Zhongcheng factory building in Jinan', imageLeft: true },
+    { id: 'p2', headline: t.why_p2_title, body: t.why_p2_body, image: qcImg, alt: 'Quality control inspection of die-cutting tools', imageLeft: false },
+    { id: 'p3', headline: t.why_p3_title, body: t.why_p3_body, image: dieImg, alt: 'Precision die-cutting mold engineering', imageLeft: true },
+    { id: 'p4', headline: t.why_p4_title, body: t.why_p4_body, image: assemblyImg, alt: 'Hand assembly of custom die-cutting tooling', imageLeft: false },
   ];
 
   return (

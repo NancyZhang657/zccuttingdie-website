@@ -3,8 +3,8 @@ import { Phone } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
 const LOGO_URL = 'https://sc04.alicdn.com/kf/Abd04c375b27b4694a6aa9e2b5b0076beB.jpg';
-const NAV_BG_SOLID = 'rgba(255,255,255,0.97)';
-const NAV_BG_TRANSPARENT = 'rgba(255,255,255,0.85)';
+const NAV_BG_SOLID = 'rgba(14,13,12,0.97)';
+const NAV_BG_TRANSPARENT = 'rgba(14,13,12,0.72)';
 const PHONE = '+8615066159371';
 const PHONE_DISPLAY = '+86 150 6615 9371';
 const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
@@ -43,7 +43,8 @@ export default function Navbar() {
           <img
             src={LOGO_URL}
             alt="Jinan Zhongcheng Precision Mould"
-            className="h-16 object-contain"
+            className="h-14 object-contain px-2 py-1.5"
+            style={{ background: '#FFFFFF', borderRadius: '2px' }}
           />
         </a>
 

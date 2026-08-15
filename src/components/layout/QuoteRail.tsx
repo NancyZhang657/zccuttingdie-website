@@ -53,7 +53,7 @@ export default function QuoteRail() {
               style={{
                 background: hovered === item.key ? 'var(--accent-hover)' : 'var(--accent)',
                 color: '#fff',
-                borderBottom: '1px solid rgba(255,255,255,0.2)',
+                borderBottom: '1px solid rgba(0,0,0,0.2)',
               }}
             >
               {item.icon}
@@ -63,9 +63,9 @@ export default function QuoteRail() {
             <div
               className="flex flex-col items-center justify-center w-16 h-16 cursor-pointer transition-colors duration-150"
               style={{
-                background: hovered === item.key ? 'var(--text-primary-light)' : 'var(--surface-mid)',
-                color: hovered === item.key ? '#fff' : 'var(--text-primary-light)',
-                borderBottom: '1px solid rgba(255,255,255,0.4)',
+                background: hovered === item.key ? 'var(--accent)' : 'var(--surface-mid)',
+                color: hovered === item.key ? '#fff' : 'var(--text-primary-dark)',
+                borderBottom: '1px solid var(--border-dark)',
               }}
             >
               {item.icon}
@@ -77,19 +77,19 @@ export default function QuoteRail() {
           {hovered === item.key && item.hoverContent === 'phone' && (
             <div
               className="absolute right-full top-0 mr-2 px-4 py-3 whitespace-nowrap"
-              style={{ background: 'var(--text-primary-light)', color: '#fff', borderRadius: '2px' }}
+              style={{ background: 'var(--surface-mid)', border: '1px solid var(--border-dark)', borderRadius: '2px' }}
             >
-              <p className="text-xs mb-1" style={{ color: 'var(--surface-dark)' }}>{t.contact_phone_label}</p>
-              <a href={`tel:${PHONE}`} className="text-sm font-semibold" style={{ color: '#fff' }}>{PHONE_DISPLAY}</a>
+              <p className="text-xs mb-1" style={{ color: 'var(--text-secondary-dark)' }}>{t.contact_phone_label}</p>
+              <a href={`tel:${PHONE}`} className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>{PHONE_DISPLAY}</a>
             </div>
           )}
           {hovered === item.key && item.hoverContent === 'wechat' && (
             <div
               className="absolute right-full top-0 mr-2 px-4 py-3 whitespace-nowrap text-center"
-              style={{ background: 'var(--text-primary-light)', color: '#fff', borderRadius: '2px' }}
+              style={{ background: 'var(--surface-mid)', border: '1px solid var(--border-dark)', borderRadius: '2px' }}
             >
-              <p className="text-xs mb-1" style={{ color: 'var(--surface-dark)' }}>WeChat / WhatsApp</p>
-              <p className="text-sm font-semibold" style={{ color: '#fff' }}>{PHONE_DISPLAY}</p>
+              <p className="text-xs mb-1" style={{ color: 'var(--text-secondary-dark)' }}>WeChat / WhatsApp</p>
+              <p className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>{PHONE_DISPLAY}</p>
             </div>
           )}
         </div>
@@ -100,7 +100,7 @@ export default function QuoteRail() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex flex-col items-center justify-center w-16 h-12 transition-colors duration-150"
-          style={{ background: 'var(--text-primary-light)', color: '#fff' }}
+          style={{ background: 'var(--surface-mid)', color: 'var(--text-primary-dark)', borderTop: '1px solid var(--border-dark)' }}
           aria-label="Back to top"
         >
           <ChevronUp size={18} />

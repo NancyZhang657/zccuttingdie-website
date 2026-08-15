@@ -3,30 +3,30 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand accent — industrial safety orange */
-  --accent: #D9601A;
-  --accent-hover: #B84E13;
-  --accent-light: #FDEBDD;
-  --accent-deep: #8A3A0E;
+  /* Brand accent — industrial safety orange, slightly brighter for dark bg contrast */
+  --accent: #E07A2E;
+  --accent-hover: #F08A3E;
+  --accent-light: #3A2A1C;
+  --accent-deep: #B8611E;
 
-  /* Surface system — light industrial (warm sand tones), no dark sections */
-  --surface-void: #F1EAE0;
-  --surface-dark: #E9DFCF;
-  --surface-mid: #DED0B8;
-  --surface-light: #FFFFFF;
-  --surface-off: #FAF6F1;
+  /* Surface system — premium dark charcoal, no light sections */
+  --surface-void: #0E0D0C;
+  --surface-dark: #171512;
+  --surface-mid: #221E19;
+  --surface-light: #1C1917;
+  --surface-off: #14120F;
 
-  /* Text — dark ink everywhere (site is uniformly light) */
-  --text-primary-dark: #201810;
-  --text-secondary-dark: #5C4F42;
-  --text-label-dark: #8B7A6A;
-  --text-primary-light: #201810;
-  --text-secondary-light: #5C4F42;
-  --text-caption: #8B7A6A;
+  /* Text — light ink everywhere (site is uniformly dark) */
+  --text-primary-dark: #F5F1EB;
+  --text-secondary-dark: #B8AFA3;
+  --text-label-dark: #8A8177;
+  --text-primary-light: #F5F1EB;
+  --text-secondary-light: #B8AFA3;
+  --text-caption: #8A8177;
 
   /* Border */
-  --border-dark: #DED2BE;
-  --border-light: #E6DDD3;
+  --border-dark: #33302A;
+  --border-light: #2C2924;
 
   /* Typography */
   --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
@@ -145,7 +145,7 @@ img { display: block; }
 }
 .btn-ghost-light:hover {
   background: var(--text-primary-light);
-  color: #FFFFFF;
+  color: var(--surface-void);
 }
 
 /* Primary accent button */
