@@ -3,12 +3,16 @@ import { ArrowRight } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
 const categoryMeta = [
-  { image: 'https://sc04.alicdn.com/kf/H6eef69bc31724dbfb7591058588adef1j.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960408657-1/Die_cutting_mold.html' },
-  { image: 'https://sc04.alicdn.com/kf/Hcd49147845ca4d1e88b2f9b04dd8f259w.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959189053-1/Stripping_and_blanking_tools.html' },
-  { image: 'https://sc04.alicdn.com/kf/H9ce535bf321645499ff84b6567ba8adem.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960360025-1/Engraving_blade.html' },
-  { image: 'https://sc04.alicdn.com/kf/H2d638583cefb45cab73f0c5b3ce34e3aa.png', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959193840-1/Hot_stamping_and_embossing_die.html' },
-  { image: 'https://sc04.alicdn.com/kf/He9b0814fa0d44ee88c1ceb0bd5f13b5cF.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959189043-1/Die_making_materials_and_equipment.html' },
-  { image: 'https://sc04.alicdn.com/kf/H1e0b6eef0d654767b00ea21c3339525fk.png', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960883216-1/Die_cutting_equipment_and_accessories.html' },
+  { image: 'https://sc04.alicdn.com/kf/Ha65df70cbe6e443a8d78dc5ebe2f63c28.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959529859/Wooden_die.html' },
+  { image: 'https://sc04.alicdn.com/kf/Hf792fb32976a4cf98a58612e5fe046f1L.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960508916/Partinax_counter_plate.html' },
+  { image: 'https://sc04.alicdn.com/kf/H94aa5f591a6243248c1d8ded953931bfm.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960955578/Sandwich_die.html' },
+  { image: 'https://sc04.alicdn.com/kf/Hf068cdcd49184a0094b572e97aff96bbg.jpg', url: 'https://www.alibaba.com/product-detail/Customizable-Size-Steel-Counter-Plate-for_1601697311529.html' },
+  { image: 'https://sc04.alicdn.com/kf/Hdcb6072a95a846d5ac7a7565c26d1526v.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959558602/Stripping_tools.html' },
+  { image: 'https://sc04.alicdn.com/kf/H4a293ae78b3e45549ea78b35bd95de35v.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959549037/Blanking_tools.html' },
+  { image: 'https://sc04.alicdn.com/kf/H2d638583cefb45cab73f0c5b3ce34e3aa.png', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959193840/Hot_stamping_and_embossing_die.html' },
+  { image: 'https://sc04.alicdn.com/kf/H9ce535bf321645499ff84b6567ba8adem.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960360025/Engraving_blade.html' },
+  { image: 'https://sc04.alicdn.com/kf/He9b0814fa0d44ee88c1ceb0bd5f13b5cF.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959189043/Die_making_materials_and_equipment.html' },
+  { image: 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959198636/Die_cutting_consumables.html' },
 ];
 
 const containerVariants = {
@@ -48,8 +52,7 @@ export default function ProductCategories() {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
-          style={{ background: 'var(--border-light)' }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -62,7 +65,11 @@ export default function ProductCategories() {
               target="_blank"
               rel="noopener noreferrer"
               className="group block overflow-hidden relative"
-              style={{ background: 'var(--surface-light)' }}
+              style={{
+                background: 'var(--surface-light)',
+                border: '1px solid var(--border-light)',
+                borderRadius: 'var(--radius-card)',
+              }}
               variants={cardVariants}
             >
               <div className="overflow-hidden aspect-[4/3] bg-gray-100 relative">
