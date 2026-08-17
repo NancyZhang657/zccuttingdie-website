@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
-const LOGO_URL = 'https://sc04.alicdn.com/kf/Abd04c375b27b4694a6aa9e2b5b0076beB.jpg';
+const LOGO_URL = 'https://sc04.alicdn.com/kf/A2617d1b63c144fe692f910a3a265c26d9.jpg';
 const NAV_BG_SOLID = 'rgba(14,13,12,0.97)';
 const NAV_BG_TRANSPARENT = 'rgba(14,13,12,0.72)';
 const PHONE = '+8615066159371';
@@ -39,13 +39,18 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '72px' }}>
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 flex-shrink-0">
-          <img
-            src={LOGO_URL}
-            alt="Jinan Zhongcheng Precision Mould"
-            className="h-14 object-contain px-2 py-1.5"
-            style={{ background: '#FFFFFF', borderRadius: '2px' }}
-          />
+        <a href="#" className="flex items-center gap-3 flex-shrink-0" aria-label="Zhongcheng Cutting Die home">
+          <span
+            className="relative block overflow-hidden"
+            style={{ width: '220px', height: '60px', background: '#FFFFFF', borderRadius: '2px' }}
+          >
+            <img
+              src={LOGO_URL}
+              alt="Jinan Zhongcheng Cutting Die"
+              className="absolute max-w-none"
+              style={{ width: '220px', height: '220px', left: 0, top: '-82px' }}
+            />
+          </span>
         </a>
 
         {/* Desktop nav */}
