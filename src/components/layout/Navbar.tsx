@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
-
-const LOGO_URL = 'https://sc04.alicdn.com/kf/A2617d1b63c144fe692f910a3a265c26d9.jpg';
+import LOGO_URL from '../../assets/zhongcheng-logo-transparent.png';
 const NAV_BG_SOLID = 'rgba(14,13,12,0.97)';
 const NAV_BG_TRANSPARENT = 'rgba(14,13,12,0.72)';
 const PHONE = '+8615066159371';
@@ -41,14 +40,13 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 flex-shrink-0" aria-label="Zhongcheng Cutting Die home">
           <span
-            className="relative block overflow-hidden"
-            style={{ width: '220px', height: '60px', background: '#FFFFFF', borderRadius: '2px' }}
+            className="relative block"
+            style={{ width: '220px', height: '51px', transform: 'translateY(4px)' }}
           >
             <img
               src={LOGO_URL}
               alt="Jinan Zhongcheng Cutting Die"
-              className="absolute max-w-none"
-              style={{ width: '220px', height: '220px', left: 0, top: '-82px' }}
+              className="block w-full h-full object-contain"
             />
           </span>
         </a>
