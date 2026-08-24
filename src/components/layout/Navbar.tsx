@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
-import LOGO_URL from '../../assets/zhongcheng-logo-source.jpg';
+import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.png';
 const NAV_BG_SOLID = 'rgba(14,13,12,0.97)';
 const NAV_BG_TRANSPARENT = 'rgba(14,13,12,0.72)';
 const PHONE = '+8615066159371';
@@ -36,18 +36,17 @@ export default function Navbar() {
       }}
       data-component="Navbar"
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '72px' }}>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '80px' }}>
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 flex-shrink-0" aria-label="Zhongcheng Cutting Die home">
           <span
             className="relative block"
-            style={{ width: '220px', height: '58px', transform: 'translateY(4px)' }}
+            style={{ width: '240px', height: '54px' }}
           >
             <img
               src={LOGO_URL}
               alt="Jinan Zhongcheng Cutting Die"
               className="block w-full h-full object-contain"
-              style={{ mixBlendMode: 'screen' }}
             />
           </span>
         </a>

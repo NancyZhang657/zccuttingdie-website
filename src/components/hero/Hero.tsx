@@ -8,6 +8,7 @@ const ALIBABA_PRODUCTS = 'https://jinanzhongcheng.en.alibaba.com/';
 const slides = [
   {
     image: 'https://sc04.alicdn.com/kf/A6d1184c19bb34453927f5a9490c580ee1.jpg',
+    objectPosition: '70% center',
     labelEn: 'Est. 1994 · Jinan, China',
     labelZh: '创立于1994年 · 中国济南',
     titleEn: 'We manufacture die-cutting tools to keep your automatic die-cutting machine running at full speed.',
@@ -17,6 +18,7 @@ const slides = [
   },
   {
     image: 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg',
+    objectPosition: '70% center',
     labelEn: 'Precision & Innovation',
     labelZh: '精密与创新',
     titleEn: 'Precision meets innovation with ZC cutting edge solutions.',
@@ -26,6 +28,8 @@ const slides = [
   },
   {
     image: 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg',
+    objectPosition: '3.5% 45%',
+    backgroundSize: '109%',
     labelEn: 'Quality Control',
     labelZh: '出厂质检',
     titleEn: 'Zero unplanned downtime. Guaranteed.',
@@ -72,19 +76,31 @@ export default function Hero() {
           style={{ opacity: i === current ? 1 : 0 }}
           aria-hidden={i !== current}
         >
-          <img
-            src={s.image}
-            alt={lang === 'zh' ? s.titleZh : s.titleEn}
-            className="absolute inset-0 w-full h-full"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-          {/* Left gradient for text legibility */}
+          {/* Left dark base */}
+          <div className="absolute inset-0" style={{ background: '#0E0D0C' }} />
+          {/* Photo starts at 25% so gradient has real image content to blend over */}
           <div
-            className="absolute inset-0"
+            role="img"
+            aria-label={lang === 'zh' ? s.titleZh : s.titleEn}
+            className="absolute top-0 bottom-0 right-0"
             style={{
-              background: 'linear-gradient(95deg, rgba(20,15,10,0.86) 0%, rgba(20,15,10,0.58) 52%, rgba(20,15,10,0.12) 100%)',
+              left: '25%',
+              backgroundImage: `url(${s.image})`,
+              backgroundSize: (s as any).backgroundSize ?? 'cover',
+              backgroundPosition: s.objectPosition ?? 'left center',
+              backgroundRepeat: 'no-repeat',
             }}
           />
+          {/* Gradient over photo — from solid dark (left) fading to transparent (right) */}
+          <div
+            className="absolute top-0 bottom-0"
+            style={{
+              left: '20%',
+              width: '45%',
+              background: 'linear-gradient(90deg, rgba(14,13,12,1) 0%, rgba(14,13,12,0.8) 28%, rgba(14,13,12,0.45) 58%, rgba(14,13,12,0.1) 85%, rgba(14,13,12,0) 100%)',
+            }}
+          />
+
           {/* Orange bottom accent */}
           <div className="absolute bottom-0 left-0 right-0" style={{ height: '4px', background: 'var(--accent)' }} />
         </div>
