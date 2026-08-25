@@ -1,8 +1,8 @@
-import { Phone, MessageCircle } from 'lucide-react';
+﻿import { Phone, MessageCircle } from 'lucide-react';
 import ContactButton from './ContactButton';
 import { useLang } from '../../lib/langContext';
 
-const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
+const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
 const PHONE = '+8615066159371';
 const PHONE_DISPLAY = '+86 150 6615 9371';
 const WHATSAPP = 'https://wa.me/8615066159371';

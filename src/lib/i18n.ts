@@ -99,8 +99,8 @@ export const translations = {
     contact_label: 'Get in Touch',
     contact_title: "Let's Get Started on Your Project",
     contact_sub: 'Our technical team responds within 24 hours. Send your specifications and we\'ll provide a precision-matched solution for your production line.',
-    contact_btn: 'Contact Supplier',
-    contact_alibaba: 'Message on Alibaba',
+    contact_btn: 'Chat on WhatsApp',
+    contact_alibaba: 'Chat on WhatsApp',
     contact_phone_label: 'Phone / WeChat / WhatsApp',
     contact_response: '24h response guaranteed',
 
@@ -108,7 +108,7 @@ export const translations = {
     inquiry_label: 'Ready to Optimize Your Line?',
     inquiry_title: 'Ready to Optimize Your Die-Cutting Line?',
     inquiry_sub: 'Send us your specifications — we\'ll respond within 24 hours with a tailored quote and technical recommendation.',
-    inquiry_cta: 'Send Inquiry on Alibaba',
+    inquiry_cta: 'Get a Quote via WhatsApp',
     inquiry_payment_label: 'Accepted Payments',
 
     // Dynamic
@@ -227,8 +227,8 @@ export const translations = {
     contact_label: '联系我们',
     contact_title: '开启您的项目合作',
     contact_sub: '我们的技术团队24小时内响应。发送您的规格需求，我们将为您提供精准匹配的解决方案。',
-    contact_btn: '联系供应商',
-    contact_alibaba: '阿里巴巴询盘',
+    contact_btn: 'WhatsApp 咨询',
+    contact_alibaba: 'WhatsApp 咨询',
     contact_phone_label: '电话 / 微信 / WhatsApp',
     contact_response: '24小时响应保障',
 
@@ -236,7 +236,7 @@ export const translations = {
     inquiry_label: '准备好了吗？',
     inquiry_title: '立即优化您的模切生产线',
     inquiry_sub: '发送规格需求，24小时内回复定制报价和技术方案。',
-    inquiry_cta: '阿里巴巴询价',
+    inquiry_cta: 'WhatsApp 获取报价',
     inquiry_payment_label: '接受付款方式',
 
     // Dynamic

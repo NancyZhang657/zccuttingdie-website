@@ -1,6 +1,6 @@
-import inquiryBg from '../../assets/images/inquiry-cta-bg.jpg';
+﻿import inquiryBg from '../../assets/images/inquiry-cta-bg.jpg';
 
-const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
+const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
 
 const paymentMethods = ['T/T', 'L/C', 'PayPal', 'Credit Card', 'Western Union', 'MoneyGram'];
 

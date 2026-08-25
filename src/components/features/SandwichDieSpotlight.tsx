@@ -1,7 +1,7 @@
-import sandwichImg from '../../assets/images/sandwich-die-showcase.jpg';
+﻿import sandwichImg from '../../assets/images/sandwich-die-showcase.jpg';
 import { useLang } from '../../lib/langContext';
 
-const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
+const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
 
 export default function SandwichDieSpotlight() {
   const { t } = useLang();

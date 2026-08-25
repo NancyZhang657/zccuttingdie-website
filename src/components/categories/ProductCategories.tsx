@@ -1,17 +1,18 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
 const categoryMeta = [
-  { image: 'https://sc04.alicdn.com/kf/H94aa5f591a6243248c1d8ded953931bfm.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960955578/Sandwich_die.html' },
-  { image: 'https://sc04.alicdn.com/kf/Ha65df70cbe6e443a8d78dc5ebe2f63c28.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959529859/Wooden_die.html' },
-  { image: 'https://sc04.alicdn.com/kf/Hf068cdcd49184a0094b572e97aff96bbg.jpg', url: 'https://www.alibaba.com/product-detail/Customizable-Size-Steel-Counter-Plate-for_1601697311529.html' },
-  { image: 'https://sc04.alicdn.com/kf/Hf792fb32976a4cf98a58612e5fe046f1L.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960508916/Partinax_counter_plate.html' },
-  { image: 'https://sc04.alicdn.com/kf/Hdcb6072a95a846d5ac7a7565c26d1526v.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959558602/Stripping_tools.html' },
-  { image: 'https://sc04.alicdn.com/kf/H4a293ae78b3e45549ea78b35bd95de35v.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959549037/Blanking_tools.html' },
-  { image: 'https://sc04.alicdn.com/kf/H2d638583cefb45cab73f0c5b3ce34e3aa.png', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959193840/Hot_stamping_and_embossing_die.html' },
-  { image: 'https://sc04.alicdn.com/kf/H9ce535bf321645499ff84b6567ba8adem.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-960360025/Engraving_blade.html' },
-  { image: 'https://sc04.alicdn.com/kf/He9b0814fa0d44ee88c1ceb0bd5f13b5cF.jpg', url: 'https://jinanzhongcheng.en.alibaba.com/productgrouplist-959189043/Die_making_materials_and_equipment.html' },
+  { slug: 'sandwich-die', image: 'https://sc04.alicdn.com/kf/H94aa5f591a6243248c1d8ded953931bfm.jpg' },
+  { slug: 'wooden-die', image: 'https://sc04.alicdn.com/kf/Ha65df70cbe6e443a8d78dc5ebe2f63c28.jpg' },
+  { slug: 'steel-counter-plate', image: 'https://sc04.alicdn.com/kf/Hf068cdcd49184a0094b572e97aff96bbg.jpg' },
+  { slug: 'pertinax-counter-plate', image: 'https://sc04.alicdn.com/kf/Hf792fb32976a4cf98a58612e5fe046f1L.jpg' },
+  { slug: 'stripping-tools', image: 'https://sc04.alicdn.com/kf/Hdcb6072a95a846d5ac7a7565c26d1526v.jpg' },
+  { slug: 'blanking-tools', image: 'https://sc04.alicdn.com/kf/H4a293ae78b3e45549ea78b35bd95de35v.jpg' },
+  { slug: 'hot-stamping-embossing-die', image: 'https://sc04.alicdn.com/kf/H2d638583cefb45cab73f0c5b3ce34e3aa.png' },
+  { slug: 'engraving-die', image: 'https://sc04.alicdn.com/kf/H9ce535bf321645499ff84b6567ba8adem.jpg' },
+  { slug: 'die-making-materials', image: 'https://sc04.alicdn.com/kf/He9b0814fa0d44ee88c1ceb0bd5f13b5cF.jpg' },
 ];
 
 const containerVariants = {
@@ -58,19 +59,20 @@ export default function ProductCategories() {
           viewport={{ once: true, amount: 0.15 }}
         >
           {t.services.map((svc, i) => (
-            <motion.a
+            <motion.div
               key={svc.name}
-              href={categoryMeta[i].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block overflow-hidden relative"
-              style={{
-                background: 'var(--surface-light)',
-                border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius-card)',
-              }}
               variants={cardVariants}
+              className="group"
             >
+              <Link
+                to={`/products/${categoryMeta[i].slug}`}
+                className="block overflow-hidden relative h-full"
+                style={{
+                  background: 'var(--surface-light)',
+                  border: '1px solid var(--border-light)',
+                  borderRadius: 'var(--radius-card)',
+                }}
+              >
               <div className="overflow-hidden aspect-[4/3] bg-gray-100 relative">
                 <img
                   src={categoryMeta[i].image}
@@ -100,7 +102,8 @@ export default function ProductCategories() {
                   <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
                 </span>
               </div>
-            </motion.a>
+              </Link>
+            </motion.div>
           ))}
         </motion.div>
       </div>

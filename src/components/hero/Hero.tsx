@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+﻿import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
-const ALIBABA_CONTACT = 'https://jinanzhongcheng.en.alibaba.com/contactinfo.html';
-const ALIBABA_PRODUCTS = 'https://jinanzhongcheng.en.alibaba.com/';
+const WHATSAPP_URL = 'https://wa.me/8615066159371';
+const PRODUCTS_ANCHOR = '#products';
 
 const slides = [
   {
@@ -154,11 +154,11 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-primary"
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
               style={{ fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', padding: 'clamp(8px,1vw,14px) clamp(12px,1.8vw,28px)' }}>
               {t.hero_cta1}
             </a>
-            <a href={ALIBABA_PRODUCTS} target="_blank" rel="noopener noreferrer" className="btn-ghost-dark"
+            <a href={PRODUCTS_ANCHOR} className="btn-ghost-dark"
               style={{ fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', padding: 'clamp(8px,1vw,14px) clamp(12px,1.8vw,28px)' }}>
               {t.hero_cta2}
             </a>
