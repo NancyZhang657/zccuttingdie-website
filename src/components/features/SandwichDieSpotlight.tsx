@@ -1,7 +1,7 @@
 ﻿import sandwichImg from '../../assets/images/sandwich-die-showcase.jpg';
 import { useLang } from '../../lib/langContext';
 
-const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
+const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
 
 export default function SandwichDieSpotlight() {
   const { t } = useLang();

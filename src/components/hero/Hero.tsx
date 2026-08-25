@@ -2,7 +2,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
-const WHATSAPP_URL = 'https://wa.me/8615066159371';
+const WHATSAPP_URL = 'https://wa.me/8613402211941';
 const PRODUCTS_ANCHOR = '#products';
 
 const slides = [

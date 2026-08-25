@@ -4,9 +4,9 @@ import { useLang } from '../../lib/langContext';
 import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.png';
 const NAV_BG_SOLID = 'rgba(14,13,12,0.97)';
 const NAV_BG_TRANSPARENT = 'rgba(14,13,12,0.72)';
-const PHONE = '+8615066159371';
+const PHONE = '+8613402211941';
 const PHONE_DISPLAY = '+86 150 6615 9371';
-const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
+const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
 
 const navLinks = [
   { key: 'nav_products', href: '#products' },

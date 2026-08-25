@@ -3,7 +3,7 @@ import { useLang } from '../../lib/langContext';
 
 const factoryImg = 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg';
 
-const ALIBABA_PRODUCTS = 'https://wa.me/8615066159371';
+const ALIBABA_PRODUCTS = 'https://wa.me/8613402211941';
 
 export default function CompanyStory() {
   const { t } = useLang();

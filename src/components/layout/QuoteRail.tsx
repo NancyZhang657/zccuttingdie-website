@@ -2,9 +2,9 @@
 import { Send, MessageCircle, Phone, QrCode, ChevronUp } from 'lucide-react';
 import { useLang } from '../../lib/langContext';
 
-const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
-const WHATSAPP = 'https://wa.me/8615066159371';
-const PHONE = '+8615066159371';
+const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
+const WHATSAPP = 'https://wa.me/8613402211941';
+const PHONE = '+8613402211941';
 const PHONE_DISPLAY = '+86 150 6615 9371';
 
 interface RailItem {

@@ -1,6 +1,6 @@
 ﻿import inquiryBg from '../../assets/images/inquiry-cta-bg.jpg';
 
-const ALIBABA_CONTACT = 'https://wa.me/8615066159371';
+const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
 
 const paymentMethods = ['T/T', 'L/C', 'PayPal', 'Credit Card', 'Western Union', 'MoneyGram'];
 

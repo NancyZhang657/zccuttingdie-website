@@ -1,6 +1,6 @@
-import { MessageCircle } from 'lucide-react';
+﻿import { MessageCircle } from 'lucide-react';
 
-const WHATSAPP = 'https://wa.me/8615066159371';
+const WHATSAPP = 'https://wa.me/8613402211941';
 
 export default function WhatsAppFloat() {
   return (

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
+﻿import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -16,7 +16,7 @@ import {
 import { useLang } from '../lib/langContext';
 import { getProductBySlug, products, WHATSAPP_URL, type Product } from '../data/products';
 
-const WHATSAPP_NUMBER = '8615066159371';
+const WHATSAPP_NUMBER = '8613402211941';
 const SALES_EMAIL = 'sales@zccuttingdie.com';
 
 const COPY = {

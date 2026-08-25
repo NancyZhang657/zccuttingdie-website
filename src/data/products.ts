@@ -1,4 +1,4 @@
-export interface ProductSpec {
+﻿export interface ProductSpec {
   key: string; // English label
   keyZh: string; // Chinese label
   value: string; // English value
@@ -17,7 +17,7 @@ export interface Product {
   highlightsZh: string[];
 }
 
-export const WHATSAPP_URL = 'https://wa.me/8615066159371';
+export const WHATSAPP_URL = 'https://wa.me/8613402211941';
 
 export const products: Product[] = [
   {
