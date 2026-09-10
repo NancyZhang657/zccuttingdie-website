@@ -100,8 +100,8 @@ export const translations = {
     contact_title: "Let's Get Started on Your Project",
     contact_sub: 'Our technical team responds within 24 hours. Send your specifications and we\'ll provide a precision-matched solution for your production line.',
     contact_btn: 'Chat on WhatsApp',
-    contact_alibaba: 'Chat on WhatsApp',
-    contact_phone_label: 'Phone / WeChat / WhatsApp',
+    contact_whatsapp: 'Chat on WhatsApp',
+    contact_phone_label: 'Phone / WhatsApp',
     contact_response: '24h response guaranteed',
 
     // Inquiry CTA
@@ -109,12 +109,12 @@ export const translations = {
     inquiry_title: 'Ready to Optimize Your Die-Cutting Line?',
     inquiry_sub: 'Send us your specifications — we\'ll respond within 24 hours with a tailored quote and technical recommendation.',
     inquiry_cta: 'Get a Quote via WhatsApp',
-    inquiry_payment_label: 'Accepted Payments',
+    inquiry_payment_label: 'Contact Options',
 
     // Dynamic
     dynamic_label: 'Our Products',
     dynamic_title: 'Browse Our Full Die-Cutting Catalog',
-    dynamic_sub: 'Live product listings from our Alibaba storefront — updated in real time.',
+    dynamic_sub: 'Explore our precision die-cutting tooling catalog and request a specification-based quote.',
 
     // Stats
     stat_factory: 'Factory Area',
@@ -126,7 +126,7 @@ export const translations = {
     rail_quote: 'Get a Quote',
     rail_whatsapp: 'WhatsApp',
     rail_phone: 'Call Us',
-    rail_wechat: 'WeChat',
+    rail_wechat: 'WhatsApp',
   },
 
   zh: {
@@ -228,8 +228,8 @@ export const translations = {
     contact_title: '开启您的项目合作',
     contact_sub: '我们的技术团队24小时内响应。发送您的规格需求，我们将为您提供精准匹配的解决方案。',
     contact_btn: 'WhatsApp 咨询',
-    contact_alibaba: 'WhatsApp 咨询',
-    contact_phone_label: '电话 / 微信 / WhatsApp',
+    contact_whatsapp: 'WhatsApp 咨询',
+    contact_phone_label: '电话 / WhatsApp',
     contact_response: '24小时响应保障',
 
     // Inquiry CTA
@@ -237,12 +237,12 @@ export const translations = {
     inquiry_title: '立即优化您的模切生产线',
     inquiry_sub: '发送规格需求，24小时内回复定制报价和技术方案。',
     inquiry_cta: 'WhatsApp 获取报价',
-    inquiry_payment_label: '接受付款方式',
+    inquiry_payment_label: '联系渠道',
 
     // Dynamic
     dynamic_label: '我们的产品',
     dynamic_title: '浏览完整模切产品目录',
-    dynamic_sub: '实时同步阿里巴巴店铺最新产品。',
+    dynamic_sub: '浏览精密模切工具产品目录，发送规格需求获取定制报价。',
 
     // Stats
     stat_factory: '工厂面积',
@@ -254,7 +254,7 @@ export const translations = {
     rail_quote: '获取报价',
     rail_whatsapp: 'WhatsApp',
     rail_phone: '拨打电话',
-    rail_wechat: '微信咨询',
+    rail_wechat: 'WhatsApp',
   },
 } as const;
 

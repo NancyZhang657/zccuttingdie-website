@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @import "tailwindcss";
 
 :root {
@@ -29,8 +27,8 @@
   --border-light: #2C2924;
 
   /* Typography */
-  --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
-  --font-body: 'Inter', Arial, sans-serif;
+  --font-display: 'Arial Black', system-ui, -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
 
   /* Radii — sharp industrial edges */
   --radius-btn: 0px;

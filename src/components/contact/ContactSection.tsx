@@ -1,10 +1,8 @@
 ﻿import { Phone, MessageCircle } from 'lucide-react';
-import ContactButton from './ContactButton';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
-const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
 const PHONE = '+8613402211941';
-const PHONE_DISPLAY = '+86 150 6615 9371';
+const PHONE_DISPLAY = '+86 134 0221 1941';
 const WHATSAPP = 'https://wa.me/8613402211941';
 
 export default function ContactSection() {
@@ -22,14 +20,14 @@ export default function ContactSection() {
           <span className="accent-bar" />
           {t.contact_label}
         </p>
-        <h2 className="text-3xl md:text-4xl leading-tight mb-4" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}>
+        <h2 className="text-3xl md:text-4xl leading-tight mb-4" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}>
           {t.contact_title}
         </h2>
         <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-secondary-light)' }}>
           {t.contact_sub}
         </p>
 
-        {/* Phone / WeChat / WhatsApp block */}
+        {/* Phone / WhatsApp block */}
         <div
           className="inline-flex flex-col items-center gap-2 mb-8 px-6 py-4"
           style={{ border: '1px solid var(--border-light)', borderRadius: 'var(--radius-card)', background: 'var(--surface-off)' }}
@@ -44,7 +42,7 @@ export default function ContactSection() {
             {PHONE_DISPLAY}
           </a>
           <p className="text-xs" style={{ color: 'var(--text-secondary-light)' }}>
-            📱 WeChat · WhatsApp · Call — same number
+            WhatsApp · Call — same number
           </p>
           <p className="text-xs" style={{ color: 'var(--accent)' }}>✓ {t.contact_response}</p>
         </div>
@@ -58,12 +56,9 @@ export default function ContactSection() {
             style={{ background: '#25D366', borderRadius: 'var(--radius-btn)' }}
           >
             <MessageCircle size={16} />
-            WhatsApp / WeChat
+            {t.contact_whatsapp}
           </a>
-          <ContactButton />
-          <a href={ALIBABA_CONTACT} target="_blank" rel="noopener noreferrer" className="btn-ghost-light">
-            {t.contact_alibaba}
-          </a>
+
         </div>
       </div>
     </section>

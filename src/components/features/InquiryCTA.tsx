@@ -1,8 +1,6 @@
 ﻿import inquiryBg from '../../assets/images/inquiry-cta-bg.jpg';
 
-const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
-
-const paymentMethods = ['T/T', 'L/C', 'PayPal', 'Credit Card', 'Western Union', 'MoneyGram'];
+const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 export default function InquiryCTA() {
   return (
@@ -38,32 +36,16 @@ export default function InquiryCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a
-            href={ALIBABA_CONTACT}
+            href={WHATSAPP_CONTACT}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            Send Inquiry on Alibaba
+Start an Inquiry on WhatsApp
           </a>
         </div>
 
-        {/* Payment methods */}
-        <p className="section-label mb-3" style={{ color: 'var(--text-caption)' }}>Accepted Payments</p>
-        <div className="flex flex-wrap justify-center gap-2">
-          {paymentMethods.map((m) => (
-            <span
-              key={m}
-              className="px-3 py-1 text-xs font-medium"
-              style={{
-                border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius-btn)',
-                color: 'var(--text-secondary-light)',
-              }}
-            >
-              {m}
-            </span>
-          ))}
-        </div>
+
       </div>
     </section>
   );

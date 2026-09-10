@@ -1,8 +1,7 @@
-﻿import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
+﻿import { useEffect, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  ArrowRight,
   Award,
   Check,
   ChevronDown,
@@ -10,14 +9,13 @@ import {
   Crosshair,
   MessageCircle,
   Package,
-  Plus,
   Truck,
 } from 'lucide-react';
-import { useLang } from '../lib/langContext';
-import { getProductBySlug, products, WHATSAPP_URL, type Product } from '../data/products';
+import { useLang } from '../lib/useLang';
+import { getProductBySlug, WHATSAPP_URL } from '../data/products';
+import { updatePageMeta } from '../lib/seo';
 
 const WHATSAPP_NUMBER = '8613402211941';
-const SALES_EMAIL = 'sales@zccuttingdie.com';
 
 const COPY = {
   en: {
@@ -94,44 +92,6 @@ const COPY = {
   },
 } as const;
 
-const FAQS: { q: string; qZh: string; a: string; aZh: string }[] = [
-  {
-    q: 'What is the minimum order quantity?',
-    qZh: '最低起订量是多少？',
-    a: 'Our standard MOQ is 1 set for custom cutting dies, so you can test a single die before committing to volume. Tube punches and consumable accessories carry an MOQ of 100 pieces. Larger orders receive tiered pricing and priority production slots.',
-    aZh:
-      '定制刀模的起订量为1套，您可以先试做一套验证效果再批量下单。管冲及耗材类配件起订量为100件。批量订单享受阶梯价格与优先排产。',
-  },
-  {
-    q: 'How long does production take?',
-    qZh: '生产需要多长时间？',
-    a: 'Standard production takes 5-7 days after drawing confirmation, depending on complexity. Urgent orders can be prepared in as little as 3 days, and die-making materials or standard accessories ship even faster from factory stock.',
-    aZh:
-      '图纸确认后标准交期为5-7天，视复杂程度而定。急单最快3天备料生产；刀模材料与标准配件可从工厂现货更快发出。',
-  },
-  {
-    q: 'What file formats do you accept for die drawings?',
-    qZh: '刀模图纸接受哪些文件格式？',
-    a: 'We accept CAD files in .DWG and .DXF, plus .PDF, .AI and .CDR formats. If you only have a physical sample or a photo, our engineering team can reverse-engineer the geometry and confirm the drawing with you before production.',
-    aZh:
-      '我们接受.DWG、.DXF等CAD格式，以及.PDF、.AI、.CDR格式。若您仅有实物样品或照片，工程团队可逆向还原几何尺寸，并在生产前与您确认图纸。',
-  },
-  {
-    q: 'Do you offer sample/prototype before mass production?',
-    qZh: '批量生产前是否可以打样？',
-    a: 'Yes. We can build a prototype or pre-production sample so you can verify cutting quality, creasing lines and machine fit first. Sample orders go through the same QC process as full production runs.',
-    aZh:
-      '可以。我们可以先制作打样或试产样品，让您先行验证切割质量、压痕效果及设备适配性。样品订单与批量订单执行同样的质检流程。',
-  },
-  {
-    q: 'What machines are your dies compatible with?',
-    qZh: '刀模适配哪些机型？',
-    a: 'Our dies are manufactured to exact tolerances for BOBST, Masterwork, Heidelberg and Sanwa platforms, as well as major domestic machines such as Changrong, Sanhe and Guowang. Send us your machine model and we will confirm compatibility.',
-    aZh:
-      '我们的刀模按BOBST、长荣MK、海德堡、三和等平台精确公差制造，同时兼容长荣、三和、国望等国内主流机型。提供机器型号即可确认适配性。',
-  },
-];
-
 const SOP_STEPS: { title: string; titleZh: string; desc: string; descZh: string }[] = [
   {
     title: 'Drawing Review',
@@ -159,37 +119,6 @@ const SOP_STEPS: { title: string; titleZh: string; desc: string; descZh: string 
   },
 ];
 
-const INDUSTRIES: { icon: string; name: string; nameZh: string; desc: string; descZh: string }[] = [
-  {
-    icon: '💊',
-    name: 'Pharmaceutical Packaging',
-    nameZh: '药品包装',
-    desc: 'Precision dies for blister cards, pill boxes and medical cartons.',
-    descZh: '药板卡、药盒及医药纸盒精密刀模。',
-  },
-  {
-    icon: '🚬',
-    name: 'Tobacco Packaging',
-    nameZh: '烟草包装',
-    desc: 'High-speed dies for cigarette packs and double-tab cartons.',
-    descZh: '烟包及双开翻盖烟盒高速模切刀模。',
-  },
-  {
-    icon: '🍱',
-    name: 'Food Packaging',
-    nameZh: '食品包装',
-    desc: 'Food-safe tooling for cartons, cups and folding boxes.',
-    descZh: '食品纸盒、纸杯及折叠盒安全级模具。',
-  },
-  {
-    icon: '💎',
-    name: 'Premium Packaging',
-    nameZh: '高端包装',
-    desc: 'Fine creasing and hot stamping for luxury cosmetic and gift boxes.',
-    descZh: '高端化妆品盒与礼盒精密压痕与烫金。',
-  },
-];
-
 const inputClass =
   'w-full text-sm focus:outline-none focus:ring-1 focus:ring-[var(--accent)] transition-shadow duration-150';
 
@@ -208,18 +137,27 @@ export default function ProductDetail() {
   const { lang } = useLang();
   const product = getProductBySlug(slug);
   const [activeImage, setActiveImage] = useState(0);
-  const [openFaq, setOpenFaq] = useState<number>(0);
 
-  // Scroll to top whenever the slug changes
+  // Scroll to top and reset the gallery whenever the product changes.
   useEffect(() => {
     window.scrollTo(0, 0);
+    setActiveImage(0);
   }, [slug]);
 
-  // Pick 3 random related products, excluding the current one
-  const related = useMemo(() => {
-    const others = products.filter(p => p.slug !== product?.slug);
-    return [...others].sort(() => Math.random() - 0.5).slice(0, 3);
-  }, [product?.slug]);
+  useEffect(() => {
+    const isZh = lang === 'zh';
+    const productName = product ? (isZh ? product.nameZh : product.name) : 'Product Not Found';
+    const productDescription = product
+      ? (isZh ? product.descriptionZh : product.description)
+      : 'The requested Zhongcheng Laser Die product page could not be found.';
+
+    updatePageMeta({
+      title: `${productName} | Zhongcheng Cutting Die`,
+      description: productDescription,
+      path: `/products/${product?.slug ?? slug ?? ''}`,
+      lang,
+    });
+  }, [lang, product, slug]);
 
   if (!product) {
     return (
@@ -297,7 +235,7 @@ export default function ProductDetail() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             <div
-              className="overflow-hidden relative mb-4 h-[400px]"
+              className="overflow-hidden relative mb-4 aspect-[4/3] lg:aspect-auto lg:h-[400px]"
               style={{
                 background: 'var(--surface-mid)',
                 border: '1px solid var(--border-dark)',
@@ -326,8 +264,7 @@ export default function ProductDetail() {
                       borderRadius: 'var(--radius-card)',
                       opacity: i === activeImage ? 1 : 0.6,
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
-                    onMouseLeave={e => (e.currentTarget.style.opacity = i === activeImage ? '1' : '0.6')}
+
                   >
                     <img src={img} alt={`${name} thumbnail ${i + 1}`} className="w-full h-full object-cover" />
                   </button>
@@ -346,7 +283,7 @@ export default function ProductDetail() {
 
             <h1
               className="text-3xl md:text-4xl leading-tight mb-3"
-              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
             >
               {name}
             </h1>
@@ -413,7 +350,7 @@ export default function ProductDetail() {
             <span className="accent-bar" />
             <h2
               className="text-2xl md:text-3xl"
-              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
             >
               {copy.specsTitle}
             </h2>
@@ -462,7 +399,7 @@ export default function ProductDetail() {
             <span className="accent-bar" />
             <h2
               className="text-2xl md:text-3xl"
-              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
             >
               {copy.highlightsTitle}
             </h2>
@@ -504,7 +441,7 @@ export default function ProductDetail() {
             <span className="accent-bar" />
             <h2
               className="text-2xl md:text-3xl"
-              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
             >
               {copy.sopTitle}
             </h2>
@@ -521,7 +458,7 @@ export default function ProductDetail() {
                   </span>
                   <h3
                     className="text-base"
-                    style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+                    style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
                   >
                     {isZh ? step.titleZh : step.title}
                   </h3>
@@ -546,7 +483,7 @@ export default function ProductDetail() {
               <span className="accent-bar" />
               <h2
                 className="text-2xl"
-                style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
               >
                 {copy.inquiryTitle}
               </h2>
@@ -627,7 +564,7 @@ export default function ProductDetail() {
         className="hidden md:flex fixed bottom-6 right-6 z-40 items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110"
         style={{ background: '#25D366' }}
         aria-label="Contact via WhatsApp"
-        title="WhatsApp: +86 150 6615 9371"
+        title="WhatsApp: +86 134 0221 1941"
       >
         <MessageCircle size={26} color="#fff" />
       </a>

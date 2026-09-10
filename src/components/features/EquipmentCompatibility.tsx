@@ -1,6 +1,6 @@
 import equipBg from '../../assets/images/equipment-workshop.jpg';
 import SectionHeading from '../common/SectionHeading';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 const equipment = ['BOBST', 'Heidelberg', 'Masterwork (MK)', 'Sanwa', 'ETERNA'];
 

@@ -1,17 +1,17 @@
 ﻿import { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.png';
 const NAV_BG_SOLID = 'rgba(14,13,12,0.97)';
 const NAV_BG_TRANSPARENT = 'rgba(14,13,12,0.72)';
 const PHONE = '+8613402211941';
-const PHONE_DISPLAY = '+86 150 6615 9371';
-const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
+const PHONE_DISPLAY = '+86 134 0221 1941';
+const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 const navLinks = [
-  { key: 'nav_products', href: '#products' },
-  { key: 'nav_about', href: '#about' },
-  { key: 'nav_contact', href: '#contact' },
+  { key: 'nav_products', href: '/#products' },
+  { key: 'nav_about', href: '/#about' },
+  { key: 'nav_contact', href: '/#contact' },
 ] as const;
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '80px' }}>
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 flex-shrink-0" aria-label="Zhongcheng Cutting Die home">
+        <a href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Zhongcheng Cutting Die home">
           <span
             className="relative block"
             style={{ width: '240px', height: '54px' }}
@@ -81,7 +81,7 @@ export default function Navbar() {
 
           {/* Get a Quote button */}
           <a
-            href={ALIBABA_CONTACT}
+            href={WHATSAPP_CONTACT}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-4 py-2 text-xs font-bold uppercase tracking-wide transition-colors duration-150"
@@ -143,7 +143,7 @@ export default function Navbar() {
             {PHONE_DISPLAY}
           </a>
           <a
-            href={ALIBABA_CONTACT}
+            href={WHATSAPP_CONTACT}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-bold uppercase tracking-wide inline-block px-4 py-2 w-fit"

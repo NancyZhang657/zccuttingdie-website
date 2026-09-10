@@ -1,7 +1,7 @@
 ﻿import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 const categoryMeta = [
   { slug: 'sandwich-die', image: 'https://sc04.alicdn.com/kf/H94aa5f591a6243248c1d8ded953931bfm.jpg' },
@@ -44,7 +44,7 @@ export default function ProductCategories() {
             </p>
             <h2
               className="text-3xl md:text-4xl font-bold leading-tight max-w-xl"
-              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
             >
               {t.services_title}
             </h2>

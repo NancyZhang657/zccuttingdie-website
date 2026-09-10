@@ -1,7 +1,7 @@
 ﻿import sandwichImg from '../../assets/images/sandwich-die-showcase.jpg';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
-const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
+const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 export default function SandwichDieSpotlight() {
   const { t } = useLang();
@@ -31,7 +31,7 @@ export default function SandwichDieSpotlight() {
           </p>
           <h2
             className="text-3xl md:text-4xl leading-tight mb-5"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
           >
             {t.sandwich_title}
           </h2>
@@ -47,7 +47,7 @@ export default function SandwichDieSpotlight() {
           </div>
 
           <a
-            href={ALIBABA_CONTACT}
+            href={WHATSAPP_CONTACT}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary inline-flex"

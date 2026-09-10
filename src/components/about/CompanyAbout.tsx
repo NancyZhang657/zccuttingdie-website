@@ -16,6 +16,7 @@ export default function CompanyAbout() {
       className="py-20 px-6"
       style={{ background: 'var(--surface-off)' }}
       data-component="CompanyAbout"
+      id="about"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start">
         {/* Text */}

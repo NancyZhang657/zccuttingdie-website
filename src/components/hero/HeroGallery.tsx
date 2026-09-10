@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 const slides = [
   {
@@ -91,7 +91,7 @@ export default function HeroGallery() {
           </p>
           <h2
             className="text-2xl md:text-3xl font-bold mb-3 leading-tight"
-            style={{ fontFamily: 'var(--font-display)', color: '#FFFFFF', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-display)', color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em' }}
           >
             {lang === 'zh' ? slide.titleZh : slide.titleEn}
           </h2>

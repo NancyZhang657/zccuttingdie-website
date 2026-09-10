@@ -5,6 +5,7 @@ import WhatsAppFloat from './components/layout/WhatsAppFloat';
 import QuoteRail from './components/layout/QuoteRail';
 import HomePage from './pages/HomePage';
 import ProductDetail from './pages/ProductDetail';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products/:slug" element={<ProductDetail />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <QuoteRail />
         <WhatsAppFloat />

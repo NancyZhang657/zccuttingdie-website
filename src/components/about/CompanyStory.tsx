@@ -1,9 +1,9 @@
 ﻿import { motion } from 'framer-motion';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 const factoryImg = 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg';
 
-const ALIBABA_PRODUCTS = 'https://wa.me/8613402211941';
+const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 export default function CompanyStory() {
   const { t } = useLang();
@@ -50,7 +50,7 @@ export default function CompanyStory() {
           </p>
           <h2
             className="text-3xl md:text-4xl leading-tight mb-6"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
           >
             {t.story_title}
           </h2>
@@ -64,7 +64,7 @@ export default function CompanyStory() {
           </div>
 
           <a
-            href={ALIBABA_PRODUCTS}
+            href={WHATSAPP_CONTACT}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide"

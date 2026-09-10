@@ -1,18 +1,17 @@
-﻿import { useState, type ReactNode } from 'react';
-import { Send, MessageCircle, Phone, QrCode, ChevronUp } from 'lucide-react';
-import { useLang } from '../../lib/langContext';
+﻿import { useEffect, useState, type ReactNode } from 'react';
+import { Send, MessageCircle, Phone, ChevronUp } from 'lucide-react';
+import { useLang } from '../../lib/useLang';
 
-const ALIBABA_CONTACT = 'https://wa.me/8613402211941';
 const WHATSAPP = 'https://wa.me/8613402211941';
 const PHONE = '+8613402211941';
-const PHONE_DISPLAY = '+86 150 6615 9371';
+const PHONE_DISPLAY = '+86 134 0221 1941';
 
 interface RailItem {
   key: string;
   icon: ReactNode;
   label: string;
   href?: string;
-  hoverContent?: 'phone' | 'wechat';
+  hoverContent?: 'phone';
 }
 
 export default function QuoteRail() {
@@ -20,15 +19,17 @@ export default function QuoteRail() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [showTop, setShowTop] = useState(false);
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', () => setShowTop(window.scrollY > 600), { passive: true });
-  }
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 600);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const items: RailItem[] = [
-    { key: 'quote', icon: <Send size={19} />, label: t.rail_quote, href: ALIBABA_CONTACT },
+    { key: 'quote', icon: <Send size={19} />, label: t.rail_quote, href: WHATSAPP },
     { key: 'whatsapp', icon: <MessageCircle size={19} />, label: t.rail_whatsapp, href: WHATSAPP },
     { key: 'phone', icon: <Phone size={19} />, label: t.rail_phone, hoverContent: 'phone' },
-    { key: 'wechat', icon: <QrCode size={19} />, label: t.rail_wechat, hoverContent: 'wechat' },
   ];
 
   return (
@@ -81,15 +82,6 @@ export default function QuoteRail() {
             >
               <p className="text-xs mb-1" style={{ color: 'var(--text-secondary-dark)' }}>{t.contact_phone_label}</p>
               <a href={`tel:${PHONE}`} className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>{PHONE_DISPLAY}</a>
-            </div>
-          )}
-          {hovered === item.key && item.hoverContent === 'wechat' && (
-            <div
-              className="absolute right-full top-0 mr-2 px-4 py-3 whitespace-nowrap text-center"
-              style={{ background: 'var(--surface-mid)', border: '1px solid var(--border-dark)', borderRadius: '2px' }}
-            >
-              <p className="text-xs mb-1" style={{ color: 'var(--text-secondary-dark)' }}>WeChat / WhatsApp</p>
-              <p className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>{PHONE_DISPLAY}</p>
             </div>
           )}
         </div>

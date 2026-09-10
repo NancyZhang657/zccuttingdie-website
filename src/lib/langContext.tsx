@@ -1,19 +1,8 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { translations, type Lang } from './i18n';
 
 type AnyTranslation = typeof translations.en | typeof translations.zh;
-
-interface LangContextValue {
-  lang: Lang;
-  setLang: (l: Lang) => void;
-  t: AnyTranslation;
-}
-
-const LangContext = createContext<LangContextValue>({
-  lang: 'en',
-  setLang: () => {},
-  t: translations.en as AnyTranslation,
-});
+import { LangContext } from './langContextValue';
 
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('en');
@@ -25,6 +14,3 @@ export function LangProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useLang() {
-  return useContext(LangContext);
-}

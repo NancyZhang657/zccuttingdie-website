@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../common/SectionHeading';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 // Real factory / product photos (no stock images)
 const factoryImg = 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg';

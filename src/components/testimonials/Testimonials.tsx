@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 export default function Testimonials() {
   const { t } = useLang();
@@ -35,7 +35,7 @@ export default function Testimonials() {
         </p>
         <h2
           className="text-3xl md:text-4xl leading-tight mb-12"
-          style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)', fontWeight: 400 }}
+          style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)', fontWeight: 800, letterSpacing: '-0.02em' }}
         >
           {t.testimonials_title}
         </h2>
@@ -53,7 +53,7 @@ export default function Testimonials() {
               <Quote size={32} style={{ color: 'var(--accent)', margin: '0 auto 20px' }} />
               <p
                 className="text-xl md:text-2xl leading-relaxed mb-8"
-                style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-dark)', fontWeight: 800, letterSpacing: '-0.02em' }}
               >
                 "{current.text}"
               </p>

@@ -1,11 +1,23 @@
 ﻿import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useLang } from '../../lib/langContext';
+import { useLang } from '../../lib/useLang';
 
 const WHATSAPP_URL = 'https://wa.me/8613402211941';
 const PRODUCTS_ANCHOR = '#products';
 
-const slides = [
+type HeroSlide = {
+  image: string;
+  objectPosition?: string;
+  backgroundSize?: string;
+  labelEn: string;
+  labelZh: string;
+  titleEn: string;
+  titleZh: string;
+  subEn: string;
+  subZh: string;
+};
+
+const slides: HeroSlide[] = [
   {
     image: 'https://sc04.alicdn.com/kf/A6d1184c19bb34453927f5a9490c580ee1.jpg',
     objectPosition: '70% center',
@@ -86,7 +98,7 @@ export default function Hero() {
             style={{
               left: '25%',
               backgroundImage: `url(${s.image})`,
-              backgroundSize: (s as any).backgroundSize ?? 'cover',
+              backgroundSize: s.backgroundSize ?? 'cover',
               backgroundPosition: s.objectPosition ?? 'left center',
               backgroundRepeat: 'no-repeat',
             }}
@@ -130,7 +142,8 @@ export default function Hero() {
             style={{
               fontFamily: 'var(--font-display)',
               color: '#FFFFFF',
-              fontWeight: 400,
+              fontWeight: 900,
+              letterSpacing: '-0.02em',
               fontSize: 'clamp(1.2rem, 2.8vw, 2.8rem)',
               lineHeight: 1.1,
               marginBottom: '1.5%',
