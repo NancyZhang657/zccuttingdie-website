@@ -87,7 +87,7 @@ export default function ProductCategories() {
               <div className="p-6">
                 <h3
                   className="text-lg mb-2 transition-colors duration-150"
-                  style={{ color: 'var(--text-primary-light)', fontFamily: 'var(--font-display)', fontWeight: 400 }}
+                  style={{ color: 'var(--text-primary-light)', fontFamily: 'var(--font-display)', fontWeight: 700, letterSpacing: '-0.015em' }}
                 >
                   {svc.name}
                 </h3>
