@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import globalMapImg from '../../assets/images/global-clients-map.jpg';
 import SectionHeading from '../common/SectionHeading';
 
-const clients = ['RR Donnelley', 'LEO Paper Group', 'YUTO Group', 'Shengtong Packaging', 'Global Printing'];
+const clients = ['RR DONNELLEY', 'YUTO GROUP', 'SHENGTONG PACKAGING', 'GLOBAL PRINTING'];
 const industries = ['Pharmaceuticals', 'Cigarettes', 'Food', 'Cosmetics', 'Electronics'];
 
 const markets = [
-  { label: 'Domestic Market', pct: 80 },
-  { label: 'North America', pct: 8 },
-  { label: 'Middle East', pct: 5 },
-  { label: 'Africa', pct: 5 },
-  { label: 'Southeast Asia', pct: 2 },
+  { label: 'Domestic Market', pct: 70 },
+  { label: 'Europe and America', pct: 15 },
+  { label: 'Middle East', pct: 6 },
+  { label: 'Southeast Asia and South Asia', pct: 3 },
+  { label: 'Oceania', pct: 3 },
+  { label: 'Africa', pct: 3 },
 ];
 
 function MarketBar({ label, pct, delay }: { label: string; pct: number; delay: number }) {
@@ -108,7 +109,8 @@ export default function GlobalClients() {
             <div className="overflow-hidden" style={{ borderRadius: 'var(--radius-card)' }}>
               <img
                 src={globalMapImg}
-                alt="Global client distribution map"
+                alt="Global client distribution map for Zhongcheng Cutting Die"
+                loading="lazy"
                 className="w-full object-cover"
                 style={{ maxHeight: '200px' }}
               />

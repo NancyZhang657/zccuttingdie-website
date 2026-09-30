@@ -2,7 +2,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLang } from '../../lib/useLang';
 
-const WHATSAPP_URL = 'https://wa.me/8613402211941';
+const INQUIRY_ANCHOR = '/#inquiry';
 const PRODUCTS_ANCHOR = '#products';
 
 type HeroSlide = {
@@ -21,8 +21,8 @@ const slides: HeroSlide[] = [
   {
     image: 'https://sc04.alicdn.com/kf/A6d1184c19bb34453927f5a9490c580ee1.jpg',
     objectPosition: '70% center',
-    labelEn: 'Est. 1994 · Jinan, China',
-    labelZh: '创立于1994年 · 中国济南',
+    labelEn: 'Est. 1997 · Jinan, China',
+    labelZh: '创立于1997年 · 中国济南',
     titleEn: 'We manufacture die-cutting tools to keep your automatic die-cutting machine running at full speed.',
     titleZh: '我们制造让您的自动模切机全速运转的模切工具。',
     subEn: 'Sandwich cutting dies, stripping tools, blanking tools, and engraving dies precision-built for BOBST, Heidelberg, Masterwork & Sanwa — trusted by packaging plants across three continents.',
@@ -167,7 +167,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
+            <a href={INQUIRY_ANCHOR} className="btn-primary"
               style={{ fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', padding: 'clamp(8px,1vw,14px) clamp(12px,1.8vw,28px)' }}>
               {t.hero_cta1}
             </a>

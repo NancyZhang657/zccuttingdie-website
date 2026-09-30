@@ -1,10 +1,10 @@
-import factoryImg from '../../assets/images/factory-exterior.jpg';
+const factoryImg = '/assets/images/factory-building-exterior.jpg';
 import SectionHeading from '../common/SectionHeading';
 
 const stats = [
   { value: '3,500 m²', label: 'Factory Area' },
-  { value: '101–200', label: 'Employees' },
-  { value: '31–40', label: 'R&D Staff' },
+  { value: '50', label: 'Employees' },
+  { value: '20', label: 'R&D Staff' },
   { value: '20+', label: 'National Patents' },
 ];
 
@@ -24,7 +24,7 @@ export default function CompanyAbout() {
           <SectionHeading
             label="Company Profile"
             title="A Manufacturer Built on Three Decades of Innovation"
-            subtitle="Since 1994, Jinan Zhongcheng Precision Mould has led the die-cutting industry through technological innovation — serving pharmaceutical, cigarette, food, cosmetics, and electronics packaging clients worldwide."
+            subtitle="Since 1997, Jinan Zhongcheng Precision Mould has led the die-cutting industry through technological innovation — serving pharmaceutical, cigarette, food, cosmetics, and electronics packaging clients worldwide."
             dark
           />
 
@@ -55,6 +55,9 @@ export default function CompanyAbout() {
               <span className="font-medium" style={{ color: 'var(--text-primary-dark)' }}>Exporting since:</span> 2020
             </p>
             <p className="text-sm" style={{ color: 'var(--text-secondary-dark)' }}>
+              <span className="font-medium" style={{ color: 'var(--text-primary-dark)' }}>Certification:</span> High-Tech Enterprise
+            </p>
+            <p className="text-sm" style={{ color: 'var(--text-secondary-dark)' }}>
               <span className="font-medium" style={{ color: 'var(--text-primary-dark)' }}>Accepted currencies:</span>{' '}
               {currencies.join(' · ')}
             </p>
@@ -65,8 +68,9 @@ export default function CompanyAbout() {
         <div className="w-full md:w-1/2 overflow-hidden" style={{ borderRadius: 'var(--radius-card)' }}>
           <img
             src={factoryImg}
-            alt="Jinan Zhongcheng factory building"
-            className="w-full object-cover"
+             alt="Jinan Zhongcheng precision die factory building"
+             loading="lazy"
+             className="w-full object-cover"
             style={{ maxHeight: '480px', objectPosition: 'center' }}
           />
         </div>

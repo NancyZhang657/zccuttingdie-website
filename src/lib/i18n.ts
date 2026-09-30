@@ -10,10 +10,11 @@ export const translations = {
     nav_quote: 'Get a Quote',
 
     // Hero — Glenmore-style bold brand statement
-    hero_label: 'Est. 1994 · Jinan, China',
+    hero_label: 'Est. 1997 · Jinan, China',
     hero_title: 'We manufacture die-cutting tools that keep your line running.',
     hero_sub: 'Sandwich dies, stripping tools, and engraving dies precision-built for BOBST, Heidelberg, Masterwork & Sanwa — trusted by packaging plants across three continents.',
     hero_cta1: 'Request a Quote',
+    hero_cta_whatsapp: 'Chat on WhatsApp',
     hero_cta2: 'View Products',
 
     // Services (Glenmore-style cards)
@@ -41,8 +42,8 @@ export const translations = {
     story_label: 'Our Story',
     story_title: 'Three Decades. One Family Business. Zero Compromise on Precision.',
     story_body: [
-      'Zhongcheng was founded in 1994 in Jinan, Shandong — a single workshop with a handful of skilled toolmakers and a simple ambition: build cutting dies that Chinese packaging plants could trust as much as imported German tooling.',
-      'Three decades later, that ambition has scaled into a 3,500 m² facility with over 100 employees and 20+ national patents, but the founding principle hasn\'t changed — every die that leaves our floor is verified by hand before it ships.',
+      'Zhongcheng was founded in 1997 in Jinan, Shandong — a single workshop with a handful of skilled toolmakers and a simple ambition: build cutting dies that Chinese packaging plants could trust as much as imported German tooling.',
+      'Three decades later, that ambition has scaled into a 3,500 m² facility with 50 employees and 20+ national patents, but the founding principle hasn\'t changed — every die that leaves our floor is verified by hand before it ships.',
       'Today we serve packaging manufacturers across pharmaceuticals, tobacco, food, cosmetics, and electronics — from domestic printing houses to export clients in North America, the Middle East, and Southeast Asia. Same obsession with tolerance. Same commitment to zero unplanned downtime.',
     ],
     story_cta: 'Learn More About Us',
@@ -52,24 +53,24 @@ export const translations = {
     why_title: 'Precision That Speaks for Itself',
     why_sub: 'Four capabilities that define our position as the technical choice for packaging manufacturers worldwide.',
     why_p1_title: '30 Years of Precision',
-    why_p1_body: 'Established in 1994, Zhongcheng has spent three decades refining die-cutting technology across pharmaceuticals, cigarettes, cosmetics, food, and electronics packaging.',
+    why_p1_body: 'Established in 1997, Zhongcheng has spent three decades refining die-cutting technology across pharmaceuticals, cigarettes, cosmetics, food, and electronics packaging.',
     why_p2_title: 'Zero Unplanned Downtime',
     why_p2_body: 'Every die ships with dimensional verification. Our 5–10 QC inspectors test each mold before dispatch. No surprises on your production floor.',
     why_p3_title: '20+ National Patents',
-    why_p3_body: 'Our 31–40 R&D staff continuously develop new die architectures. The result: cutting-edge solutions that keep your line ahead of the market.',
+     why_p3_body: 'Our 20 R&D staff continuously develop new die architectures. The result: cutting-edge solutions that keep your line ahead of the market.',
     why_p4_title: 'OEM Flexibility',
     why_p4_body: 'Custom die architectures for any box geometry. 3-day standard preparation time. From prototype to full production run.',
 
     // Sandwich
     sandwich_label: 'Flagship Product',
-    sandwich_title: 'Sandwich Die — The German-Quality Choice',
-    sandwich_body: 'Our sandwich die system delivers superior cut quality at the highest machine speeds. Precision-machined channels, interchangeable knife strips, and seamless compatibility with leading international platforms.',
+    sandwich_title: 'Sandwich Die And Blanking Tools — The German-Quality Choice',
+    sandwich_body: 'Our sandwich mold system provides excellent cutting quality at the highest machine speed. The precision machining channel, blade can be replaced 5-10 times, and seamless compatibility with leading international die-cutting machines.',
     sandwich_cta: 'Get Sandwich Die Quote',
     sandwich_specs: [
       'Speed: up to 9,000 cuts/hr (BOBST ideal conditions)',
-      'Material: HSS + precision-ground board',
-      'Compat: BOBST · Masterwork · Heidelberg',
-      'Standard prep: 3 days',
+      'Precision: ±0.05mm',
+      'Material: Carbon fiber/steel + precision board',
+      'Standard prep: 3-7 days',
     ],
 
     // Clients
@@ -90,7 +91,7 @@ export const translations = {
     // About
     about_label: 'Company Profile',
     about_title: 'A Manufacturer Built on Three Decades of Innovation',
-    about_sub: 'Since 1994, Jinan Zhongcheng Precision Mould has led the die-cutting industry through technological innovation — serving pharmaceutical, cigarette, food, cosmetics, and electronics packaging clients worldwide.',
+    about_sub: 'Since 1997, Jinan Zhongcheng Precision Mould has led the die-cutting industry through technological innovation — serving pharmaceutical, cigarette, food, cosmetics, and electronics packaging clients worldwide.',
     about_port: 'Nearest export port:',
     about_since: 'Exporting since:',
     about_currency: 'Accepted currencies:',
@@ -108,8 +109,28 @@ export const translations = {
     inquiry_label: 'Ready to Optimize Your Line?',
     inquiry_title: 'Ready to Optimize Your Die-Cutting Line?',
     inquiry_sub: 'Send us your specifications — we\'ll respond within 24 hours with a tailored quote and technical recommendation.',
-    inquiry_cta: 'Get a Quote via WhatsApp',
+    inquiry_cta: 'Request a Quote',
     inquiry_payment_label: 'Contact Options',
+    home_inquiry_label: 'Specification-Based Inquiry',
+    home_inquiry_title: 'Tell Us What Your Line Needs',
+    home_inquiry_sub: 'Share your product, machine and production requirements. Our technical team will review your request and reply within 24 hours.',
+    home_inquiry_submit: 'Send Inquiry',
+    home_inquiry_hint: 'Your inquiry is sent securely. You can also start a WhatsApp conversation for faster coordination.',
+    field_name: 'Name',
+    field_company: 'Company',
+    field_email: 'Email',
+    field_country: 'Country',
+    field_product: 'Product / Requirement',
+    product_placeholder: 'e.g. Sandwich die for BOBST 1060',
+    field_message: 'Message',
+    message_placeholder: 'Tell us about material, size, quantity, machine and target date…',
+    field_attachment: 'Upload Drawings / Files (Max 5, Optional)',
+    attachment_hint: 'Supports up to 5 files: DXF, DWG, AI, PDF, CDR, STEP, STP, ZIP, RAR, PNG, JPG (Max 20MB each). You can also send files directly via WhatsApp / Email.',
+    attachment_selected: 'Files selected:',
+    attachment_remove: 'Remove',
+    inquiry_submitting: 'Sending…',
+    inquiry_success: 'Thank you. Your inquiry has been sent to our team.',
+    inquiry_error: 'We could not send your inquiry. Please try again or contact us on WhatsApp.',
 
     // Dynamic
     dynamic_label: 'Our Products',
@@ -120,7 +141,15 @@ export const translations = {
     stat_factory: 'Factory Area',
     stat_employees: 'Employees',
     stat_rd: 'R&D Staff',
-    stat_patents: 'National Patents',
+    stat_patents: 'Patents',
+
+    // Footer
+    footer_desc: 'Precision cutting dies, stripping & blanking tools, counter plates and tooling solutions engineered in Jinan, China since 1997.',
+    footer_quick_links: 'Quick Links',
+    footer_products: 'Products',
+    footer_contact_info: 'Contact Information',
+    footer_address: 'Jinan, Shandong Province, China',
+    footer_rights: 'All rights reserved.',
 
     // Floating quote rail
     rail_quote: 'Get a Quote',
@@ -138,10 +167,11 @@ export const translations = {
     nav_quote: '获取报价',
 
     // Hero
-    hero_label: '创立于1994年 · 中国济南',
+    hero_label: '创立于1997年 · 中国济南',
     hero_title: '我们制造让您的生产线持续运转的模切工具。',
     hero_sub: '三明治刀模、清废分盒工具、精密电雕版，精准适配BOBST、海德堡、长荣MK、三和——全球三大洲包装工厂的信赖之选。',
     hero_cta1: '立即询价',
+    hero_cta_whatsapp: 'WhatsApp 咨询',
     hero_cta2: '浏览产品',
 
     // Services
@@ -169,8 +199,8 @@ export const translations = {
     story_label: '我们的故事',
     story_title: '三十年匠心传承，精度从未妥协',
     story_body: [
-      '众诚创立于1994年，起步于济南一间小小的模切车间——几位技艺精湛的师傅，一个朴素的愿望：做出让国内包装企业信赖、不输德系进口刀模的产品。',
-      '三十年后，这份初心壮大成一座3500平方米的工厂，超过百名员工，20余项国家专利。但最初的信条从未改变——每一套出厂的刀模，都经过人工逐一核验。',
+      '众诚创立于1997年，起步于济南一间小小的模切车间——几位技艺精湛的师傅，一个朴素的愿望：做出让国内包装企业信赖、不输德系进口刀模的产品。',
+      '三十年后，这份初心壮大成一座3500平方米的工厂，拥有50名员工和20余项国家专利，并获评高新技术企业。但最初的信条从未改变——每一套出厂的刀模，都经过人工逐一核验。',
       '今天，我们服务医药、烟草、食品、化妆品及电子包装等领域，客户遍及国内印刷企业，也包括北美、中东、东南亚的外贸客户。对公差的执着、对零计划外停机的承诺，始终如一。',
     ],
     story_cta: '了解更多关于我们',
@@ -180,11 +210,11 @@ export const translations = {
     why_title: '实力说话，品质为证',
     why_sub: '四大核心优势，奠定我们作为全球包装制造商首选技术供应商的地位。',
     why_p1_title: '三十年精密积累',
-    why_p1_body: '创立于1994年，众诚精密模具深耕刀模行业三十年，服务领域覆盖医药、烟草、食品、化妆品及电子包装。',
+    why_p1_body: '创立于1997年，众诚精密模具深耕刀模行业三十年，服务领域覆盖医药、烟草、食品、化妆品及电子包装。',
     why_p2_title: '零计划外停机',
     why_p2_body: '每套刀模出厂前均经5-10名质检员逐一检验，确保尺寸精度，杜绝生产线意外停机。',
     why_p3_title: '20余项国家专利',
-    why_p3_body: '31-40名研发人员持续创新，不断开发新型刀模结构，让您的生产线始终保持技术领先。',
+     why_p3_body: '20名研发人员持续创新，不断开发新型刀模结构，让您的生产线始终保持技术领先。',
     why_p4_title: 'OEM定制灵活',
     why_p4_body: '任意纸箱结构均可定制，标准交期3天，从打样到批量生产全程跟进。',
 
@@ -193,12 +223,12 @@ export const translations = {
     sandwich_title: '三明治刀模——德系品质之选',
     sandwich_body: '众诚三明治刀模在高速运转下依然保持卓越切割精度。精密加工的导向槽、可互换刀条，与国际主流平台无缝兼容。',
     sandwich_cta: '获取三明治刀模报价',
-    sandwich_specs: [
+     sandwich_specs: [
       '速度：BOBST理想工况下可达9000压/小时',
       '材质：高速钢 + 精密研磨板材',
       '兼容：BOBST · 长荣MK · 海德堡',
       '标准交期：3天',
-    ],
+     ],
 
     // Clients
     clients_label: '行业领导者的信赖之选',
@@ -218,7 +248,7 @@ export const translations = {
     // About
     about_label: '公司简介',
     about_title: '三十年创新积淀的制造企业',
-    about_sub: '自1994年起，济南众诚精密模具始终以技术创新引领行业，服务全球医药、烟草、食品、化妆品及电子包装客户。',
+    about_sub: '自1997年起，济南众诚精密模具始终以技术创新引领行业，服务全球医药、烟草、食品、化妆品及电子包装客户。',
     about_port: '最近出口港：',
     about_since: '出口起始年：',
     about_currency: '接受币种：',
@@ -236,8 +266,28 @@ export const translations = {
     inquiry_label: '准备好了吗？',
     inquiry_title: '立即优化您的模切生产线',
     inquiry_sub: '发送规格需求，24小时内回复定制报价和技术方案。',
-    inquiry_cta: 'WhatsApp 获取报价',
+    inquiry_cta: '立即询价',
     inquiry_payment_label: '联系渠道',
+    home_inquiry_label: '按规格询盘',
+    home_inquiry_title: '告诉我们您的生产需求',
+    home_inquiry_sub: '请提供产品、设备和生产要求，技术团队将在24小时内审核并回复。',
+    home_inquiry_submit: '提交询盘',
+    home_inquiry_hint: '询盘将通过网站安全发送，也可以通过 WhatsApp 进行快速沟通。',
+    field_name: '姓名',
+    field_company: '公司',
+    field_email: '邮箱',
+    field_country: '国家/地区',
+    field_product: '产品 / 需求',
+    product_placeholder: '例如：适用于 BOBST 1060 的三明治刀模',
+    field_message: '留言内容',
+    message_placeholder: '请描述材质、尺寸、数量、设备和期望交期……',
+    field_attachment: '上传图纸 / 文件（最多5个，选填）',
+    attachment_hint: '最多支持5个文件：DXF, DWG, AI, PDF, CDR, STEP, STP, ZIP, RAR, PNG, JPG 格式（单个最大 20MB）。亦可直接通过 WhatsApp / 邮箱发送。',
+    attachment_selected: '已选择文件：',
+    attachment_remove: '移除',
+    inquiry_submitting: '正在发送……',
+    inquiry_success: '感谢您的询盘，信息已发送给我们的团队。',
+    inquiry_error: '询盘发送失败，请重试或通过 WhatsApp 联系我们。',
 
     // Dynamic
     dynamic_label: '我们的产品',
@@ -248,7 +298,15 @@ export const translations = {
     stat_factory: '工厂面积',
     stat_employees: '员工人数',
     stat_rd: '研发人员',
-    stat_patents: '国家专利',
+    stat_patents: '专利项目',
+
+    // Footer
+    footer_desc: '始于1997年，中国济南。专注制造高品质精密模切刀模、清废分盒工具及配套底模方案。',
+    footer_quick_links: '快捷导航',
+    footer_products: '产品中心',
+    footer_contact_info: '联系方式',
+    footer_address: '中国山东省济南市',
+    footer_rights: '版权所有。',
 
     // Floating quote rail
     rail_quote: '获取报价',

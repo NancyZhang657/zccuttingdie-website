@@ -3,6 +3,7 @@ import { Send, MessageCircle, Phone, ChevronUp } from 'lucide-react';
 import { useLang } from '../../lib/useLang';
 
 const WHATSAPP = 'https://wa.me/8613402211941';
+const INQUIRY_ANCHOR = '/#inquiry';
 const PHONE = '+8613402211941';
 const PHONE_DISPLAY = '+86 134 0221 1941';
 
@@ -27,7 +28,7 @@ export default function QuoteRail() {
   }, []);
 
   const items: RailItem[] = [
-    { key: 'quote', icon: <Send size={19} />, label: t.rail_quote, href: WHATSAPP },
+    { key: 'quote', icon: <Send size={19} />, label: t.rail_quote, href: INQUIRY_ANCHOR },
     { key: 'whatsapp', icon: <MessageCircle size={19} />, label: t.rail_whatsapp, href: WHATSAPP },
     { key: 'phone', icon: <Phone size={19} />, label: t.rail_phone, hoverContent: 'phone' },
   ];
@@ -48,8 +49,8 @@ export default function QuoteRail() {
           {item.href ? (
             <a
               href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={item.href === INQUIRY_ANCHOR ? undefined : '_blank'}
+              rel={item.href === INQUIRY_ANCHOR ? undefined : 'noopener noreferrer'}
               className="flex flex-col items-center justify-center w-16 h-16 transition-colors duration-150"
               style={{
                 background: hovered === item.key ? 'var(--accent-hover)' : 'var(--accent)',

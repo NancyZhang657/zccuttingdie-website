@@ -45,7 +45,7 @@
 - 将本地已验证改动提交并推送 GitHub，触发 Cloudflare 自动部署
 - 添加 `www.zccuttingdie.com` DNS 记录（需用户授权外部账号操作）
 - Google Analytics 接入（需要用户提供 GA 测量 ID）
-- 联系表单后端（目前仅 WhatsApp 跳转，无邮件收集）
+- 配置 Resend 发信域名与 Cloudflare Worker 密钥，并部署新的询盘后端
 
 ---
 
@@ -179,7 +179,7 @@ git push origin main
 
 - WhatsApp：`+86 134 0221 1941`
 - 链接格式：`https://wa.me/8613402211941`
-- 所有 CTA 按钮、询盘表单均跳转此 WhatsApp
+- WhatsApp 保留为即时沟通渠道；产品页询盘表单改为提交到网站后端并自动发邮件
 
 ---
 

@@ -7,10 +7,10 @@ const slides = [
     image: 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg',
     labelEn: 'Our Factory',
     titleEn: '3,500 m² Precision Manufacturing Facility',
-    subEn: 'Built in Jinan, Shandong — producing die-cutting tools for global packaging plants since 1994.',
+    subEn: 'Built in Jinan, Shandong — producing die-cutting tools for global packaging plants since 1997.',
     labelZh: '我们的工厂',
     titleZh: '3500平方米精密制造基地',
-    subZh: '坐落于山东济南，自1994年起为全球包装企业生产模切工具。',
+    subZh: '坐落于山东济南，自1997年起为全球包装企业生产模切工具。',
   },
   {
     image: 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg',
@@ -66,6 +66,8 @@ export default function HeroGallery() {
           <img
             src={s.image}
             alt={lang === 'zh' ? s.titleZh : s.titleEn}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchPriority={i === 0 ? 'high' : 'auto'}
             className="w-full h-full object-cover"
             style={{ objectPosition: 'center' }}
           />

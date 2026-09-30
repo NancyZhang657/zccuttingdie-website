@@ -25,38 +25,38 @@ export const products: Product[] = [
     name: 'Sandwich Cutting Die',
     nameZh: '三明治刀模',
     description:
-      'Custom sandwich dies for cigarette packs, tobacco double-tab packaging, pill boxes, pharma and cosmetic boxes, hangers, lanterns and general packaging. Built as a sandwich of plywood board, cutting steel rules and rubber, precision-made to custom artwork with sharp, clean cutting edges for interlayer / special-shaped box forming.',
+      'Customize sandwich molds for cigarette boxes, tobacco double button packaging, medicine boxes, medicine and cosmetics boxes, hangers, lanterns, and universal packaging. The blade can be replaced 5-10 times. A sandwich structure made of carbon fiber, steel, or resin, equipped with stamped steel blades and rubber, precision machined with customized patterns to ensure sharp and clean cutting during the box formation process.',
     descriptionZh:
       '定制三明治刀模，适用于烟盒、烟草双开翻盖包装、药板盒、医药及化妆品盒、挂钩、灯笼及各类通用包装。以木板、切割钢刀与弹力橡胶构成夹层结构，按客户图稿精密制作，切口锋利洁净，适用于夹层/异形盒成型。',
     images: [
-      'https://sc04.alicdn.com/kf/H7ea4c9652ebc44d5ad4efe8fa93deb52i.jpg',
-      'https://sc04.alicdn.com/kf/Hca4ac57357374690a8e0bf85e6d98238P.jpg',
-      'https://sc04.alicdn.com/kf/H5cc4eda981b3489e8d8f7d1c170cd58f4.jpg',
-      'https://sc04.alicdn.com/kf/Hd87bc79e34fa4eb682dbaff6216e23226.jpg',
+      '/assets/images/sandwich-detail-1-refined.jpg',
+      '/assets/images/sandwich-detail-3-tight.jpg',
+      '/assets/images/sandwich-detail-2-brass-tight.jpg',
+      '/assets/images/sandwich-detail-4.png',
     ],
     specs: [
       {
         key: 'Material',
         keyZh: '材质',
-        value: 'Planks + steel knives, or carbon fiber / resin / aluminum sheet',
+        value: 'Carbon fiber/resin/aluminum plate/steel plate + steel blade',
         valueZh: '木板+钢刀，或碳纤维/树脂/铝板',
       },
       {
         key: 'Size',
         keyZh: '尺寸',
-        value: 'Customized size, shapes & colors',
+        value: 'Customized size and shape',
         valueZh: '尺寸、形状、颜色均可定制',
       },
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days (lead time 30 days for 1-100 pcs)',
-        valueZh: '7-15天（1-100件交期30天）',
+        value: '3-7 days',
+        valueZh: '3-7天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'BOBST · Masterwork · Heidelberg · Sanwa platforms',
+        value: 'Various die-cutting machine such as BOBST · Masterwork · Heidelberg · Sanwa',
         valueZh: '适配BOBST · 长荣 · 海德堡 · 三和平台',
       },
     ],
@@ -64,7 +64,7 @@ export const products: Product[] = [
       'Eco-friendly recycled paper box sandwich die with customizable thickness',
       'High-precision sharp cutting for cigarette pack double-tab packaging',
       'Stable, consistent molding results for cigarette packaging',
-      'CE-certified packing box sandwich knife mold meeting packaging standards',
+      'Packing box sandwich knife mold meeting packaging standards',
       'Custom shapes: pillbox, lantern, hanger, mini drug boxes, rigid box forming',
       '5-year mould life with OEM/ODM service and CAD drawing support',
     ],
@@ -72,7 +72,7 @@ export const products: Product[] = [
       '环保再生纸盒三明治刀模，厚度可定制',
       '烟盒双开翻盖包装高精度锋利切割',
       '烟包成型稳定一致',
-      'CE认证纸盒三明治刀模，符合包装标准',
+      '符合包装标准的纸盒三明治刀模',
       '异形定制：药板盒、灯笼、挂钩、迷你药盒、硬盒成型',
       '5年模具寿命，支持OEM/ODM及CAD图纸支持',
     ],
@@ -107,13 +107,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: 'Fast processing, 7-15 days standard (3-day prep available)',
-        valueZh: '加工快速，标准交期7-15天（最快3天备料）',
+        value: '2-5 days',
+        valueZh: '2-5天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Flexo carton die cutting machines, flat die cutting presses',
+        value: 'Die cutting machine or press machine or various die cutting platforms',
         valueZh: '柔版纸箱模切机、平压平模切机',
       },
     ],
@@ -137,11 +137,14 @@ export const products: Product[] = [
     name: 'Steel Counter Plate',
     nameZh: '钢底模',
     description:
-      'Customizable-size steel counter plate for sandwich die cutting machines, used as the backing/counter plate in packaging box creasing and punching tools. Hardened steel plate matched to the sandwich die to guarantee clean creasing lines and long production life.',
+      'Customizable steel counter plate for packaging box creases and die-cutting machine platforms. The hardened steel plate is matched with the sandwich die to ensure that the crease lines are full and smooth, saving machine adjustment time and having a long production life.',
     descriptionZh:
       '尺寸可定制的钢底模，用于三明治刀模模切机，是包装盒压痕与冲切工具的背板/底模。淬硬钢板与三明治刀模精准匹配，保证清晰压痕线并延长使用寿命。',
     images: [
-      'https://sc04.alicdn.com/kf/Hf068cdcd49184a0094b572e97aff96bbg.jpg',
+      '/assets/images/steel-detail-1.jpg',
+      '/assets/images/steel-detail-2.jpg',
+      '/assets/images/steel-detail-3.jpg',
+      '/assets/images/steel-detail-4.jpg',
     ],
     specs: [
       {
@@ -159,13 +162,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days (lead time 30 days for 1-100 pcs)',
-        valueZh: '7-15天（1-100件交期30天）',
+        value: '2-5 days',
+        valueZh: '2-5天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Sandwich die cutting machines (BOBST-type platforms)',
+        value: 'Die cutting machine or press machine or various die cutting platforms',
         valueZh: '三明治刀模模切机（BOBST类平台）',
       },
     ],
@@ -174,14 +177,14 @@ export const products: Product[] = [
       'Pairs with sandwich die cutting machines for box creasing/punching',
       '5-year mould life, wear-resistant steel construction',
       'OEM/ODM with CAD (.DWG/.DXF/.PDF/.CDR) drawing support',
-      '7-15 days delivery',
+      '2-5 days delivery',
     ],
     highlightsZh: [
       '按图纸定制尺寸与厚度',
       '与三明治刀模模切机配套，用于纸盒压痕/冲切',
       '5年模具寿命，耐磨钢板结构',
       '支持OEM/ODM及CAD图纸（.DWG/.DXF/.PDF/.CDR）',
-      '7-15天交期',
+      '2-5天交期',
     ],
   },
   {
@@ -193,10 +196,10 @@ export const products: Product[] = [
     descriptionZh:
       '用于模切的树脂（酚醛）底模——安装在刀模下方的耐用树脂垫板/压痕底膜。轻便易操作，适用于手动模切机、工业模切工具及包装生产。尺寸与厚度可定制，与钢线刀模压痕底膜精准匹配。',
     images: [
-      'https://sc04.alicdn.com/kf/H735fc6c8379a4b94bc9732db4c20fcb5D.jpg',
-      'https://sc04.alicdn.com/kf/Hf792fb32976a4cf98a58612e5fe046f1L.jpg',
-      'https://sc04.alicdn.com/kf/H84025d6f1ff04f7aa05cd1c08bdb9c3aI.jpg',
-      'https://sc04.alicdn.com/kf/H5a9c0ab49b784fa6816e22332f5df39cJ.jpg',
+      '/assets/images/pertinax-detail-1.jpg',
+      '/assets/images/pertinax-detail-2.jpg',
+      '/assets/images/pertinax-detail-3.jpg',
+      '/assets/images/pertinax-detail-4-clean.png',
     ],
     specs: [
       {
@@ -214,13 +217,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: 'Factory direct, fast dispatch (7-15 days standard)',
-        valueZh: '工厂直供，快速发货（标准7-15天）',
+        value: '2-3 days',
+        valueZh: '2-3天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Manual die cutting presses, industrial die cutting machines',
+        value: 'Die cutting machine or press machine or various die cutting platforms',
         valueZh: '手动模切机、工业模切机',
       },
     ],
@@ -248,10 +251,10 @@ export const products: Product[] = [
     descriptionZh:
       '用于清除模切纸盒内孔废料的清废工具。手动与气动两种版本，模切后快速清除内部废料——清洁、低噪音、高速运转，适用于礼盒、食品包装盒及通用纸盒生产线。',
     images: [
-      'https://sc04.alicdn.com/kf/Hdcb6072a95a846d5ac7a7565c26d1526v.jpg',
-      'https://sc04.alicdn.com/kf/Hb2ccccef311b4eee98acadb145b44aefF.jpg',
-      'https://sc04.alicdn.com/kf/H525cf4b3616842f0bf4d9431c9762dfcA.jpg',
-      'https://sc04.alicdn.com/kf/Hab5806be831c4526952057c556b77ad0Z.jpg',
+      '/assets/images/stripping-detail-1-tight.jpg',
+      '/assets/images/stripping-detail-2-tight.jpg',
+      '/assets/images/stripping-detail-3-tight.jpg',
+      '/assets/images/stripping-detail-4-tight.jpg',
     ],
     specs: [
       {
@@ -269,13 +272,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days standard',
-        valueZh: '标准7-15天',
+        value: '2-3 days',
+        valueZh: '2-3天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Box manufacturing / die cutting production lines',
+        value: 'Various die-cutting machine such as BOBST · Masterwork · Heidelberg · Sanwa',
         valueZh: '纸盒制造/模切生产线',
       },
     ],
@@ -303,10 +306,10 @@ export const products: Product[] = [
     descriptionZh:
       '工业级分盒工具，将模切纸盒与废料分离并清除内部废料——重型、易操作，适用于包装生产。气动与自动机型可高速将盒坯与纸板骨架分离，支持食品包装及纸/塑等多材质应用。',
     images: [
-      'https://sc04.alicdn.com/kf/H4a293ae78b3e45549ea78b35bd95de35v.jpg',
-      'https://sc04.alicdn.com/kf/Hcd49147845ca4d1e88b2f9b04dd8f259w.jpg',
-      'https://sc04.alicdn.com/kf/H342fc03afa0042cc962424435a55920bw.jpg',
-      'https://sc04.alicdn.com/kf/H7825e33bd171446cb9068e69da143bc9L.jpg',
+      '/assets/images/blanking-tools-detail-1-refined.jpg',
+      '/assets/images/blanking-tools-bottom-pharma.jpg',
+      '/assets/images/blanking-tools-detail-3.jpg',
+      '/assets/images/blanking-tools-top-2.png',
     ],
     specs: [
       {
@@ -324,13 +327,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days standard',
-        valueZh: '标准7-15天',
+        value: '3-7 days',
+        valueZh: '3-7天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Packaging lines for paper, plastic, food boxes & disposable cups',
+        value: 'Various die-cutting machine such as BOBST · Masterwork · Heidelberg · Sanwa',
         valueZh: '纸、塑、食品盒及一次性杯包装生产线',
       },
     ],
@@ -360,10 +363,10 @@ export const products: Product[] = [
     descriptionZh:
       '黄铜、铝、镁板材质的烫金压纹版——定制Logo雕刻版，用于皮革、纸张、布料、礼盒、烟包及化妆品盒的烫金。精密雕刻版每次运转都能呈现清晰的烫印与压凸效果。',
     images: [
-      'https://sc04.alicdn.com/kf/Hdb26061776504997876b284ebf7a5ebdQ.jpg',
-      'https://sc04.alicdn.com/kf/H588759bb9cbd44b8b8bd19330a1ff469x.jpg',
-      'https://sc04.alicdn.com/kf/H2c307dd00ca64e9794359275f5ad6ac7z.jpg',
-      'https://sc04.alicdn.com/kf/Hac171d01d4c941a4b2fca66da845717eK.jpg',
+      '/assets/images/hot-stamping-detail-1-finishes-balanced.jpg',
+      '/assets/images/hot-stamping-detail-2-samples.jpg',
+      '/assets/images/hot-stamping-packaging-applications-latest.jpg',
+      '/assets/images/hot-stamping-detail-3-embossed-applications.jpg',
     ],
     specs: [
       {
@@ -381,13 +384,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days standard',
-        valueZh: '标准7-15天',
+        value: '2-5 days',
+        valueZh: '2-5天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Hot foil stamping / embossing machines',
+        value: 'Hot stamping machine, die-cutting machine, press machine, or various die-cutting platforms',
         valueZh: '烫金机/压凸机',
       },
     ],
@@ -415,10 +418,8 @@ export const products: Product[] = [
     descriptionZh:
       '用于包装盒、瓦楞纸箱及礼盒Logo与图案雕刻的雕刻刀/雕刻刀具。高硬度CNC铣削刀片，尺寸可定制，提供多规格刀片套装、单支刀片或钢线刀模配件，适用于工艺与包装领域的精密雕刻切割。',
     images: [
-      'https://sc04.alicdn.com/kf/H0f592ea513444c09a31f4285222ce9d6M.jpg',
-      'https://sc04.alicdn.com/kf/Hffcd464c17114d088eec7cd2ceb3e954p.jpg',
-      'https://sc04.alicdn.com/kf/Hc7191ad15bdb41d7b8405313cc10e241Q.jpg',
-      'https://sc04.alicdn.com/kf/H44435153ba6c4e6189c3c5d8c7587b60T.jpg',
+      '/assets/images/engraving-die-detail-new-main-tight.jpg',
+      '/assets/images/engraving-die-detail-2-final-grid.jpg',
     ],
     specs: [
       {
@@ -436,13 +437,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days standard',
-        valueZh: '标准7-15天',
+        value: '3-25 days',
+        valueZh: '3-25天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Steel rule die making / die cutting accessories',
+        value: 'Die cutting machine or press machine or various die cutting platforms',
         valueZh: '刀模制作/模切配件',
       },
     ],
@@ -470,10 +471,10 @@ export const products: Product[] = [
     descriptionZh:
       '刀模制作材料与设备——用于光学膜、印刷纸、纸板、标签、贴纸、皮革、皮带、铆钉、鸡眼扣及缝制补丁打孔的精密钢制管冲与弹簧冲。镜面抛光钢结构，适用于激光切割及精密打孔应用。',
     images: [
-      'https://sc04.alicdn.com/kf/He501cfbaef7443c8b137836b980a9111d.jpg',
-      'https://sc04.alicdn.com/kf/H6f2c207b781248b09c63a9bb2c2008dfH.jpg',
-      'https://sc04.alicdn.com/kf/H2b25b1abe2d64c229b5446710d9b57d2h.jpg',
-      'https://sc04.alicdn.com/kf/H0192dfa1c4204d72a24070b9f2ac3be96.jpg',
+      '/assets/images/die-making-materials-detail-2.jpg',
+      '/assets/images/die-making-materials-detail-3.jpg',
+      '/assets/images/die-making-materials-detail-4.jpg',
+      '/assets/images/die-making-materials-detail-5.jpg',
     ],
     specs: [
       {
@@ -491,13 +492,13 @@ export const products: Product[] = [
       {
         key: 'Delivery',
         keyZh: '交期',
-        value: '7-15 days standard',
-        valueZh: '标准7-15天',
+        value: '3-7 days',
+        valueZh: '3-7天',
       },
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Laser cutting, printing & label production lines',
+        value: 'All cutting die accessories and die-cutting accessories',
         valueZh: '激光切割、印刷及标签生产线',
       },
     ],

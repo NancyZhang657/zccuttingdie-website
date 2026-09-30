@@ -1,21 +1,23 @@
-﻿import { useEffect, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
+﻿import { useEffect, useState, useRef, type CSSProperties, type FormEvent, type MouseEvent, type ChangeEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Award,
-  Check,
   ChevronDown,
   ChevronRight,
   Crosshair,
   MessageCircle,
   Package,
   Truck,
+  UploadCloud,
+  FileCheck,
+  X,
 } from 'lucide-react';
 import { useLang } from '../lib/useLang';
-import { getProductBySlug, WHATSAPP_URL } from '../data/products';
-import { updatePageMeta } from '../lib/seo';
+import { getProductBySlug, products, WHATSAPP_URL } from '../data/products';
+import { buildProductSchema, PRODUCT_SEO, updatePageMeta } from '../lib/seo';
 
-const WHATSAPP_NUMBER = '8613402211941';
+const INQUIRY_API_URL = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiries';
 
 const COPY = {
   en: {
@@ -23,10 +25,9 @@ const COPY = {
     products: 'Products',
     category: 'Cutting Dies · Precision Tooling',
     valueProp:
-      'Precision die-cutting tooling engineered to keep your packaging line running at full speed.',
+      'Precision die-cutting tools ensure that your packaging line runs at high standards and full speed.',
     precisionValue: '±0.05mm',
     precisionLabel: 'Precision',
-    deliveryValue: '5-7 Days',
     deliveryLabel: 'Delivery',
     moqValue: '1 Set',
     moqLabel: 'MOQ',
@@ -35,7 +36,6 @@ const COPY = {
     quoteWhatsApp: 'Get a Quote via WhatsApp',
     viewSpecs: 'View Specifications',
     specsTitle: 'Technical Specifications',
-    highlightsTitle: 'Key Highlights',
     industriesTitle: 'Industries We Serve',
     sopTitle: 'Production Process (SOP)',
     faqTitle: 'Frequently Asked Questions',
@@ -48,8 +48,16 @@ const COPY = {
     fieldMessage: 'Message',
     messagePlaceholder:
       'Tell us about your die specifications: material, size, quantity, target date…',
+    fieldAttachment: 'Upload Drawings / Files (Max 5, Optional)',
+    attachmentHint:
+      'Supports up to 5 files: DXF, DWG, AI, PDF, CDR, STEP, STP, ZIP, RAR, PNG, JPG (Max 20MB each). You can also send files directly via WhatsApp / Email.',
+    attachmentSelected: 'Files selected:',
+    attachmentRemove: 'Remove',
     submit: 'Send Inquiry',
-    emailHint: 'Prefer email?',
+    submitting: 'Sending…',
+    successMessage: 'Thank you. Your inquiry has been sent to our team.',
+    errorMessage: 'We could not send your inquiry. Please try again or contact us on WhatsApp.',
+    emailHint: 'Your inquiry will be sent securely. You do not need to open an email app.',
     relatedTitle: 'You May Also Need',
     viewDetails: 'View Details',
     notFound: 'Product not found.',
@@ -62,7 +70,6 @@ const COPY = {
     valueProp: '为高速包装生产线量身定制的精密模切工具，助您产线全速运转。',
     precisionValue: '±0.05mm',
     precisionLabel: '加工精度',
-    deliveryValue: '5-7天',
     deliveryLabel: '标准交期',
     moqValue: '1套',
     moqLabel: '起订量',
@@ -71,7 +78,6 @@ const COPY = {
     quoteWhatsApp: '通过WhatsApp获取报价',
     viewSpecs: '查看规格参数',
     specsTitle: '技术规格',
-    highlightsTitle: '产品亮点',
     industriesTitle: '适用行业',
     sopTitle: '生产流程（SOP）',
     faqTitle: '常见问题',
@@ -83,8 +89,16 @@ const COPY = {
     fieldCountry: '国家/地区',
     fieldMessage: '留言内容',
     messagePlaceholder: '请描述您的刀模需求：材质、尺寸、数量、期望交期……',
+    fieldAttachment: '上传图纸 / 文件（最多5个，选填）',
+    attachmentHint:
+      '最多支持5个文件：支持 DXF, DWG, AI, PDF, CDR, STEP, STP, ZIP, RAR, PNG, JPG 格式（单个最大 20MB）。亦可直接通过 WhatsApp / 邮箱发送。',
+    attachmentSelected: '已选择文件：',
+    attachmentRemove: '移除',
     submit: '提交询盘',
-    emailHint: '偏好邮件沟通？',
+    submitting: '正在发送……',
+    successMessage: '感谢您的询盘，信息已发送给我们的团队。',
+    errorMessage: '询盘发送失败，请重试或通过 WhatsApp 联系我们。',
+    emailHint: '询盘将通过网站安全发送，无需打开邮件应用。',
     relatedTitle: '您可能还需要',
     viewDetails: '查看详情',
     notFound: '未找到该产品。',
@@ -111,12 +125,6 @@ const SOP_STEPS: { title: string; titleZh: string; desc: string; descZh: string 
     desc: 'Every die is checked against the approved drawing by our QC team before it leaves the floor.',
     descZh: '每套刀模出厂前均由质检团队对照确认图纸逐项检验。',
   },
-  {
-    title: 'Packaging & Delivery',
-    titleZh: '包装发货',
-    desc: 'Dies are securely export-packed and dispatched within 5-7 days with full tracking.',
-    descZh: '刀模按出口标准加固包装，5-7天内发货并提供全程物流跟踪。',
-  },
 ];
 
 const inputClass =
@@ -136,10 +144,50 @@ export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { lang } = useLang();
   const product = getProductBySlug(slug);
+  const ACCEPTED_FILE_TYPES = '.dxf,.dwg,.ai,.pdf,.cdr,.step,.stp,.zip,.rar,.png,.jpg,.jpeg';
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [fileError, setFileError] = useState<string | null>(null);
   const [activeImage, setActiveImage] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<'idle' | 'success' | 'error'>('idle');
 
-  // Scroll to top and reset the gallery whenever the product changes.
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    setFileError(null);
+    if (!files.length) return;
+
+    if (selectedFiles.length + files.length > 5) {
+      setFileError('You can upload a maximum of 5 files in total.');
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
+    for (const file of files) {
+      if (file.size > 20 * 1024 * 1024) {
+        setFileError(`File "${file.name}" exceeds 20MB limit.`);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        return;
+      }
+    }
+
+    setSelectedFiles((prev) => [...prev, ...files]);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const handleRemoveSingleFile = (indexToRemove: number) => {
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== indexToRemove));
+    setFileError(null);
+  };
+
+  const handleClearAllFiles = () => {
+    setSelectedFiles([]);
+    setFileError(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
   useEffect(() => {
+
     window.scrollTo(0, 0);
     setActiveImage(0);
   }, [slug]);
@@ -151,11 +199,25 @@ export default function ProductDetail() {
       ? (isZh ? product.descriptionZh : product.description)
       : 'The requested Zhongcheng Laser Die product page could not be found.';
 
+    const productPath = `/products/${product?.slug ?? slug ?? ''}`;
+    const seo = product?.slug ? PRODUCT_SEO[product.slug] : undefined;
+    const seoTitle = isZh ? `${productName} | 众诚精密刀模` : (seo?.title ?? `${productName} | Zhongcheng Cutting Die`);
+    const seoDescription = isZh ? productDescription : (seo?.description ?? productDescription);
+
     updatePageMeta({
-      title: `${productName} | Zhongcheng Cutting Die`,
-      description: productDescription,
-      path: `/products/${product?.slug ?? slug ?? ''}`,
+      title: seoTitle,
+      description: seoDescription,
+      path: productPath,
       lang,
+      schema: product
+        ? buildProductSchema({
+            name: productName,
+            description: productDescription,
+            path: productPath,
+            image: product.images[0],
+            lang,
+          })
+        : undefined,
     });
   }, [lang, product, slug]);
 
@@ -178,11 +240,43 @@ export default function ProductDetail() {
   const copy = COPY[lang];
   const name = isZh ? product.nameZh : product.name;
   const description = isZh ? product.descriptionZh : product.description;
-  const highlights = isZh ? product.highlightsZh : product.highlights;
+  const galleryBackground = product.slug === 'steel-counter-plate' ? '#424242' : '#ffffff';
+  const galleryImageBackground = (index: number) => (
+    product.slug === 'sandwich-die' && (index === 1 || index === 2) ? '#171717' : galleryBackground
+  );
+  const galleryImageFit = (index: number) => {
+    if (product.slug === 'pertinax-counter-plate' && [0, 1, 2].includes(index)) return 'object-cover';
+    if (product.slug === 'wooden-die' && [1, 2, 3].includes(index)) return 'object-cover';
+    if (product.slug === 'hot-stamping-embossing-die' && [2, 3].includes(index)) return 'object-cover';
+    return 'object-contain';
+  };
+  const relatedSlugs: Record<string, string[]> = {
+    'sandwich-die': ['steel-counter-plate', 'stripping-tools', 'blanking-tools'],
+    'wooden-die': ['blanking-tools', 'stripping-tools', 'die-making-materials'],
+    'steel-counter-plate': ['sandwich-die', 'pertinax-counter-plate', 'wooden-die'],
+    'pertinax-counter-plate': ['steel-counter-plate', 'sandwich-die', 'wooden-die'],
+    'stripping-tools': ['blanking-tools', 'sandwich-die', 'wooden-die'],
+    'blanking-tools': ['stripping-tools', 'wooden-die', 'sandwich-die'],
+    'hot-stamping-embossing-die': ['engraving-die', 'wooden-die', 'sandwich-die'],
+    'engraving-die': ['hot-stamping-embossing-die', 'die-making-materials', 'wooden-die'],
+    'die-making-materials': ['engraving-die', 'wooden-die', 'stripping-tools'],
+  };
+  const relatedProducts = (relatedSlugs[product.slug] ?? []).flatMap((relatedSlug) => {
+    const related = products.find(item => item.slug === relatedSlug);
+    return related ? [related] : [];
+  });
+  const deliverySpec = product.specs.find(spec => spec.key === 'Delivery');
+  const deliveryValue = deliverySpec ? (isZh ? deliverySpec.valueZh : deliverySpec.value) : 'On request';
+  const deliveryStep = {
+    title: 'Packaging & Delivery',
+    titleZh: '包装发货',
+    desc: `Dies are securely export-packed and dispatched according to the quoted lead time: ${deliveryValue}.`,
+    descZh: `刀模按出口标准加固包装，并按报价确认的交期发货：${deliveryValue}。`,
+  };
 
   const stats = [
     { Icon: Crosshair, value: copy.precisionValue, label: copy.precisionLabel },
-    { Icon: Truck, value: copy.deliveryValue, label: copy.deliveryLabel },
+    { Icon: Truck, value: deliveryValue, label: copy.deliveryLabel },
     { Icon: Package, value: copy.moqValue, label: copy.moqLabel },
     { Icon: Award, value: copy.experienceValue, label: copy.experienceLabel },
   ];
@@ -192,22 +286,64 @@ export default function ProductDetail() {
     document.getElementById('specs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const readFileAsBase64 = (file: File): Promise<{ filename: string; content: string }> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        const base64Content = result.split(',')[1] || '';
+        resolve({
+          filename: file.name,
+          content: base64Content,
+        });
+      };
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const lines = [
-      `New Quote Request — ${product.name}`,
-      '',
-      `Name: ${String(fd.get('name') ?? '')}`,
-      `Company: ${String(fd.get('company') ?? '')}`,
-      `Email: ${String(fd.get('email') ?? '')}`,
-      `Country: ${String(fd.get('country') ?? '')}`,
-      '',
-      'Message:',
-      String(fd.get('message') ?? ''),
-    ];
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    if (isSubmitting) return;
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    setIsSubmitting(true);
+    setSubmitState('idle');
+
+    try {
+      const attachments = await Promise.all(selectedFiles.map(readFileAsBase64));
+
+      const payload = {
+        name: String(fd.get('name') ?? '').trim(),
+        company: String(fd.get('company') ?? '').trim(),
+        email: String(fd.get('email') ?? '').trim(),
+        country: String(fd.get('country') ?? '').trim(),
+        message: String(fd.get('message') ?? '').trim(),
+        product: product.name,
+        productSlug: product.slug,
+        pageUrl: window.location.href,
+        website: String(fd.get('website') ?? '').trim(),
+        attachments: attachments.length > 0 ? attachments : undefined,
+      };
+
+      const response = await fetch(INQUIRY_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error('Inquiry request failed');
+
+      setSubmitState('success');
+      form.reset();
+      handleClearAllFiles();
+    } catch {
+      setSubmitState('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -237,7 +373,7 @@ export default function ProductDetail() {
             <div
               className="overflow-hidden relative mb-4 aspect-[4/3] lg:aspect-auto lg:h-[400px]"
               style={{
-                background: 'var(--surface-mid)',
+                background: galleryImageBackground(activeImage),
                 border: '1px solid var(--border-dark)',
                 borderRadius: 'var(--radius-card)',
               }}
@@ -245,8 +381,10 @@ export default function ProductDetail() {
               <img
                 key={product.images[activeImage]}
                 src={product.images[activeImage]}
-                alt={name}
-                className="w-full h-full object-cover"
+                alt={`${name} product image`}
+                className={`w-full h-full ${galleryImageFit(activeImage)}`}
+                loading={activeImage === 0 ? 'eager' : 'lazy'}
+                fetchPriority={activeImage === 0 ? 'high' : 'auto'}
               />
             </div>
             {product.images.length > 1 && (
@@ -259,14 +397,20 @@ export default function ProductDetail() {
                     aria-label={`View image ${i + 1}`}
                     className="overflow-hidden aspect-square cursor-pointer p-0 transition-all duration-150"
                     style={{
-                      background: 'var(--surface-mid)',
+                       background: galleryImageBackground(i),
+
                       border: i === activeImage ? '2px solid var(--accent)' : '1px solid var(--border-dark)',
                       borderRadius: 'var(--radius-card)',
                       opacity: i === activeImage ? 1 : 0.6,
                     }}
 
                   >
-                    <img src={img} alt={`${name} thumbnail ${i + 1}`} className="w-full h-full object-cover" />
+                    <img
+                      src={img}
+                      alt={`${name} thumbnail ${i + 1}`}
+                      className={`w-full h-full ${galleryImageFit(i)}`}
+                      loading="lazy"
+                    />
                   </button>
                 ))}
               </div>
@@ -386,48 +530,6 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        {/* 4. Highlights */}
-        <motion.section
-          className="mt-20"
-          data-section="highlights"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <span className="accent-bar" />
-            <h2
-              className="text-2xl md:text-3xl"
-              style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
-            >
-              {copy.highlightsTitle}
-            </h2>
-          </div>
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4" variants={containerVariants}>
-            {highlights.map(h => (
-              <motion.div
-                key={h}
-                variants={itemVariants}
-                className="flex items-start gap-3 p-5 h-full"
-                style={{ background: 'var(--surface-dark)', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-card)' }}
-              >
-                <span
-                  className="flex items-center justify-center w-6 h-6 mt-0.5 flex-shrink-0"
-                  style={{ background: 'rgba(224,122,46,0.15)', borderRadius: 'var(--radius-btn)' }}
-                >
-                  <Check size={14} style={{ color: 'var(--accent)' }} />
-                </span>
-                <span className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary-light)' }}>
-                  {h}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-
-
         {/* 6. Production SOP */}
         <motion.section
           className="mt-20"
@@ -447,7 +549,7 @@ export default function ProductDetail() {
             </h2>
           </div>
           <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={containerVariants}>
-            {SOP_STEPS.map((step, i) => (
+            {[...SOP_STEPS, deliveryStep].map((step, i) => (
               <motion.div key={step.title} variants={itemVariants} className="relative">
                 <div className="flex items-center gap-3 mb-4">
                   <span
@@ -471,7 +573,40 @@ export default function ProductDetail() {
           </motion.div>
         </motion.section>
 
-
+        {/* Related products strengthen product discovery and application context. */}
+        {relatedProducts.length > 0 && (
+          <section className="mt-20" data-section="related-products">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="accent-bar" />
+              <h2
+                className="text-2xl md:text-3xl"
+                style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
+              >
+                {copy.relatedTitle}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedProducts.map((related) => (
+                <Link
+                  key={related.slug}
+                  to={`/products/${related.slug}`}
+                  className="p-5 transition-transform duration-200 hover:-translate-y-1"
+                  style={{ background: 'var(--surface-dark)', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-card)' }}
+                >
+                  <h3 className="text-base font-bold mb-2" style={{ color: 'var(--text-primary-light)' }}>
+                    {isZh ? related.nameZh : related.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-secondary-light)' }}>
+                    {isZh ? related.descriptionZh : related.description}
+                  </p>
+                  <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--accent)' }}>
+                    {copy.viewDetails} →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 8. Inquiry form */}
         <section className="mt-20" data-section="inquiry">
@@ -493,6 +628,7 @@ export default function ProductDetail() {
             </p>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input name="website" type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
               <label className="flex flex-col gap-1.5">
                 <span className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-caption)' }}>
                   {copy.fieldName} *
@@ -537,18 +673,152 @@ export default function ProductDetail() {
                 <textarea
                   name="message"
                   required
-                  rows={5}
+                  rows={4}
                   placeholder={copy.messagePlaceholder}
                   className={`${inputClass} resize-y`}
                   style={inputStyle}
                 />
               </label>
-              <div className="sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-3 mt-2">
-                <button type="submit" className="btn-primary px-8 py-4" style={{ fontSize: 13, cursor: 'pointer' }}>
-                  {copy.submit}
-                </button>
 
+              {/* File Attachment Slot */}
+              <div className="sm:col-span-2 flex flex-col gap-2">
+                <span className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-caption)' }}>
+                  {copy.fieldAttachment}
+                </span>
+                <div
+                  className="p-4 rounded border border-dashed flex flex-col gap-3"
+                  style={{
+                    background: 'rgba(255,255,255,0.02)',
+                    borderColor: 'var(--border-light)',
+                    borderRadius: 'var(--radius-card)',
+                  }}
+                >
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{ background: 'var(--surface-mid)', color: 'var(--accent)' }}
+                      >
+                        <UploadCloud size={20} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium" style={{ color: 'var(--text-primary-light)' }}>
+                          {selectedFiles.length > 0 ? (
+                            <span className="text-emerald-400 font-semibold">
+                              {selectedFiles.length} / 5 files selected
+                            </span>
+                          ) : (
+                            copy.fieldAttachment
+                          )}
+                        </p>
+                        <p className="text-[11px] leading-relaxed" style={{ color: 'var(--text-caption)' }}>
+                          {copy.attachmentHint}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        multiple
+                        accept={ACCEPTED_FILE_TYPES}
+                        onChange={handleFileChange}
+                        className="hidden"
+                        id="product-drawing-file"
+                        disabled={selectedFiles.length >= 5}
+                      />
+                      <label
+                        htmlFor="product-drawing-file"
+                        className={`px-4 py-2 text-xs font-semibold rounded cursor-pointer transition-colors ${
+                          selectedFiles.length >= 5 ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
+                        style={{
+                          background: 'var(--surface-mid)',
+                          border: '1px solid var(--border-light)',
+                          color: 'var(--text-primary-light)',
+                        }}
+                      >
+                        {selectedFiles.length === 0 ? 'Browse Files' : selectedFiles.length < 5 ? 'Add More Files' : 'Max 5 Files'}
+                      </label>
+                      {selectedFiles.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={handleClearAllFiles}
+                          className="px-3 py-2 text-xs rounded hover:opacity-80 transition-colors"
+                          style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444' }}
+                          title="Clear All Files"
+                        >
+                          Clear All
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Render selected files list */}
+                  {selectedFiles.length > 0 && (
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-[var(--border-dark)]">
+                      {selectedFiles.map((file, idx) => (
+                        <div
+                          key={`${file.name}-${idx}`}
+                          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs"
+                          style={{
+                            background: 'var(--surface-mid)',
+                            border: '1px solid var(--border-light)',
+                            color: 'var(--text-primary-light)',
+                          }}
+                        >
+                          <FileCheck size={13} className="text-emerald-400 flex-shrink-0" />
+                          <span className="truncate max-w-[200px]" title={file.name}>
+                            {file.name}
+                          </span>
+                          <span className="text-[10px] text-stone-400 flex-shrink-0">
+                            ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveSingleFile(idx)}
+                            className="p-1 hover:text-red-400 text-stone-400 transition-colors ml-1"
+                            title="Remove file"
+                          >
+                            <X size={12} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {fileError && <p className="text-xs text-red-400">{fileError}</p>}
               </div>
+
+              <div className="sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-3 mt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary px-8 py-4 disabled:cursor-not-allowed disabled:opacity-60"
+                  style={{ fontSize: 13, cursor: isSubmitting ? 'wait' : 'pointer' }}
+                >
+                  {isSubmitting ? copy.submitting : copy.submit}
+                </button>
+                <a
+                  href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Hello, I would like a quote for ${product.name}.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost-dark px-8 py-4"
+                  style={{ fontSize: 13 }}
+                >
+                  <MessageCircle size={16} />
+                  {copy.quoteWhatsApp}
+                </a>
+              </div>
+              <p
+                className="sm:col-span-2 text-xs leading-relaxed"
+                style={{ color: submitState === 'error' ? '#f08a72' : submitState === 'success' ? '#86c98b' : 'var(--text-caption)' }}
+                role="status"
+                aria-live="polite"
+              >
+                {submitState === 'success' ? copy.successMessage : submitState === 'error' ? copy.errorMessage : copy.emailHint}
+              </p>
             </form>
           </div>
         </section>

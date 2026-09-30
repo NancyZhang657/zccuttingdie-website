@@ -17,7 +17,8 @@ export default function EquipmentCompatibility() {
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={equipBg}
-          alt="Industrial manufacturing workshop"
+          alt="Zhongcheng industrial die-cutting workshop"
+          loading="lazy"
           className="w-full h-full object-cover"
           style={{ maxHeight: '700px', opacity: 0.08 }}
         />

@@ -1,6 +1,6 @@
-﻿import sandwichImg from '../../assets/images/sandwich-die-showcase.jpg';
-import { useLang } from '../../lib/useLang';
+﻿import { useLang } from '../../lib/useLang';
 
+const videoSrc = '/assets/videos/sandwich-die-blanking-showcase.mp4';
 const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 export default function SandwichDieSpotlight() {
@@ -13,14 +13,20 @@ export default function SandwichDieSpotlight() {
       data-component="SandwichDieSpotlight"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-        {/* Image — 60% on desktop */}
-        <div className="w-full md:w-[58%] overflow-hidden" style={{ borderRadius: 'var(--radius-card)' }}>
-          <img
-            src={sandwichImg}
-            alt="Precision sandwich die cutting mold close-up"
-            className="w-full object-cover"
-            style={{ maxHeight: '480px', objectPosition: 'center' }}
-          />
+        {/* Media — 60% on desktop */}
+        <div className="w-full md:w-[58%] overflow-hidden relative shadow-lg bg-black" style={{ borderRadius: 'var(--radius-card)' }}>
+          <video
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
+            className="w-full h-full object-cover"
+            style={{ maxHeight: '480px' }}
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         {/* Text panel — 40% on desktop */}

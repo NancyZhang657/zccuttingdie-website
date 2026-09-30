@@ -1,7 +1,7 @@
 ﻿import { motion } from 'framer-motion';
 import { useLang } from '../../lib/useLang';
 
-const factoryImg = 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg';
+const factoryImg = '/assets/images/company-story-workshop.jpg';
 
 const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
@@ -26,7 +26,8 @@ export default function CompanyStory() {
         >
           <img
             src={factoryImg}
-            alt="Zhongcheng factory in Jinan, China"
+            alt="Zhongcheng die-cutting tool factory in Jinan, China"
+            loading="lazy"
             className="w-full object-cover"
             style={{ maxHeight: '460px', objectPosition: 'center' }}
           />
