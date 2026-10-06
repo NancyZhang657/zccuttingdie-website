@@ -4,15 +4,15 @@ import { ArrowRight } from 'lucide-react';
 import { useLang } from '../../lib/useLang';
 
 const categoryMeta = [
-  { slug: 'sandwich-die', image: '/assets/images/sandwich-die-selected.jpg' },
-  { slug: 'wooden-die', image: '/assets/images/wooden-die-home-white.jpg' },
-  { slug: 'steel-counter-plate', image: '/assets/images/steel-counter-plate-user.jpg' },
-  { slug: 'pertinax-counter-plate', image: '/assets/images/pertinax-home-padded.png' },
-  { slug: 'stripping-tools', image: '/assets/images/stripping-detail-1-tight.jpg' },
-  { slug: 'blanking-tools', image: '/assets/images/blanking-tools-user.jpg' },
-  { slug: 'hot-stamping-embossing-die', image: '/assets/images/hot-stamping-home-final.jpg' },
-  { slug: 'engraving-die', image: '/assets/images/engraving-die-home-tight.jpg' },
-  { slug: 'die-making-materials', image: '/assets/images/die-making-materials-home-final.jpg' },
+  { slug: 'sandwich-die', image: '/assets/images/sandwich-die-selected.jpg', imageFit: 'cover' },
+  { slug: 'wooden-die', image: '/assets/images/wooden-die-home-white.jpg', imageFit: 'contain' },
+  { slug: 'steel-counter-plate', image: '/assets/images/steel-counter-plate-user.jpg', imageFit: 'cover' },
+  { slug: 'pertinax-counter-plate', image: '/assets/images/pertinax-home-padded.png', imageFit: 'contain' },
+  { slug: 'stripping-tools', image: '/assets/images/stripping-detail-1-tight.jpg', imageFit: 'contain' },
+  { slug: 'blanking-tools', image: '/assets/images/blanking-tools-user.jpg', imageFit: 'contain' },
+  { slug: 'hot-stamping-embossing-die', image: '/assets/images/hot-stamping-home-final.jpg', imageFit: 'contain' },
+  { slug: 'engraving-die', image: '/assets/images/engraving-die-home-tight.jpg', imageFit: 'contain' },
+  { slug: 'die-making-materials', image: '/assets/images/die-making-materials-home-final.jpg', imageFit: 'contain' },
 ];
 
 const containerVariants = {
@@ -52,7 +52,7 @@ export default function ProductCategories() {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="product-category-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -73,19 +73,20 @@ export default function ProductCategories() {
                   borderRadius: 'var(--radius-card)',
                 }}
               >
-              <div className="overflow-hidden aspect-[4/3] bg-white relative">
+              <div className="product-category-image overflow-hidden aspect-[4/3] bg-white relative">
                 <img
                   src={categoryMeta[i].image}
                   alt={`${svc.name} for packaging production`}
                   loading="lazy"
-                  className="w-full h-full object-contain transition-opacity duration-300"
+                  data-image-fit={categoryMeta[i].imageFit}
+                  className="product-category-image-content w-full h-full object-contain transition-opacity duration-300"
                 />
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: 'linear-gradient(to top, rgba(217,96,26,0.5), transparent 60%)' }}
                 />
               </div>
-              <div className="p-6">
+              <div className="product-category-content p-6">
                 <h3
                   className="text-lg mb-2 transition-colors duration-150"
                   style={{ color: 'var(--text-primary-light)', fontFamily: 'var(--font-display)', fontWeight: 700, letterSpacing: '-0.015em' }}

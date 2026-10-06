@@ -50,7 +50,7 @@ export default function HeroGallery() {
 
   return (
     <section
-      className="relative overflow-hidden"
+      className="hero-gallery relative overflow-hidden"
       style={{ height: '480px' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

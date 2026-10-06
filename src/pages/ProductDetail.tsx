@@ -371,7 +371,7 @@ export default function ProductDetail() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             <div
-              className="overflow-hidden relative mb-4 aspect-[4/3] lg:aspect-auto lg:h-[400px]"
+              className="product-gallery-main overflow-hidden relative mb-4 aspect-[4/3] lg:aspect-auto lg:h-[400px]"
               style={{
                 background: galleryImageBackground(activeImage),
                 border: '1px solid var(--border-dark)',
@@ -426,7 +426,7 @@ export default function ProductDetail() {
             <span className="spec-tag inline-block mb-4 uppercase tracking-wider">{copy.category}</span>
 
             <h1
-              className="text-3xl md:text-4xl leading-tight mb-3"
+              className="product-detail-title text-3xl md:text-4xl leading-tight mb-3"
               style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
             >
               {name}
@@ -443,7 +443,7 @@ export default function ProductDetail() {
             </p>
 
             {/* Core data badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+            <div className="product-stats grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
               {stats.map(({ Icon, value, label }) => (
                 <div
                   key={label}
@@ -490,7 +490,7 @@ export default function ProductDetail() {
 
         {/* 3. Specifications */}
         <section id="specs" className="mt-20 scroll-mt-24" data-section="specs">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="product-section-heading flex items-center gap-3 mb-8">
             <span className="accent-bar" />
             <h2
               className="text-2xl md:text-3xl"
@@ -500,7 +500,7 @@ export default function ProductDetail() {
             </h2>
           </div>
           <div
-            className="overflow-hidden"
+            className="hidden md:block overflow-hidden"
             style={{ border: '1px solid var(--border-dark)', borderRadius: 'var(--radius-card)' }}
           >
             <table className="w-full text-sm">
@@ -528,6 +528,26 @@ export default function ProductDetail() {
               </tbody>
             </table>
           </div>
+          <dl className="product-spec-cards md:hidden grid gap-2">
+            {product.specs.map((spec) => (
+              <div
+                key={spec.key}
+                className="grid gap-2 px-4 py-4"
+                style={{
+                  background: 'var(--surface-dark)',
+                  border: '1px solid var(--border-dark)',
+                  borderRadius: 'var(--radius-card)',
+                }}
+              >
+                <dt className="text-xs font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--accent)' }}>
+                  {isZh ? spec.keyZh : spec.key}
+                </dt>
+                <dd className="m-0 text-sm leading-relaxed break-words" style={{ color: 'var(--text-secondary-light)' }}>
+                  {isZh ? spec.valueZh : spec.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         {/* 6. Production SOP */}

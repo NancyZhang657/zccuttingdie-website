@@ -74,7 +74,7 @@ export default function Hero() {
       overflow-hidden clips the images cleanly.
     */
     <section
-      className="relative overflow-hidden"
+      className="hero-section relative overflow-hidden"
       style={{ height: '560px', maxWidth: '1280px', margin: '0 auto', width: '100%' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -91,10 +91,10 @@ export default function Hero() {
           {/* Left dark base */}
           <div className="absolute inset-0" style={{ background: '#0E0D0C' }} />
           {/* Photo starts at 25% so gradient has real image content to blend over */}
-          <div
-            role="img"
-            aria-label={lang === 'zh' ? s.titleZh : s.titleEn}
-            className="absolute top-0 bottom-0 right-0"
+            <div
+              role="img"
+              aria-label={lang === 'zh' ? s.titleZh : s.titleEn}
+              className="hero-slide-photo absolute top-0 bottom-0 right-0"
             style={{
               left: '25%',
               backgroundImage: `url(${s.image})`,
@@ -105,7 +105,7 @@ export default function Hero() {
           />
           {/* Gradient over photo — from solid dark (left) fading to transparent (right) */}
           <div
-            className="absolute top-0 bottom-0"
+            className="hero-slide-gradient absolute top-0 bottom-0"
             style={{
               left: '20%',
               width: '45%',
