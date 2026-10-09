@@ -16,6 +16,7 @@ import {
 import { useLang } from '../lib/useLang';
 import { getProductBySlug, products, WHATSAPP_URL } from '../data/products';
 import { buildBreadcrumbSchema, PRODUCT_SEO, updatePageMeta } from '../lib/seo';
+import { trackEvent } from '../lib/analytics';
 
 const INQUIRY_API_URL = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiries';
 
@@ -334,6 +335,12 @@ export default function ProductDetail() {
 
       if (!response.ok) throw new Error('Inquiry request failed');
 
+      trackEvent('generate_lead', {
+        form_location: 'product_detail',
+        product: payload.product,
+        product_slug: payload.productSlug,
+        page_path: window.location.pathname,
+      });
       setSubmitState('success');
       form.reset();
       handleClearAllFiles();

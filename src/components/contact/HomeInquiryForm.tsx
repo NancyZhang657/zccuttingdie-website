@@ -2,6 +2,7 @@ import { useState, useRef, type CSSProperties, type FormEvent, type ChangeEvent 
 import { MessageCircle, UploadCloud, FileCheck, X } from 'lucide-react';
 import { useLang } from '../../lib/useLang';
 import { WHATSAPP_URL } from '../../data/products';
+import { trackEvent } from '../../lib/analytics';
 
 const INQUIRY_API_URL = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiries';
 const ACCEPTED_FILE_TYPES = '.dxf,.dwg,.ai,.pdf,.cdr,.step,.stp,.zip,.rar,.png,.jpg,.jpeg';
@@ -113,6 +114,12 @@ export default function HomeInquiryForm() {
 
       if (!response.ok) throw new Error('Inquiry request failed');
 
+      trackEvent('generate_lead', {
+        form_location: 'homepage',
+        product: payload.product,
+        product_slug: payload.productSlug,
+        page_path: window.location.pathname,
+      });
       setSubmitState('success');
       form.reset();
       handleClearAllFiles();
