@@ -111,17 +111,13 @@ export function buildSiteSchema() {
   };
 }
 
-export function buildProductSchema({
+export function buildBreadcrumbSchema({
   name,
-  description,
   path,
-  image,
   lang,
 }: {
   name: string;
-  description: string;
   path: string;
-  image: string;
   lang: 'en' | 'zh';
 }) {
   const url = absoluteUrl(path);
@@ -135,17 +131,6 @@ export function buildProductSchema({
         alternateName: 'Zhongcheng Cutting Die',
         url: `${SITE_ORIGIN}/`,
         logo: absoluteUrl('/assets/images/zhongcheng-logo-transparent-white.png'),
-      },
-      {
-        '@type': 'Product',
-        '@id': `${url}#product`,
-        name,
-        description,
-        image: absoluteUrl(image),
-        brand: { '@type': 'Brand', name: 'Zhongcheng Cutting Die' },
-        manufacturer: { '@id': `${SITE_ORIGIN}/#organization` },
-        url,
-        inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
       },
       {
         '@type': 'BreadcrumbList',

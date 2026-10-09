@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { useLang } from '../lib/useLang';
 import { getProductBySlug, products, WHATSAPP_URL } from '../data/products';
-import { buildProductSchema, PRODUCT_SEO, updatePageMeta } from '../lib/seo';
+import { buildBreadcrumbSchema, PRODUCT_SEO, updatePageMeta } from '../lib/seo';
 
 const INQUIRY_API_URL = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiries';
 
@@ -210,11 +210,9 @@ export default function ProductDetail() {
       path: productPath,
       lang,
       schema: product
-        ? buildProductSchema({
+          ? buildBreadcrumbSchema({
             name: productName,
-            description: productDescription,
             path: productPath,
-            image: product.images[0],
             lang,
           })
         : undefined,
