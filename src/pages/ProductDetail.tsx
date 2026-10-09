@@ -203,7 +203,7 @@ export default function ProductDetail() {
     const productPath = `/products/${product?.slug ?? slug ?? ''}`;
     const seo = product?.slug ? PRODUCT_SEO[product.slug] : undefined;
     const seoTitle = isZh ? `${productName} | 众诚精密刀模` : (seo?.title ?? `${productName} | Zhongcheng Cutting Die`);
-    const seoDescription = isZh ? productDescription : (seo?.description ?? productDescription);
+    const seoDescription = isZh ? (seo?.descriptionZh ?? productDescription) : (seo?.description ?? productDescription);
 
     updatePageMeta({
       title: seoTitle,
@@ -250,13 +250,13 @@ export default function ProductDetail() {
     return 'object-contain';
   };
   const relatedSlugs: Record<string, string[]> = {
-    'sandwich-die': ['steel-counter-plate', 'stripping-tools', 'blanking-tools'],
-    'wooden-die': ['blanking-tools', 'stripping-tools', 'die-making-materials'],
+    'sandwich-die': ['steel-counter-plate', 'pertinax-counter-plate', 'wooden-die'],
+    'wooden-die': ['sandwich-die', 'blanking-tools', 'pertinax-counter-plate'],
     'steel-counter-plate': ['sandwich-die', 'pertinax-counter-plate', 'wooden-die'],
     'pertinax-counter-plate': ['steel-counter-plate', 'sandwich-die', 'wooden-die'],
     'stripping-tools': ['blanking-tools', 'sandwich-die', 'wooden-die'],
     'blanking-tools': ['stripping-tools', 'wooden-die', 'sandwich-die'],
-    'hot-stamping-embossing-die': ['engraving-die', 'wooden-die', 'sandwich-die'],
+    'hot-stamping-embossing-die': ['engraving-die', 'sandwich-die', 'wooden-die'],
     'engraving-die': ['hot-stamping-embossing-die', 'die-making-materials', 'wooden-die'],
     'die-making-materials': ['engraving-die', 'wooden-die', 'stripping-tools'],
   };
@@ -622,7 +622,7 @@ export default function ProductDetail() {
                     {isZh ? related.nameZh : related.name}
                   </h3>
                   <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-secondary-light)' }}>
-                    {isZh ? related.descriptionZh : related.description}
+                    {(isZh ? related.descriptionZh : related.description).slice(0, 150)}{(isZh ? related.descriptionZh : related.description).length > 150 ? '…' : ''}
                   </p>
                   <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--accent)' }}>
                     {copy.viewDetails} →

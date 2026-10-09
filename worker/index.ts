@@ -50,6 +50,75 @@ interface InquiryPayload {
 
 const MAX_FIELD_LENGTH = 4000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const SITE_ORIGIN = 'https://zccuttingdie.com';
+
+const PRODUCT_META: Record<string, { title: string; description: string }> = {
+  'sandwich-die': {
+    title: 'Sandwich Cutting Die | Zhongcheng',
+    description: 'Custom sandwich cutting dies for cigarette, pharma, cosmetic and specialty packaging. Send your drawing for a tailored quote.',
+  },
+  'wooden-die': {
+    title: 'Wooden Cutting Die | Zhongcheng',
+    description: 'Custom wooden steel-rule dies for cartons, corrugated boxes, tags and leather. Built to your shape, size and machine requirements.',
+  },
+  'steel-counter-plate': {
+    title: 'Steel Counter Plate | Zhongcheng',
+    description: 'Custom hardened steel counter plates for sandwich die cutting, box creasing and punching. Matched to your die and drawing.',
+  },
+  'pertinax-counter-plate': {
+    title: 'Pertinax Counter Plate | Zhongcheng',
+    description: 'Custom resin-based Pertinax counter plates for die cutting and clean creasing. Size and thickness matched to your steel-rule die.',
+  },
+  'stripping-tools': {
+    title: 'Stripping Tools | Zhongcheng',
+    description: 'Manual and pneumatic stripping tools for removing inner-hole waste from cartons, gift boxes and food packaging production lines.',
+  },
+  'blanking-tools': {
+    title: 'Blanking Tools | Zhongcheng',
+    description: 'Pneumatic and automatic blanking tools for separating die-cut box blanks from cardboard waste in packaging production.',
+  },
+  'hot-stamping-embossing-die': {
+    title: 'Hot Stamping & Embossing Die | Zhongcheng',
+    description: 'Custom brass, aluminum and magnesium dies for foil stamping and embossing on paper, leather, fabric and premium packaging.',
+  },
+  'engraving-die': {
+    title: 'Engraving Die & Blade | Zhongcheng',
+    description: 'High-hardness engraving blades and cutters for logos, patterns and packaging applications. Custom sizes and blade sets available.',
+  },
+  'die-making-materials': {
+    title: 'Die Making Materials & Tube Punches | Zhongcheng',
+    description: 'Precision steel tube punches and spring punches for die making, labels, cardboard, leather and optical film hole processing.',
+  },
+};
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  })[character] || character);
+}
+
+function replaceMetaTag(html: string, pattern: RegExp, tag: string) {
+  return pattern.test(html) ? html.replace(pattern, tag) : html.replace('</head>', `  ${tag}\n</head>`);
+}
+
+function injectProductMeta(html: string, slug: string, meta: { title: string; description: string }) {
+  const title = escapeHtml(meta.title);
+  const description = escapeHtml(meta.description);
+  const canonical = `${SITE_ORIGIN}/products/${slug}`;
+  let updated = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+  updated = replaceMetaTag(updated, /<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}" />`);
+  updated = replaceMetaTag(updated, /<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${canonical}" />`);
+  updated = replaceMetaTag(updated, /<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${title}" />`);
+  updated = replaceMetaTag(updated, /<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${description}" />`);
+  updated = replaceMetaTag(updated, /<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${canonical}" />`);
+  updated = replaceMetaTag(updated, /<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${title}" />`);
+  updated = replaceMetaTag(updated, /<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${description}" />`);
+  return updated;
+}
 
 function jsonResponse(body: Record<string, unknown>, status: number, origin: string | null, env: Env) {
   const allowedOrigin = env.ALLOWED_ORIGIN || origin || '*';
@@ -305,6 +374,18 @@ export default {
       }
     }
 
-    return env.ASSETS.fetch(request);
+    const assetResponse = await env.ASSETS.fetch(request);
+    const productMatch = url.pathname.match(/^\/products\/([a-z0-9-]+)\/?$/i);
+    const productMeta = productMatch ? PRODUCT_META[productMatch[1].toLowerCase()] : undefined;
+    if (!productMeta || !assetResponse.ok || !assetResponse.headers.get('content-type')?.includes('text/html')) {
+      return assetResponse;
+    }
+
+    const html = await assetResponse.text();
+    const updatedHtml = injectProductMeta(html, productMatch![1].toLowerCase(), productMeta);
+    return new Response(updatedHtml, {
+      status: assetResponse.status,
+      headers: new Headers(assetResponse.headers),
+    });
   },
 };
