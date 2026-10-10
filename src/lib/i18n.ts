@@ -59,7 +59,7 @@ export const translations = {
     why_p3_title: '20+ National Patents',
      why_p3_body: 'Our 20 R&D staff continuously develop new die architectures. The result: cutting-edge solutions that keep your line ahead of the market.',
     why_p4_title: 'OEM Flexibility',
-    why_p4_body: 'Custom die architectures for any box geometry. 3-day standard preparation time. From prototype to full production run.',
+    why_p4_body: 'Custom die architectures for any box geometry. Product-specific lead times available, from 2–3 days for selected tooling.',
 
     // Sandwich
     sandwich_label: 'Flagship Product',
@@ -216,7 +216,7 @@ export const translations = {
     why_p3_title: '20余项国家专利',
      why_p3_body: '20名研发人员持续创新，不断开发新型刀模结构，让您的生产线始终保持技术领先。',
     why_p4_title: 'OEM定制灵活',
-    why_p4_body: '任意纸箱结构均可定制，标准交期3天，从打样到批量生产全程跟进。',
+    why_p4_body: '任意纸箱结构均可定制，交期因产品而异，部分刀模最快2–3天。',
 
     // Sandwich
     sandwich_label: '明星产品',
@@ -227,7 +227,7 @@ export const translations = {
       '速度：BOBST理想工况下可达9000压/小时',
       '材质：高速钢 + 精密研磨板材',
       '兼容：BOBST · 长荣MK · 海德堡',
-      '标准交期：3天',
+      '交期：3–7天',
      ],
 
     // Clients
