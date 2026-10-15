@@ -9,8 +9,8 @@ const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 const navLinks = [
   { key: 'nav_products', href: '/#products' },
-  { key: 'nav_insights', href: '/insights' },
   { key: 'nav_about', href: '/#about' },
+  { key: 'nav_insights', href: '/insights' },
   { key: 'nav_contact', href: '/#contact' },
 ] as const;
 

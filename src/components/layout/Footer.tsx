@@ -72,15 +72,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link
-                  to="/insights"
-                  className="hover:underline transition-colors"
-                  style={{ color: 'var(--text-secondary-dark)' }}
-                >
-                  {t.nav_insights}
-                </Link>
-              </li>
-              <li>
                 <a
                   href="/#about"
                   className="hover:underline transition-colors"
@@ -88,6 +79,15 @@ export default function Footer() {
                 >
                   {t.nav_about}
                 </a>
+              </li>
+              <li>
+                <Link
+                  to="/insights"
+                  className="hover:underline transition-colors"
+                  style={{ color: 'var(--text-secondary-dark)' }}
+                >
+                  {t.nav_insights}
+                </Link>
               </li>
               <li>
                 <a
