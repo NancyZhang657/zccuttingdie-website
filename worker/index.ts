@@ -91,6 +91,51 @@ const PRODUCT_META: Record<string, { title: string; description: string }> = {
   },
 };
 
+const COMPATIBILITY_META = {
+  title: 'Die-Cutting Machine Compatibility Guide (BOBST, Heidelberg, MK, Sanwa) | Zhongcheng',
+  description: 'Precision cutting dies, steel counter plates, and dynamic blanking tools engineered to exact OEM specs for BOBST, Heidelberg, MK Masterwork, Sanwa & ETERNA. ±0.05mm centerline tolerance.',
+};
+
+const INSIGHTS_META = {
+  title: 'Insights, Case Studies & Technical Blog | Zhongcheng Cutting Die',
+  description: 'Decades of die-making engineering: Centerline II machine alignment specs, high-speed case studies (9,000 cuts/hr) across tobacco, pharma, cosmetics & food packaging, creasing troubleshooting, and tooling selection.',
+};
+
+const ARTICLE_META: Record<string, { title: string; description: string }> = {
+  'bobst-heidelberg-centerline-compatibility-guide': {
+    title: 'BOBST & Heidelberg Machine Tooling Compatibility Guide | Zhongcheng',
+    description: 'Complete technical specification for mounting sandwich dies, steel counter plates, and dynamic blanking tools on BOBST and Heidelberg MK platforms.',
+  },
+  'tobacco-packaging-high-speed-die-cutting-solution': {
+    title: 'Tobacco Packaging High-Speed Die-Cutting Case Study | Zhongcheng',
+    description: 'How multi-layer sandwich dies and hardened 1.5mm counter plates solved creasing burst issues at 9,000 cuts/hour on BOBST lines.',
+  },
+  'cosmetics-luxury-packaging-embossing-die-solution': {
+    title: 'Cosmetics & Luxury Packaging Embossing Die Case Study | Zhongcheng',
+    description: 'How CNC brass engraving plates and micro-chamfered cutting rules solve foil scratching and multi-layer registration issues on luxury cosmetic boxes.',
+  },
+  'food-beverage-fmcg-packaging-die-cutting-guide': {
+    title: 'Food & FMCG Packaging Die-Cutting Solution Guide | Zhongcheng',
+    description: 'Optimizing rubber ejection profiles and knife bevel angles to prevent paper dust and corner hanging in high-speed food carton lines.',
+  },
+  'pharmaceutical-carton-precision-creasing-solution': {
+    title: 'Pharmaceutical Packaging Precision Creasing Case Study | Zhongcheng',
+    description: 'Engineering micro-creasing and zero paper dust for pharmaceutical cartons using Pertinax counter plates and precision engraving blades.',
+  },
+  'top-causes-creasing-bursting-die-cutting-solutions': {
+    title: '5 Root Causes of Creasing Line Bursting & Solutions | Zhongcheng',
+    description: 'Practical troubleshooting guide for die-cutting operators: channel width formulas, rule bevel angles, paper grain direction, and counter plate hardness.',
+  },
+  'how-to-extend-sandwich-die-lifespan-blade-replacement': {
+    title: 'How to Extend Sandwich Die Lifespan: Blade Replacement Guide | Zhongcheng',
+    description: 'Maintenance practices for sandwich dies allowing 5-10 blade replacements to cut packaging tooling costs by over 40% across million-run jobs.',
+  },
+  'sandwich-die-vs-wooden-die-comparison-selection': {
+    title: 'Sandwich Die vs. Wooden Laser Die Selection Guide | Zhongcheng',
+    description: 'Engineering matrix comparing dimensional stability, machine speed limits, re-ruling capability, and cost-per-thousand between sandwich and wooden dies.',
+  },
+};
+
 function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, character => ({
     '&': '&amp;',
@@ -105,10 +150,10 @@ function replaceMetaTag(html: string, pattern: RegExp, tag: string) {
   return pattern.test(html) ? html.replace(pattern, tag) : html.replace('</head>', `  ${tag}\n</head>`);
 }
 
-function injectProductMeta(html: string, slug: string, meta: { title: string; description: string }) {
+function injectPageMeta(html: string, path: string, meta: { title: string; description: string }) {
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description);
-  const canonical = `${SITE_ORIGIN}/products/${slug}`;
+  const canonical = `${SITE_ORIGIN}${path}`;
   let updated = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
   updated = replaceMetaTag(updated, /<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}" />`);
   updated = replaceMetaTag(updated, /<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${canonical}" />`);
@@ -118,6 +163,10 @@ function injectProductMeta(html: string, slug: string, meta: { title: string; de
   updated = replaceMetaTag(updated, /<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${title}" />`);
   updated = replaceMetaTag(updated, /<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${description}" />`);
   return updated;
+}
+
+function injectProductMeta(html: string, slug: string, meta: { title: string; description: string }) {
+  return injectPageMeta(html, `/products/${slug}`, meta);
 }
 
 function jsonResponse(body: Record<string, unknown>, status: number, origin: string | null, env: Env) {
@@ -375,17 +424,50 @@ export default {
     }
 
     const assetResponse = await env.ASSETS.fetch(request);
-    const productMatch = url.pathname.match(/^\/products\/([a-z0-9-]+)\/?$/i);
-    const productMeta = productMatch ? PRODUCT_META[productMatch[1].toLowerCase()] : undefined;
-    if (!productMeta || !assetResponse.ok || !assetResponse.headers.get('content-type')?.includes('text/html')) {
+    if (!assetResponse.ok || !assetResponse.headers.get('content-type')?.includes('text/html')) {
       return assetResponse;
     }
 
-    const html = await assetResponse.text();
-    const updatedHtml = injectProductMeta(html, productMatch![1].toLowerCase(), productMeta);
-    return new Response(updatedHtml, {
-      status: assetResponse.status,
-      headers: new Headers(assetResponse.headers),
-    });
+    const productMatch = url.pathname.match(/^\/products\/([a-z0-9-]+)\/?$/i);
+    const productMeta = productMatch ? PRODUCT_META[productMatch[1].toLowerCase()] : undefined;
+    if (productMeta) {
+      const html = await assetResponse.text();
+      const updatedHtml = injectProductMeta(html, productMatch![1].toLowerCase(), productMeta);
+      return new Response(updatedHtml, {
+        status: assetResponse.status,
+        headers: new Headers(assetResponse.headers),
+      });
+    }
+
+    if (url.pathname === '/compatibility' || url.pathname === '/machine-compatibility-guide') {
+      const html = await assetResponse.text();
+      const updatedHtml = injectPageMeta(html, '/compatibility', COMPATIBILITY_META);
+      return new Response(updatedHtml, {
+        status: assetResponse.status,
+        headers: new Headers(assetResponse.headers),
+      });
+    }
+
+    const articleMatch = url.pathname.match(/^\/(?:insights|blog|cases)\/([a-z0-9-]+)\/?$/i);
+    const articleMeta = articleMatch ? ARTICLE_META[articleMatch[1].toLowerCase()] : undefined;
+    if (articleMeta) {
+      const html = await assetResponse.text();
+      const updatedHtml = injectPageMeta(html, `/insights/${articleMatch![1].toLowerCase()}`, articleMeta);
+      return new Response(updatedHtml, {
+        status: assetResponse.status,
+        headers: new Headers(assetResponse.headers),
+      });
+    }
+
+    if (url.pathname === '/insights' || url.pathname === '/blog' || url.pathname === '/cases') {
+      const html = await assetResponse.text();
+      const updatedHtml = injectPageMeta(html, '/insights', INSIGHTS_META);
+      return new Response(updatedHtml, {
+        status: assetResponse.status,
+        headers: new Headers(assetResponse.headers),
+      });
+    }
+
+    return assetResponse;
   },
 };

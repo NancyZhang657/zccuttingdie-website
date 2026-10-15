@@ -4,6 +4,8 @@ export const translations = {
   en: {
     // Nav
     nav_products: 'Products',
+    nav_insights: 'Insights',
+    nav_compatibility: 'Compatibility',
     nav_about: 'About',
     nav_contact: 'Contact',
     nav_lang: '中文',
@@ -161,6 +163,8 @@ export const translations = {
   zh: {
     // Nav
     nav_products: '产品中心',
+    nav_insights: '行业洞察',
+    nav_compatibility: '机型兼容',
     nav_about: '关于我们',
     nav_contact: '联系我们',
     nav_lang: 'English',

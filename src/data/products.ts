@@ -1,4 +1,4 @@
-﻿export interface ProductSpec {
+export interface ProductSpec {
   key: string; // English label
   keyZh: string; // Chinese label
   value: string; // English value
@@ -56,8 +56,8 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Various die-cutting machine such as BOBST · Masterwork · Heidelberg · Sanwa',
-        valueZh: '适配BOBST · 长荣 · 海德堡 · 三和平台',
+        value: 'Various die-cutting machines such as BOBST · Masterwork (MK) · Heidelberg · Sanwa · ETERNA',
+        valueZh: '适配 BOBST · 长荣MK · 海德堡 · 三和 · 旭恒ETERNA 等平台',
       },
     ],
     highlights: [
@@ -150,8 +150,8 @@ export const products: Product[] = [
       {
         key: 'Material',
         keyZh: '材质',
-        value: 'Hardened steel plate',
-        valueZh: '淬硬钢板',
+        value: 'Hardened steel plate (42-52 HRC; thickness 1.0mm/1.2mm/1.5mm)',
+        valueZh: '淬硬钢板（42-52 HRC；厚度可选1.0mm/1.2mm/1.5mm）',
       },
       {
         key: 'Size',
@@ -169,7 +169,7 @@ export const products: Product[] = [
         key: 'Compatible Machines',
         keyZh: '适配机型',
         value: 'Die cutting machine or press machine or various die cutting platforms',
-        valueZh: '三明治刀模模切机（BOBST类平台）',
+        valueZh: '三明治刀模模切机（BOBST、长荣MK、海德堡、旭恒等平台）',
       },
     ],
     highlights: [
@@ -278,8 +278,8 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Various die-cutting machine such as BOBST · Masterwork · Heidelberg · Sanwa',
-        valueZh: '纸盒制造/模切生产线',
+        value: 'Various die-cutting machines such as BOBST · Masterwork (MK) · Heidelberg · Sanwa · ETERNA',
+        valueZh: '纸盒制造/模切生产线（BOBST · 长荣MK · 海德堡 · 旭恒ETERNA）',
       },
     ],
     highlights: [
@@ -333,8 +333,8 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Various die-cutting machine such as BOBST · Masterwork · Heidelberg · Sanwa',
-        valueZh: '纸、塑、食品盒及一次性杯包装生产线',
+        value: 'Various die-cutting machines such as BOBST · Masterwork (MK) · Heidelberg · Sanwa · ETERNA',
+        valueZh: '纸、塑、食品盒模切线（BOBST · 长荣MK · 海德堡 · 旭恒ETERNA）',
       },
     ],
     highlights: [
@@ -443,7 +443,7 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Die cutting machine or press machine or various die cutting platforms',
+        value: 'Die cutting machine or press machine or various die-cutting platforms',
         valueZh: '刀模制作/模切配件',
       },
     ],

@@ -9,6 +9,7 @@ const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 const navLinks = [
   { key: 'nav_products', href: '/#products' },
+  { key: 'nav_insights', href: '/insights' },
   { key: 'nav_about', href: '/#about' },
   { key: 'nav_contact', href: '/#contact' },
 ] as const;
@@ -21,10 +22,15 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!href.startsWith('/#')) return;
+    setMenuOpen(false);
+    if (!href.startsWith('/#')) {
+      event.preventDefault();
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
     event.preventDefault();
     const hash = href.slice(1);
-    setMenuOpen(false);
 
     if (location.pathname === '/') {
       window.history.replaceState(null, '', href);

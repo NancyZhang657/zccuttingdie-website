@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import equipBg from '../../assets/images/equipment-workshop.jpg';
 import SectionHeading from '../common/SectionHeading';
 import { useLang } from '../../lib/useLang';
 
-const equipment = ['BOBST', 'Heidelberg', 'Masterwork (MK)', 'Sanwa', 'ETERNA'];
+const equipment = ['BOBST', 'Heidelberg', 'Masterwork (MK)', 'Sanwa', 'ETERNA (旭恒)'];
 
 export default function EquipmentCompatibility() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <section
@@ -56,6 +58,20 @@ export default function EquipmentCompatibility() {
         >
           {t.eq_also}
         </p>
+
+        <div className="text-center mt-8">
+          <Link
+            to="/insights"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
+            style={{
+              background: 'var(--accent)',
+              color: '#ffffff',
+            }}
+          >
+            {lang === 'zh' ? '查看技术专栏与机型适配文章' : 'Explore Technical Insights & Machine Specs'}
+            <ArrowRight size={16} />
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -266,6 +266,7 @@ export default function ProductDetail() {
   });
   const deliverySpec = product.specs.find(spec => spec.key === 'Delivery');
   const deliveryValue = deliverySpec ? (isZh ? deliverySpec.valueZh : deliverySpec.value) : 'On request';
+  const precisionValue = ['wooden-die', 'stripping-tools', 'blanking-tools'].includes(product.slug) ? '±0.1mm' : '±0.05mm';
   const deliveryStep = {
     title: 'Packaging & Delivery',
     titleZh: '包装发货',
@@ -274,7 +275,7 @@ export default function ProductDetail() {
   };
 
   const stats = [
-    { Icon: Crosshair, value: copy.precisionValue, label: copy.precisionLabel },
+    { Icon: Crosshair, value: precisionValue, label: copy.precisionLabel },
     { Icon: Truck, value: deliveryValue, label: copy.deliveryLabel },
     { Icon: Package, value: copy.moqValue, label: copy.moqLabel },
     { Icon: Award, value: copy.experienceValue, label: copy.experienceLabel },

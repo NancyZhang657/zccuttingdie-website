@@ -25,8 +25,8 @@ const slides: HeroSlide[] = [
     labelZh: '创立于1997年 · 中国济南',
     titleEn: 'We manufacture die-cutting tools to keep your automatic die-cutting machine running at full speed.',
     titleZh: '我们制造让您的自动模切机全速运转的模切工具。',
-    subEn: 'Sandwich cutting dies, stripping tools, blanking tools, and engraving dies precision-built for BOBST, Heidelberg, Masterwork & Sanwa — trusted by packaging plants across three continents.',
-    subZh: '三明治刀模、清废工具、分盒工具及电雕版，精准适配BOBST、海德堡、长荣MK、三和——全球三大洲包装工厂的信赖之选。',
+    subEn: 'Sandwich cutting dies, stripping tools, blanking tools, and engraving dies precision-built for BOBST, Heidelberg, Masterwork (MK), Sanwa & ETERNA — trusted by packaging plants across three continents.',
+    subZh: '三明治刀模、清废工具、分盒工具及电雕版，精准适配 BOBST、海德堡、长荣MK、三和、旭恒ETERNA——全球三大洲包装工厂的信赖之选。',
   },
   {
     image: 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg',
