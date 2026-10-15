@@ -8,6 +8,7 @@ const INQUIRY_ANCHOR = '/#inquiry';
 const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 
 const navLinks = [
+  { key: 'nav_home', href: '/' },
   { key: 'nav_products', href: '/#products' },
   { key: 'nav_about', href: '/#about' },
   { key: 'nav_insights', href: '/insights' },
@@ -23,6 +24,16 @@ export default function Navbar() {
 
   const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     setMenuOpen(false);
+    if (href === '/') {
+      event.preventDefault();
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+      return;
+    }
     if (!href.startsWith('/#')) {
       event.preventDefault();
       navigate(href);

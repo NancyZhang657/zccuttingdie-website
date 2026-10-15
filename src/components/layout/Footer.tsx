@@ -63,6 +63,15 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
+                <Link
+                  to="/"
+                  className="hover:underline transition-colors"
+                  style={{ color: 'var(--text-secondary-dark)' }}
+                >
+                  {t.nav_home}
+                </Link>
+              </li>
+              <li>
                 <a
                   href="/#products"
                   className="hover:underline transition-colors"
