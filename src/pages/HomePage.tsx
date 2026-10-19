@@ -41,13 +41,13 @@ export default function HomePage() {
     <main style={{ paddingTop: '72px' }}>
       <Hero />
       <ProductCategories />
-      <CompanyStory />
+      <SandwichDieSpotlight />
       <EquipmentCompatibility />
       <WhyChooseUs />
-      <SandwichDieSpotlight />
+      <CompanyStory />
+      <CompanyAbout />
       <GlobalClients />
       <Testimonials />
-      <CompanyAbout />
       <InquiryCTA />
       <HomeInquiryForm />
       <ContactSection />
