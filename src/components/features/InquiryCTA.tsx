@@ -12,6 +12,7 @@ export default function InquiryCTA() {
       className="relative py-24 px-6 text-center overflow-hidden"
       style={{ background: 'var(--surface-light)' }}
       data-component="InquiryCTA"
+      id="contact"
     >
       {/* Subtle background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

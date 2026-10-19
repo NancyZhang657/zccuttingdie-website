@@ -10,10 +10,10 @@ export default function ContactSection() {
 
   return (
     <section
-      className="py-20 px-6 text-center"
+      className="py-20 px-6"
       style={{ background: 'var(--surface-light)' }}
       data-component="ContactSection"
-      id="contact"
+      id="contact-info"
     >
       <div className="max-w-2xl mx-auto">
         <p className="section-label mb-4 flex items-center justify-center gap-3" style={{ color: 'var(--accent)' }}>
