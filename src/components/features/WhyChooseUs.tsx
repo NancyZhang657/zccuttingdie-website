@@ -3,10 +3,10 @@ import SectionHeading from '../common/SectionHeading';
 import { useLang } from '../../lib/useLang';
 
 // Real factory / product photos (no stock images)
-const factoryImg = '/assets/images/homepage-precision-factory-detail.jpg';
-const assemblyImg = '/assets/images/hot-stamping-packaging-applications-latest.jpg';
-const qcImg = '/assets/images/homepage-qc-inspection-detail.jpg';
-const dieImg = '/assets/images/homepage-national-patents-showcase-final.jpg';
+const factoryImg = '/assets/images/homepage-precision-factory-detail.webp';
+const assemblyImg = '/assets/images/hot-stamping-packaging-applications-latest.webp';
+const qcImg = '/assets/images/homepage-qc-inspection-detail.webp';
+const dieImg = '/assets/images/homepage-national-patents-showcase-final.webp';
 
 export default function WhyChooseUs() {
   const { t } = useLang();

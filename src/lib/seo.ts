@@ -107,7 +107,7 @@ export function buildSiteSchema() {
         name: 'Jinan Zhongcheng Precision Mould',
         alternateName: 'Zhongcheng Cutting Die',
         url: `${SITE_ORIGIN}/`,
-        logo: absoluteUrl('/assets/images/zhongcheng-logo-transparent-white.png'),
+        logo: absoluteUrl('/assets/images/zhongcheng-logo-transparent-white.webp'),
       },
       {
         '@type': 'WebSite',
@@ -140,7 +140,7 @@ export function buildBreadcrumbSchema({
         name: 'Jinan Zhongcheng Precision Mould',
         alternateName: 'Zhongcheng Cutting Die',
         url: `${SITE_ORIGIN}/`,
-        logo: absoluteUrl('/assets/images/zhongcheng-logo-transparent-white.png'),
+        logo: absoluteUrl('/assets/images/zhongcheng-logo-transparent-white.webp'),
       },
       {
         '@type': 'BreadcrumbList',

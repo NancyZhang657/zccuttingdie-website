@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import globalMapImg from '../../assets/images/global-clients-map.jpg';
+import globalMapImg from '../../assets/images/global-clients-map.webp';
 import SectionHeading from '../common/SectionHeading';
 
 const clients = ['RR DONNELLEY', 'YUTO GROUP', 'SHENGTONG PACKAGING', 'GLOBAL PRINTING'];

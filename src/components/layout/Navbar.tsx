@@ -2,7 +2,7 @@
 import { MessageCircle, Globe } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLang } from '../../lib/useLang';
-import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.png';
+import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.webp';
 
 const INQUIRY_ANCHOR = '/#inquiry';
 const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';

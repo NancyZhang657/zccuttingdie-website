@@ -1,4 +1,4 @@
-const factoryImg = '/assets/images/factory-building-exterior.jpg';
+const factoryImg = '/assets/images/factory-building-exterior.webp';
 import SectionHeading from '../common/SectionHeading';
 
 const stats = [

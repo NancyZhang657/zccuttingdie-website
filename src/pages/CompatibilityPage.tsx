@@ -20,7 +20,7 @@ import { updatePageMeta, buildBreadcrumbSchema } from '../lib/seo';
 import { trackEvent } from '../lib/analytics';
 import { products, WHATSAPP_URL } from '../data/products';
 import SectionHeading from '../components/common/SectionHeading';
-import equipWorkshopBg from '../assets/images/equipment-workshop.jpg';
+import equipWorkshopBg from '../assets/images/equipment-workshop.webp';
 
 const INQUIRY_API_URL = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiries';
 const ACCEPTED_FILE_TYPES = '.dxf,.dwg,.ai,.pdf,.cdr,.step,.stp,.zip,.rar,.png,.jpg,.jpeg';

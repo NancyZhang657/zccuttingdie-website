@@ -1,4 +1,4 @@
-﻿import inquiryBg from '../../assets/images/inquiry-cta-bg.jpg';
+﻿import inquiryBg from '../../assets/images/inquiry-cta-bg.webp';
 import { useLang } from '../../lib/useLang';
 
 const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';

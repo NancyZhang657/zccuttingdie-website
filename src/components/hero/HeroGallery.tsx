@@ -4,7 +4,7 @@ import { useLang } from '../../lib/useLang';
 
 const slides = [
   {
-    image: 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg',
+    image: '/assets/images/hero-slide-3.webp',
     labelEn: 'Our Factory',
     titleEn: '3,500 m² Precision Manufacturing Facility',
     subEn: 'Built in Jinan, Shandong — producing die-cutting tools for global packaging plants since 1997.',
@@ -13,7 +13,7 @@ const slides = [
     subZh: '坐落于山东济南，自1997年起为全球包装企业生产模切工具。',
   },
   {
-    image: 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg',
+    image: '/assets/images/hero-slide-2.webp',
     labelEn: 'Precision Assembly',
     titleEn: 'Every Die Assembled by Hand',
     subEn: 'Ejection rubber precisely placed by our skilled technicians — no shortcuts, no compromises.',
@@ -22,7 +22,7 @@ const slides = [
     subZh: '弹力胶条由熟练技术工人逐一精准安装，零妥协，零捷径。',
   },
   {
-    image: 'https://sc04.alicdn.com/kf/A6d1184c19bb34453927f5a9490c580ee1.jpg',
+    image: '/assets/images/hero-slide-1.webp',
     labelEn: 'Quality Control',
     titleEn: 'Verified Before Every Shipment',
     subEn: '5–10 QC inspectors check each die against specification. Zero unplanned downtime — guaranteed.',
@@ -50,7 +50,7 @@ export default function HeroGallery() {
 
   return (
     <section
-      className="hero-gallery relative overflow-hidden"
+      className="relative overflow-hidden"
       style={{ height: '480px' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

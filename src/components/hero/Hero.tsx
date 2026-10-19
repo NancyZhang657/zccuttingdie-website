@@ -19,7 +19,7 @@ type HeroSlide = {
 
 const slides: HeroSlide[] = [
   {
-    image: 'https://sc04.alicdn.com/kf/A6d1184c19bb34453927f5a9490c580ee1.jpg',
+    image: '/assets/images/hero-slide-1.webp',
     objectPosition: '70% center',
     labelEn: 'Est. 1997 · Jinan, China',
     labelZh: '创立于1997年 · 中国济南',
@@ -29,7 +29,7 @@ const slides: HeroSlide[] = [
     subZh: '三明治刀模、清废工具、分盒工具及电雕版，精准适配 BOBST、海德堡、长荣MK、三和、旭恒ETERNA——全球三大洲包装工厂的信赖之选。',
   },
   {
-    image: 'https://sc04.alicdn.com/kf/Af48914e40109426d8a81a6cfaaa34cd93.jpg',
+    image: '/assets/images/hero-slide-2.webp',
     objectPosition: '70% center',
     labelEn: 'Precision & Innovation',
     labelZh: '精密与创新',
@@ -39,7 +39,7 @@ const slides: HeroSlide[] = [
     subZh: '每一套刀模，手工精装，逐一核验。',
   },
   {
-    image: 'https://sc04.alicdn.com/kf/A682f3864e4c8452c980ab05b8b838acav.jpg',
+    image: '/assets/images/hero-slide-3.webp',
     objectPosition: '3.5% 45%',
     backgroundSize: '109%',
     labelEn: 'Quality Control',
@@ -74,7 +74,7 @@ export default function Hero() {
       overflow-hidden clips the images cleanly.
     */
     <section
-      className="hero-section relative overflow-hidden"
+      className="relative overflow-hidden"
       style={{ height: '560px', maxWidth: '1280px', margin: '0 auto', width: '100%' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -91,10 +91,10 @@ export default function Hero() {
           {/* Left dark base */}
           <div className="absolute inset-0" style={{ background: '#0E0D0C' }} />
           {/* Photo starts at 25% so gradient has real image content to blend over */}
-            <div
-              role="img"
-              aria-label={lang === 'zh' ? s.titleZh : s.titleEn}
-              className="hero-slide-photo absolute top-0 bottom-0 right-0"
+          <div
+            role="img"
+            aria-label={lang === 'zh' ? s.titleZh : s.titleEn}
+            className="absolute top-0 bottom-0 right-0"
             style={{
               left: '25%',
               backgroundImage: `url(${s.image})`,
@@ -105,7 +105,7 @@ export default function Hero() {
           />
           {/* Gradient over photo — from solid dark (left) fading to transparent (right) */}
           <div
-            className="hero-slide-gradient absolute top-0 bottom-0"
+            className="absolute top-0 bottom-0"
             style={{
               left: '20%',
               width: '45%',

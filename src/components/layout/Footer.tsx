@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { useLang } from '../../lib/useLang';
-import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.png';
+import LOGO_URL from '../../assets/zhongcheng-logo-transparent-white.webp';
 import { products } from '../../data/products';
 
 const PHONE = '+8613402211941';

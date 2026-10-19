@@ -1,7 +1,7 @@
 ﻿import { motion } from 'framer-motion';
 import { useLang } from '../../lib/useLang';
 
-const factoryImg = '/assets/images/company-story-workshop.jpg';
+const factoryImg = '/assets/images/company-story-workshop.webp';
 
 const WHATSAPP_CONTACT = 'https://wa.me/8613402211941';
 

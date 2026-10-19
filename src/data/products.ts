@@ -1,4 +1,4 @@
-export interface ProductSpec {
+﻿export interface ProductSpec {
   key: string; // English label
   keyZh: string; // Chinese label
   value: string; // English value
@@ -29,10 +29,10 @@ export const products: Product[] = [
     descriptionZh:
       '定制三明治刀模，适用于烟盒、烟草双开翻盖包装、药板盒、医药及化妆品盒、挂钩、灯笼及各类通用包装。以木板、切割钢刀与弹力橡胶构成夹层结构，按客户图稿精密制作，切口锋利洁净，适用于夹层/异形盒成型。',
     images: [
-      '/assets/images/sandwich-detail-1-refined.jpg',
-      '/assets/images/sandwich-detail-3-tight.jpg',
-      '/assets/images/sandwich-detail-2-brass-tight.jpg',
-      '/assets/images/sandwich-detail-4.png',
+      '/assets/images/sandwich-detail-1-refined.webp',
+      '/assets/images/sandwich-detail-3-tight.webp',
+      '/assets/images/sandwich-detail-2-brass-tight.webp',
+      '/assets/images/sandwich-detail-4.webp',
     ],
     specs: [
       {
@@ -86,10 +86,10 @@ export const products: Product[] = [
     descriptionZh:
       '定制木板刀模（钢线平压刀模），以多层木板配精密钢刀线制作，适用于纸箱、瓦楞纸箱、纸盒、吊牌、皮革工艺、布艺配件及拼图等模切。形状与厚度完全可定制，适配柔版纸箱模切机及包装生产线。',
     images: [
-      'https://sc04.alicdn.com/kf/H4b85cc9ee4bd458c9f518d3baa94fe4cX.jpg',
-      'https://sc04.alicdn.com/kf/Hf674cde346b54c2bb492eef9e656d6f9e.jpg',
-      'https://sc04.alicdn.com/kf/Ha65df70cbe6e443a8d78dc5ebe2f63c28.jpg',
-      'https://sc04.alicdn.com/kf/Hbb521f9685bf4e088314be10c47cb311k.jpg',
+      '/assets/images/wooden-detail-1.webp',
+      '/assets/images/wooden-detail-2.webp',
+      '/assets/images/wooden-detail-3.webp',
+      '/assets/images/wooden-detail-4.webp',
     ],
     specs: [
       {
@@ -141,17 +141,17 @@ export const products: Product[] = [
     descriptionZh:
       '尺寸可定制的钢底模，用于三明治刀模模切机，是包装盒压痕与冲切工具的背板/底模。淬硬钢板与三明治刀模精准匹配，保证清晰压痕线并延长使用寿命。',
     images: [
-      '/assets/images/steel-detail-1.jpg',
-      '/assets/images/steel-detail-2.jpg',
-      '/assets/images/steel-detail-3.jpg',
-      '/assets/images/steel-detail-4.jpg',
+      '/assets/images/steel-detail-1.webp',
+      '/assets/images/steel-detail-2.webp',
+      '/assets/images/steel-detail-3.webp',
+      '/assets/images/steel-detail-4.webp',
     ],
     specs: [
       {
         key: 'Material',
         keyZh: '材质',
-        value: 'Hardened steel plate (42-52 HRC; thickness 1.0mm/1.2mm/1.5mm)',
-        valueZh: '淬硬钢板（42-52 HRC；厚度可选1.0mm/1.2mm/1.5mm）',
+        value: 'Hardened steel plate',
+        valueZh: '淬硬钢板',
       },
       {
         key: 'Size',
@@ -169,7 +169,7 @@ export const products: Product[] = [
         key: 'Compatible Machines',
         keyZh: '适配机型',
         value: 'Die cutting machine or press machine or various die cutting platforms',
-        valueZh: '三明治刀模模切机（BOBST、长荣MK、海德堡、旭恒等平台）',
+        valueZh: '三明治刀模模切机（BOBST类平台）',
       },
     ],
     highlights: [
@@ -196,10 +196,10 @@ export const products: Product[] = [
     descriptionZh:
       '用于模切的树脂（酚醛）底模——安装在刀模下方的耐用树脂垫板/压痕底膜。轻便易操作，适用于手动模切机、工业模切工具及包装生产。尺寸与厚度可定制，与钢线刀模压痕底膜精准匹配。',
     images: [
-      '/assets/images/pertinax-detail-1.jpg',
-      '/assets/images/pertinax-detail-2.jpg',
-      '/assets/images/pertinax-detail-3.jpg',
-      '/assets/images/pertinax-detail-4-clean.png',
+      '/assets/images/pertinax-detail-1.webp',
+      '/assets/images/pertinax-detail-2.webp',
+      '/assets/images/pertinax-detail-3.webp',
+      '/assets/images/pertinax-detail-4-clean.webp',
     ],
     specs: [
       {
@@ -251,10 +251,10 @@ export const products: Product[] = [
     descriptionZh:
       '用于清除模切纸盒内孔废料的清废工具。手动与气动两种版本，模切后快速清除内部废料——清洁、低噪音、高速运转，适用于礼盒、食品包装盒及通用纸盒生产线。',
     images: [
-      '/assets/images/stripping-detail-1-tight.jpg',
-      '/assets/images/stripping-detail-2-tight.jpg',
-      '/assets/images/stripping-detail-3-tight.jpg',
-      '/assets/images/stripping-detail-4-tight.jpg',
+      '/assets/images/stripping-detail-1-tight.webp',
+      '/assets/images/stripping-detail-2-tight.webp',
+      '/assets/images/stripping-detail-3-tight.webp',
+      '/assets/images/stripping-detail-4-tight.webp',
     ],
     specs: [
       {
@@ -306,10 +306,10 @@ export const products: Product[] = [
     descriptionZh:
       '工业级分盒工具，将模切纸盒与废料分离并清除内部废料——重型、易操作，适用于包装生产。气动与自动机型可高速将盒坯与纸板骨架分离，支持食品包装及纸/塑等多材质应用。',
     images: [
-      '/assets/images/blanking-tools-detail-1-refined.jpg',
-      '/assets/images/blanking-tools-bottom-pharma.jpg',
-      '/assets/images/blanking-tools-detail-3.jpg',
-      '/assets/images/blanking-tools-top-2.png',
+      '/assets/images/blanking-tools-detail-1-refined.webp',
+      '/assets/images/blanking-tools-bottom-pharma.webp',
+      '/assets/images/blanking-tools-detail-3.webp',
+      '/assets/images/blanking-tools-top-2.webp',
     ],
     specs: [
       {
@@ -363,10 +363,10 @@ export const products: Product[] = [
     descriptionZh:
       '黄铜、铝、镁板材质的烫金压纹版——定制Logo雕刻版，用于皮革、纸张、布料、礼盒、烟包及化妆品盒的烫金。精密雕刻版每次运转都能呈现清晰的烫印与压凸效果。',
     images: [
-      '/assets/images/hot-stamping-detail-1-finishes-balanced.jpg',
-      '/assets/images/hot-stamping-detail-2-samples.jpg',
-      '/assets/images/hot-stamping-packaging-applications-latest.jpg',
-      '/assets/images/hot-stamping-detail-3-embossed-applications.jpg',
+      '/assets/images/hot-stamping-detail-1-finishes-balanced.webp',
+      '/assets/images/hot-stamping-detail-2-samples.webp',
+      '/assets/images/hot-stamping-packaging-applications-latest.webp',
+      '/assets/images/hot-stamping-detail-3-embossed-applications.webp',
     ],
     specs: [
       {
@@ -418,8 +418,8 @@ export const products: Product[] = [
     descriptionZh:
       '用于包装盒、瓦楞纸箱及礼盒Logo与图案雕刻的雕刻刀/雕刻刀具。高硬度CNC铣削刀片，尺寸可定制，提供多规格刀片套装、单支刀片或钢线刀模配件，适用于工艺与包装领域的精密雕刻切割。',
     images: [
-      '/assets/images/engraving-die-detail-new-main-tight.jpg',
-      '/assets/images/engraving-die-detail-2-final-grid.jpg',
+      '/assets/images/engraving-die-detail-new-main-tight.webp',
+      '/assets/images/engraving-die-detail-2-final-grid.webp',
     ],
     specs: [
       {
@@ -443,7 +443,7 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Die cutting machine or press machine or various die-cutting platforms',
+        value: 'Die cutting machine or press machine or various die cutting platforms',
         valueZh: '刀模制作/模切配件',
       },
     ],
@@ -471,10 +471,10 @@ export const products: Product[] = [
     descriptionZh:
       '刀模制作材料与设备——用于光学膜、印刷纸、纸板、标签、贴纸、皮革、皮带、铆钉、鸡眼扣及缝制补丁打孔的精密钢制管冲与弹簧冲。镜面抛光钢结构，适用于激光切割及精密打孔应用。',
     images: [
-      '/assets/images/die-making-materials-detail-2.jpg',
-      '/assets/images/die-making-materials-detail-3.jpg',
-      '/assets/images/die-making-materials-detail-4.jpg',
-      '/assets/images/die-making-materials-detail-5.jpg',
+      '/assets/images/die-making-materials-detail-2.webp',
+      '/assets/images/die-making-materials-detail-3.webp',
+      '/assets/images/die-making-materials-detail-4.webp',
+      '/assets/images/die-making-materials-detail-5.webp',
     ],
     specs: [
       {

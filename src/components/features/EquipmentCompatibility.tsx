@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import equipBg from '../../assets/images/equipment-workshop.jpg';
+import equipBg from '../../assets/images/equipment-workshop.webp';
 import SectionHeading from '../common/SectionHeading';
 import { useLang } from '../../lib/useLang';
 
