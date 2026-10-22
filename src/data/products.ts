@@ -325,8 +325,8 @@ export const products: Product[] = [
       {
         qEn: 'Can Pertinax counter plates be reused for repeat orders?',
         qZh: '树脂底模是否支持翻单重复使用？',
-        aEn: 'Yes. With proper workshop cleaning and flat storage away from direct moisture, Pertinax plates can be remounted multiple times with consistent registration.',
-        aZh: '完全可以。车间只需在下机后清理槽内纸屑并在避光防潮环境下平整存放，翻单时即可重新快速装机定位使用，保持稳定的套准精度。'
+        aEn: 'Yes. When Pertinax is positioned on the steel plate, it should be laid flat and stored in a properly cleaned workshop, avoiding direct contact with moisture, to maintain consistent alignment for future use. If Pertinax is removed from the steel plate, it cannot be used again.',
+        aZh: '可以。当树脂底模贴合在钢板上定位好后，应保持平整存放于清洁干燥、避免受潮的车间环境中，翻单时即可直接装机保持精准套准；但如果将树脂底模从钢板上撕下拆卸，则无法再次重复使用。'
       }
     ]
   },
