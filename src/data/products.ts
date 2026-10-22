@@ -169,8 +169,8 @@ export const products: Product[] = [
       {
         qEn: 'When is a wooden laser die the best choice for packaging converters?',
         qZh: '激光木板模最适合什么样的包装印刷订单？',
-        aEn: 'Wooden laser dies (±0.1mm tolerance) are the most cost-effective choice for short and medium runs under 500,000 cartons, fast prototyping, and general corrugated carton die-cutting.',
-        aZh: '激光木板模（±0.1mm 公差）是 50 万盒以内的中小批量短版订单、快速打样验证以及常规瓦楞纸箱模切极具性价比的经济选择。'
+        aEn: 'Wooden laser dies (±0.1mm tolerance) are the most cost-effective choice for short and medium runs under 500,000 cartons, fast prototyping, and general corrugated carton and cardboard die-cutting.',
+        aZh: '激光木板模（±0.1mm 公差）是 50 万盒以内的中小批量短版订单、快速打样验证以及常规瓦楞纸箱与卡纸板模切极具性价比的经济选择。'
       },
       {
         qEn: 'Does Zhongcheng custom-engineer dies for specific machine chaser dimensions?',
