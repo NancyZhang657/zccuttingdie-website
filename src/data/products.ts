@@ -319,8 +319,8 @@ export const products: Product[] = [
       {
         qEn: 'How does Pertinax compare with hardened steel counter plates?',
         qZh: '树脂底模与淬硬钢底模相比有什么特点与优势？',
-        aEn: 'Pertinax offers rapid CNC milling turn-around (2–3 days), lower initial tooling cost, and high groove accuracy (±0.05mm), making it ideal for medium-to-long runs up to 1,000,000 impressions.',
-        aZh: '树脂底模具有加工周期极快（2–3 天交期）、初始投入成本低、铣槽精度高（±0.05mm）等优势，是 100 万压以内中长版高精包装订单极具性价比的底模方案。'
+        aEn: 'Pertinax offers rapid CNC milling turn-around (2–3 days), lower initial tooling cost, and high groove accuracy (±0.05mm), making it ideal for medium-to-long runs up to 100,000 impressions.',
+        aZh: '树脂底模具有加工周期极快（2–3 天交期）、初始投入成本低、铣槽精度高（±0.05mm）等优势，是 10 万压以内中长版高精包装订单极具性价比的底模方案。'
       },
       {
         qEn: 'Can Pertinax counter plates be reused for repeat orders?',
