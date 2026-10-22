@@ -469,10 +469,10 @@ export const products: Product[] = [
         aZh: '动态分盒模具能够在模切机全清废分盒工位上，将多联排版中的成品盒坯自动与废边骨架分离，整齐码放成叠并直接输出，大幅节省后道人工撕边成本。'
       },
       {
-        qEn: 'What precision tolerance is maintained on blanking grids?',
-        qZh: '分盒模具的网格对齐公差是多少？',
-        aEn: 'Our upper pushers and lower universal/dedicated grid bars are CNC-machined to ±0.1mm grid tolerance, preventing carton edge scuffing or tab snagging.',
-        aZh: '上模推块与下模专用金属网格均采用高精数控加工，网格尺寸公差严控在 ±0.1mm 以内，杜绝盒片边缘刮花或折翼勾挂卡顿。'
+        qEn: 'What precision tolerance is maintained on blanking tools?',
+        qZh: '动态分盒模具的加工精度与公差标准是多少？',
+        aEn: 'Our upper and lower tools are processed by CNC machines with tolerances controlled within ±0.1 millimeters, effectively preventing scratches or snags on the edges of the paper box and ensuring that the box can easily fall and align properly.',
+        aZh: '我们的上模与下模均采用高精 CNC 数控加工，公差严控在 ±0.1mm 以内，有效防止纸盒边缘刮花或勾挂卡顿，确保盒坯高速顺畅滑落、整齐对齐码放。'
       },
       {
         qEn: 'What lead time and machine specifications are needed for order placement?',
