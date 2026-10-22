@@ -134,6 +134,14 @@ const ARTICLE_META: Record<string, { title: string; description: string }> = {
     title: 'Sandwich Die vs. Wooden Laser Die Selection Guide | Zhongcheng',
     description: 'Engineering matrix comparing dimensional stability, machine speed limits, re-ruling capability, and cost-per-thousand between sandwich and wooden dies.',
   },
+  'automatic-flatbed-die-cutting-troubleshooting-matrix-nicking-stripping': {
+    title: 'Troubleshooting Automatic Flatbed Die-Cutting Issues | Zhongcheng',
+    description: 'Shop-floor guide to fix board cracking, nicking failures and stripping jams on BOBST, Heidelberg, Dayuan, Guowang and ETERNA presses.',
+  },
+  'preventing-die-board-warping-high-speed-sandwich-die-roi-guide': {
+    title: 'Preventing Die Board Warping at High Speed: ROI & Sandwich Die Guide | Zhongcheng',
+    description: 'Why wooden dies warp at 6,000-9,000 cuts/hr and how resin/carbon sandwich dies deliver ±0.05mm tolerance, 5-10 re-rules and 40%+ cost savings.',
+  },
 };
 
 function escapeHtml(value: string) {

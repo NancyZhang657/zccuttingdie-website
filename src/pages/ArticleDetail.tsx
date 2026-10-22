@@ -6,7 +6,8 @@ import {
   ArrowLeft, 
   ArrowRight, 
   Share2, 
-  MessageCircle
+  MessageCircle,
+  HelpCircle
 } from 'lucide-react';
 import { useLang } from '../lib/useLang';
 import { updatePageMeta, buildBreadcrumbSchema } from '../lib/seo';
@@ -32,6 +33,18 @@ export default function ArticleDetail() {
     const titleText = isZh ? `${article.titleZh} | 众诚刀模技术中心` : `${article.title} | Zhongcheng Cutting Die`;
     const descText = isZh ? article.excerptZh : article.excerpt;
 
+    const faqSchema = article.faqs && article.faqs.length > 0 ? {
+      '@type': 'FAQPage',
+      'mainEntity': article.faqs.map(f => ({
+        '@type': 'Question',
+        'name': isZh ? f.qZh : f.qEn,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': isZh ? f.aZh : f.aEn
+        }
+      }))
+    } : null;
+
     updatePageMeta({
       title: titleText,
       description: descText,
@@ -51,13 +64,14 @@ export default function ArticleDetail() {
             headline: isZh ? article.titleZh : article.title,
             description: isZh ? article.excerptZh : article.excerpt,
             datePublished: '2026-09-15',
-            dateModified: '2026-10-14',
+            dateModified: '2026-10-20',
             publisher: {
               '@type': 'Organization',
               name: 'Jinan Zhongcheng Precision Mould Co., Ltd.',
               url: 'https://zccuttingdie.com'
             }
-          }
+          },
+          ...(faqSchema ? [faqSchema] : [])
         ]
       }
     });
@@ -225,8 +239,38 @@ export default function ArticleDetail() {
             ))}
           </div>
 
-          {/* Back to Insights button */}
-          <div className="mt-16 pt-8 border-t border-[var(--border-dark)] flex items-center justify-between">
+            {/* FAQ Section if present */}
+            {article.faqs && article.faqs.length > 0 && (
+              <div className="mt-14 pt-8 border-t border-[var(--border-dark)] space-y-6">
+                <div className="flex items-center gap-2.5">
+                  <HelpCircle size={20} className="text-[var(--accent)]" />
+                  <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary-dark)' }}>
+                    {isZh ? '常见技术与选型问答 (FAQ)' : 'Frequently Asked Questions (FAQ)'}
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  {article.faqs.map((faq, fIdx) => (
+                    <div
+                      key={fIdx}
+                      className="p-5 rounded-lg border border-[var(--border-light)] transition-all"
+                      style={{ background: 'var(--surface-mid)' }}
+                    >
+                      <h4 className="text-sm md:text-base font-bold text-[var(--accent)] mb-2 flex items-start gap-2">
+                        <span className="font-mono text-xs px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] mt-0.5">Q{fIdx + 1}</span>
+                        <span>{isZh ? faq.qZh : faq.qEn}</span>
+                      </h4>
+                      <p className="text-xs md:text-sm leading-relaxed text-[var(--text-secondary-dark)] pl-7">
+                        {isZh ? faq.aZh : faq.aEn}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Back to Insights button */}
+            <div className="mt-16 pt-8 border-t border-[var(--border-dark)] flex items-center justify-between">
             <Link
               to="/insights"
               className="inline-flex items-center gap-2 text-xs font-bold text-[var(--text-secondary-dark)] hover:text-[var(--accent)] transition-colors"

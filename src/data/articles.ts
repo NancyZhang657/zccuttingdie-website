@@ -26,6 +26,12 @@ export interface Article {
   excerptZh: string;
   coverImage?: string;
   relatedProductSlugs: string[];
+  faqs?: {
+    qEn: string;
+    qZh: string;
+    aEn: string;
+    aZh: string;
+  }[];
   sections: ArticleSection[];
 }
 
@@ -355,12 +361,12 @@ export const ARTICLES: Article[] = [
         content: [
           '1. Preventive Early First Re-Ruling: For a die rated at 2,000,000 impressions, perform the very first rule replacement earlier at approximately 1,000,000 impressions (around 50% life). Changing rules before severe blade wear prevents operators from overloading machine pressure, protecting the precision guiding channels in pristine condition for subsequent re-rulings.',
           '2. Dedicated Single-Press Pairing (专模专机): Always mount and run the die on the same dedicated machine. Different presses exhibit subtle physical variations in platen levelness, tonnage distribution, and bed wear. Repeatedly switching dies across different machines causes uneven stress fatigue on the frame.',
-          '3. Progressive Make-Ready Patching at 65%–80% Depth: Never overload total press tonnage to force a cut. Begin fine make-ready tissue patching when the test sheet is cut to 65%–80% depth. Targeted patching at this stage achieves a 100% clean cut with minimal overall tonnage, preserving cutting rules and sandwich core integrity.'
+          '3. Progressive Pressure Compensation at 65%–80% Penetration Depth: Never overload total press tonnage to force a cut. Begin fine make-ready tissue patching for die pressure compensation when blade penetration depth reaches 65%–80%. Targeted compensation at this stage achieves a 100% clean cut with minimal overall tonnage, preserving cutting rules and sandwich core integrity.'
         ],
         contentZh: [
           '1. 首次提前换刀养护法：正常设计寿命 200 万压的模具，建议在第一次达到约 100 万压（约 50% 额定寿命）时进行首次换刀。在刀刃尚未严重钝化前换上新刀，可避免操作工因刀钝而盲目加大机台总压力，从而将金属导向槽的精度完美保护在出厂状态，为后续多次换刀奠定坚实基础。',
           '2. 专模专机固定使用：尽量固定在同一台模切机上重复上机生产。不同机台在使用年限、底板平整度及压力分布上存在微小物理差异；在不同设备间频繁倒模会因调压基准不同导致模框承受多向应力疲劳。',
-          '3. 65%–80% 深度科学补压手法：严禁靠盲目加大整机总压来强行切穿。当测试样张切入深度达到 65%–80%（尚未完全切透）时，即应开始精细局部垫纸补压，以最小的机台冲压力达到 100% 干净切断，最大程度保护刀刃寿命与模框夹层。'
+          '3. 刀片穿透深度达到 65%–80% 时进行模具的压力补偿：严禁靠盲目加大整机总压来强行切穿。当刀片穿透深度达到 65%–80%（尚未完全切透）时，即应开始精细局部垫纸进行模具压力补偿，以最小的机台冲压力达到 100% 干净切断，最大程度保护刀刃寿命与模框夹层。'
         ]
       },
       {
@@ -438,6 +444,204 @@ export const ARTICLES: Article[] = [
         contentZh: [
           '选用激光木板模：适用于季节性包装、短版及单批次 50 万盒以内的中小批量订单，以及版面经常迭代改版、对公差要求在标准范围内的常规纸箱纸盒场景。',
           '选用三明治模：适用于 50 万至数百万盒的长版高频翻单、高速自动化包装产线，或对精细度、折痕直角度有严苛要求（±0.05mm 微公差）、激光木板模具精度无法达到的卷烟、医药、高端化妆品及食品包装产品。'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'automatic-flatbed-die-cutting-troubleshooting-matrix-nicking-stripping',
+    category: 'tech-guide',
+    tag: 'SHOP-FLOOR TROUBLESHOOTING',
+    tagZh: '车间排障实战',
+    title: 'Troubleshooting Automatic Flatbed Die-Cutting: Creasing Matrix Cracking, Nicking Failures & Stripping Jams',
+    titleZh: '全自动平压平模切机常见故障排障全指南：压痕爆线、连点脱落与清废卡纸的根源解决办法',
+    date: 'October 20, 2026',
+    readTime: '8 min read',
+    excerpt: 'A shop-floor engineering guide for packaging operators to diagnose and fix board cracking, erratic carton ejection, and stripping jams on BOBST, Heidelberg, ETERNA, Dayuan & Guowang high-speed automatic die-cutters running up to 9,000 cuts/hr.',
+    excerptZh: '直击包装印刷车间一线痛点，深度排查压痕爆线、连点散包、清废卡纸三大核心故障，适配 BOBST、海德堡、旭恒、大源、国望等高速模切机（最高 9,000 压/小时）的精准参数解决方案。',
+    relatedProductSlugs: ['sandwich-die', 'steel-counter-plate', 'stripping-tools', 'blanking-tools'],
+    faqs: [
+      {
+        qEn: 'How to prevent carton board cracking along the crease line during folding?',
+        qZh: '如何防止纸盒在糊盒折叠过程中沿压痕线爆裂破损？',
+        aEn: 'Ensure accurate creasing matrix sizing: calculate groove width as (Board Caliper × 1.5 + Creasing Rule Thickness). For high-speed production, milled steel counter plates (±0.05mm tolerance) or Pertinax counter plates eliminate localized stress concentrations that cause cracking.',
+        aZh: '精准匹配压痕槽宽度公式：槽宽 = 板厚 × 1.5 + 压痕线厚度。针对高速长版产线，采用微铣公差 ±0.05mm 的淬硬钢底模或高精树脂底模，可彻底消除局部应力不均导致的爆线破损。'
+      },
+      {
+        qEn: 'What is the optimal nicking size for automatic high-speed pharmaceutical cartoning lines?',
+        qZh: '高速全自动医药包装装盒线上，刀模微连点（Nicking）的最佳打点尺寸是多少？',
+        aEn: 'For automatic cartoning machines operating at 400–650 cartons/min, CNC-machined nicks should be calibrated between 0.2mm and 0.50mm on cartons and boxes. This delivers adequate tensile strength during 6,000–9,000 cuts/hr die-cutting without jamming high-speed folder-gluers or cartoning pushers.',
+        aZh: '针对运行车速达 400–650 盒/分钟的高速全自动装盒线，数控 CNC 微连点宽度应精准控制在 0.2mm 至 0.50mm 之间。既能保证模切机 6,000–9,000 压/小时平稳走纸不散包，又能确保在装盒机推料入盒时顺畅无痕脱落。'
+      },
+      {
+        qEn: 'Does Zhongcheng tooling support Chinese die-cutting press brands like Dayuan, Guowang, and Huatai?',
+        qZh: '众诚模具是否支持国产主流模切机台（如大源、国望、华泰等）？',
+        aEn: 'Yes. Beyond global machines like BOBST, Heidelberg, Sanwa, and ETERNA, we 100% custom-engineer dies and dynamic stripping/blanking frames for leading Chinese presses including Dayuan (大源), Guowang (国望), and Huatai (华泰) to exact press drawings.',
+        aZh: '完全支持。除 BOBST、海德堡长荣、三和、旭恒等国际主流机台外，众诚 100% 支持大源（Dayuan）、国望（Guowang）、华泰（Huatai）等国产主流全自动模切机，根据设备模框图纸精准定制交付。'
+      }
+    ],
+    sections: [
+      {
+        heading: '1. Creasing Matrix Cracking: Root Cause Analysis & Caliper Formula',
+        headingZh: '一、 压痕爆线与折叠开裂：根本原因与纸张克重计算公式',
+        content: [
+          'Creasing cracking during automatic folding is one of the costliest quality failures in folding carton manufacturing. When folding carton flaps along score lines at high speed, fiber rupture occurs primarily due to incorrect groove width/depth ratios, low humidity in the board stock, or excessive total press pressure.',
+          'For solid bleached sulfate (SBS) and ivory board (80–2000 gsm), rule thickness and groove depth must follow rigorous engineering formulas rather than guesswork. For micro-flute corrugated board (up to 3mm, E/B-flute), standardizing on milled counter plates with ±0.05mm tolerance guarantees uniform crease definition across all impressions.',
+          'Zhongcheng supplies CNC-milled hardened steel counter plates (42–52 HRC, thickness 1.0/1.2/1.5mm) and high-density Pertinax matrix with ±0.05mm slot accuracy, ensuring zero delamination even under seasonal temperature and humidity swings.'
+        ],
+        contentZh: [
+          '在高速全自动糊盒与模切生产中，纸盒压痕折叠爆线是导致批次退货的主要质量隐患之一。在高速折叠折翼时，纸张纤维断裂主要源于压痕槽宽深比失调、车间温湿度骤变导致纸板含水率降低、或盲目调大机台总吨位。',
+          '对于 80–2000 gsm 的白卡纸、灰底白板纸，压痕线厚度与槽深必须依循严格的工程公式计算；对于 3mm 以内的微细瓦楞（E/B-flute），采用公差 ±0.05mm 的精密底模能够确保全版各联压痕深度高度一致。',
+          '众诚提供厚度 1.0mm / 1.2mm / 1.5mm、硬度 42–52 HRC 的淬硬钢底模及高密度树脂底模（Pertinax），微铣公差严控在 ±0.05mm，彻底杜绝爆线与纸张分层。'
+        ],
+        table: {
+          headers: ['Board Material & Caliper', 'Recommended Crease Rule', 'Counter Plate Matrix System', 'Tolerance Standard'],
+          headersZh: ['纸张材质与厚度/克重', '推荐压痕线规格', '底模与压痕系统选项', '加工公差标准'],
+          rows: [
+            ['Ivory Board (250–400 gsm)', '2 Pt (0.71mm) / Depth 0.3–0.70mm', 'Steel Counter Plate / Pertinax Counter Plate / Matrix', '±0.05mm Tolerance'],
+            ['Heavy Solid Board (600–2000 gsm)', '3 Pt (1.05mm) / Depth 0.70–1mm', 'Steel Counter Plate / Pertinax Counter Plate / Matrix', '±0.05mm Tolerance'],
+            ['E-Flute Corrugated (≤ 1.5mm)', '2 Pt / 3 Pt with Cushion Rubber', 'Steel Counter Plate / Pertinax Counter Plate / Matrix', '±0.05mm Tolerance'],
+            ['B-Flute Corrugated (1.5–3.0mm)', '3 Pt / 4 Pt with Profile Rubber', 'Steel Counter Plate / Pertinax Counter Plate / Matrix', '±0.05mm Tolerance']
+          ],
+          rowsZh: [
+            ['单铜白卡纸 (250–400 gsm)', '2 Pt (0.71mm) / 槽深 0.3–0.70mm', '钢底模 / 树脂底模 (Pertinax) / 压痕模', '±0.05mm 公差'],
+            ['重型卡纸板 (600–2000 gsm)', '3 Pt (1.05mm) / 槽深 0.70–1mm', '钢底模 / 树脂底模 (Pertinax) / 压痕模', '±0.05mm 公差'],
+            ['E 瓦楞纸板 (≤ 1.5mm)', '2 Pt / 3 Pt 配合高弹护刀胶条', '钢底模 / 树脂底模 (Pertinax) / 压痕模', '±0.05mm 公差'],
+            ['B 瓦楞纸板 (1.5–3.0mm)', '3 Pt / 4 Pt 配合异形高回弹胶条', '钢底模 / 树脂底模 (Pertinax) / 压痕模', '±0.05mm 公差']
+          ]
+        }
+      },
+      {
+        heading: '2. Nicking Failures & High-Speed Cartoning Line Synchronization',
+        headingZh: '二、 连点脱落与药盒高速全自动装盒机同步匹配',
+        content: [
+          'Automatic packaging plants face a constant trade-off: nicks that are too small cause sheet breakups during high-speed die-cutting press delivery (6,000–9,000 cuts/hr); nicks that are too large leave rough burrs or cause jams on pharmaceutical cartoning lines.',
+          'Modern automatic packaging lines running at 400–650 cartons/minute require ultra-precise nick profiles. Zhongcheng utilizes automated CNC nicking stations with micro-grinding optics to place nicks between 0.2mm and 0.50mm on carton and box.',
+          'This guarantees that blanks remain intact through high-speed sheet transfer yet separate cleanly with negligible opening force during automatic folder-gluing and cartoning.'
+        ],
+        contentZh: [
+          '全自动包装生产线经常面临两难矛盾：连点打得太细，在平压平模切机全速运行（6,000–9,000 压/小时）飞渡过程中容易散版卡纸；连点打得过粗，纸盒边缘会留下毛刺，甚至导致医药高速自动装盒机卡料停机。',
+          '在运行车速 400–650 盒/分钟的高速全自动包装线上，连点尺寸要求极其严苛。众诚采用数控 CNC 微打点与精密光学研磨技术，将连点宽度精准控制在 0.2mm 至 0.50mm 之间，精准适用于各类纸盒与包装彩盒。',
+          '这确保了模切走纸高速平稳，同时在下游高速糊盒与自动装盒入料时实现超低阻力顺畅脱落。'
+        ]
+      },
+      {
+        heading: '3. Dynamic Stripping & Blanking Jam Prevention',
+        headingZh: '三、 高速动态清废与分盒卡纸排障与避让设计',
+        content: [
+          'Stripping jams at speeds above 6,000 cuts/hr are typically caused by dynamic waste sheet drag, incorrect gripper margin clearance (standard 9mm–15mm), or improper stripping pin distribution.',
+          'Zhongcheng dynamic stripping tools and upper/lower blanking frames are designed as integrated sets with ±0.1mm grid precision. CAD interference checking guarantees smooth waste drop directly onto the lower conveyor without bounce-back.',
+          'Whether running on BOBST Novacut, Heidelberg Promatrix, Sanwa, ETERNA, or Chinese platforms like Dayuan, Guowang, and Huatai, our precision-engineered tools keep presses operating at maximum design speeds up to 9,000 cuts/hr.'
+        ],
+        contentZh: [
+          '在车速超过 6,000 压/小时的高速清废作业中，废料卡纸通常是由废料下坠动态阻滞、咬口避让余量（标准 9mm–15mm）干涉或清废针弹簧弹性衰减导致。',
+          '众诚全套动态清废与分盒模具采用上下模一体化联动设计，网格公差严控在 ±0.1mm。通过 CAD 1:1 动态落料干涉校验，确保废边垂直平稳滑落至废料输送带，防止反弹卡机。',
+          '无论是运行在 BOBST Novacut、海德堡 Promatrix、三和、旭恒，还是大源（Dayuan）、国望（Guowang）、华泰（Huatai）等国产设备上，均可保障设备满速稳定运转达 9,000 压/小时。'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'preventing-die-board-warping-high-speed-sandwich-die-roi-guide',
+    category: 'solutions',
+    tag: 'TOOLING ROI & LONGEVITY',
+    tagZh: '模具降本与投资回报',
+    title: 'Preventing Die Board Warping at High Speed: ROI, Re-Ruling Longevity & Machine Compatibility Guide for Sandwich Tooling',
+    titleZh: '高车速下如何避免模切板变形？BOBST、海德堡与国产高速机适配三明治模具的投资回报与换刀延寿测算',
+    date: 'October 20, 2026',
+    readTime: '7 min read',
+    excerpt: 'Why traditional wooden dies warp under high-speed repetitive stamping (6,000–9,000 cuts/hr) and how resin/carbon sandwich dies deliver ±0.05mm register tolerance, 5–10 re-ruling cycles, and 40%+ cost savings across 3–5 year lifespans.',
+    excerptZh: '深度解析高车速（6,000–9,000 压/小时）长版订单下木模微变形机理，对比树脂三明治与碳纤维三明治材质体系，详解 5–10 次换刀、3–5 年模框寿命、综合降本 40%+ 的真实投资回报模型。',
+    relatedProductSlugs: ['sandwich-die', 'steel-counter-plate', 'wooden-die'],
+    faqs: [
+      {
+        qEn: 'When should a packaging manufacturer switch from wooden dies to sandwich dies?',
+        qZh: '包装印刷企业在什么生产场景下应该从传统木板模升级为三明治刀模？',
+        aEn: 'Wooden dies (±0.1mm tolerance) are cost-effective for short/medium runs under 500,000 cartons. Sandwich dies (±0.05mm tolerance) are recommended for repeat long runs over 500,000 units, high-speed automated lines (6,000–9,000 cuts/hr), or high-precision cigarette, food, cosmetics and pharmaceutical packaging where warping causes downtime.',
+        aZh: '激光木板模（±0.1mm 公差）适用于 50 万盒以内的中小批量短版订单；而三明治刀模（±0.05mm 公差）强烈推荐用于 50 万盒以上高频翻单的长版长效订单、6,000–9,000 压/小时高速自动模切线，以及对精度要求极严的烟包、食品、化妆品和医药包装。'
+      },
+      {
+        qEn: 'How many times can a Zhongcheng sandwich die be re-ruled, and what are the actual cost savings?',
+        qZh: '一套众诚三明治刀模可以重复换刀多少次？能为工厂降低多少综合耗材成本？',
+        aEn: 'A Zhongcheng sandwich frame supports 5 to 10 knife replacements over a 3–5 year lifespan. Compared with remaking full wooden die boards for each repeat order, re-ruling the existing sandwich frame lowers total tooling procurement costs by over 40%.',
+        aZh: '一套众诚高刚性三明治模框支持重复换刀 5 至 10 次，模框服役寿命长达 3 至 5 年。相比每次翻单重新制作整套木模，仅更换刀线能够帮助工厂降低 40% 以上的综合刀模采购成本。'
+      },
+      {
+        qEn: 'What are the best maintenance practices to maximize sandwich die lifespan in the workshop?',
+        qZh: '车间日常操作中，有哪些延长三明治刀模服役寿命的关键技巧？',
+        aEn: '1) Perform the first re-ruling early around 1,000,000 impressions to protect the base slot; 2) Assign the die to a dedicated press to avoid uneven wear from machine platen variations; 3) Perform die pressure compensation (zone make-ready) when blade penetration reaches 65%–80% depth rather than blindly increasing total press tonnage.',
+        aZh: '1）在首次达到 100 万压左右提前换刀，防止模框刃槽疲劳变形；2）实行专模专机固定使用，避免不同机台底板平整度差异造成偏磨；3）刀片穿透深度达到 65%–80% 时进行模具的压力补偿（科学局部垫纸补压），严禁盲目加大整机总压。'
+      }
+    ],
+    sections: [
+      {
+        heading: '1. The Physics of Die Board Warping Under Continuous High-Speed Pressure',
+        headingZh: '一、 高速连续冲压下模切板微变形的物理机理',
+        content: [
+          'Modern automatic flatbed die-cutting machines operate at sustained speeds between 6,000 and 8,000 cuts/hour, with top-tier lines reaching 9,000 cuts/hour. Under tens of millions of high-impact stamping cycles, traditional 18mm birch plywood laser boards absorb shop-floor humidity variations and mechanical stress.',
+          'This leads to microscopic board warping (0.2mm–0.5mm), which distorts critical cut-to-crease registration, accelerates rule blunting, and forces press operators to spend hours shimming uneven areas.',
+          'Clear Selection Rule: For short and medium packaging runs under 500,000 units, laser-cut wooden dies (±0.1mm tolerance) remain the ideal economic choice. For long-run packaging (500,000 to millions of cartons) requiring strict ±0.05mm register, sandwich dies provide permanent structural rigidity.'
+        ],
+        contentZh: [
+          '现代全自动平压平模切机常规稳定运行车速在 6,000 至 8,000 压/小时，高端线理想工况最高可达 9,000 压/小时。在经历数百万次高频连续冲压下，传统 18mm 桦木激光板容易受车间温湿度变化和机械应力影响。',
+          '这会导致模板产生 0.2mm–0.5mm 的微小形变，造成切折线条套准偏移、刀刃异常磨损，迫使机长耗费数小时频繁垫纸补压。',
+          '明确选型标准：对于 50 万盒以内的中小批量短版订单，激光木板模（±0.1mm 精度）是极具性价比的经济选择；而对于 50 万至数百万盒以上的高频翻单长版订单，三明治刀模提供永久性的结构刚性与 ±0.05mm 的高精度保障。'
+        ],
+        table: {
+          headers: ['Tooling System', 'Base Material Options', 'Registration Tolerance', 'Repeat Order Strategy', 'Re-Ruling Capacity'],
+          headersZh: ['模具体系', '基底材质选项', '加工对齐公差', '翻单与长版策略', '重复换刀能力'],
+          rows: [
+            ['Laser Wooden Die', '18mm High-Density Birch Plywood', '±0.1mm Standard Tolerance', 'Optimal for < 500k short/medium runs', 'Single use / 1–2 light re-rules'],
+            ['Resin Sandwich Die', 'Resin Composite + Dual Steel Plates', '±0.05mm High Precision', 'Cost-effective for 500k–10M repeat runs', '5–10 Re-ruling cycles (40%+ savings)'],
+            ['Carbon Fiber Sandwich Die', 'Aerospace Carbon Fiber + Alloy Plates', '±0.05mm Ultra Precision', 'Top-tier for high-speed & extreme tolerance', '5–10 Re-ruling cycles (40%+ savings)']
+          ],
+          rowsZh: [
+            ['高精激光木板模', '18mm 高密度激光桦木板', '±0.1mm 标准公差', '适合 50万盒以内 中小批量短版', '单次使用 / 1–2次轻微换刀'],
+            ['树脂三明治刀模', '高强度树脂复合层 + 双钢板', '±0.05mm 高精度', '经济实用型，适合 50万–1000万 翻单', '5–10次 重复换刀（综合降本 40%+）'],
+            ['碳纤维三明治刀模', '航空级碳纤维板 + 特种合金板', '±0.05mm 超高精度', '高端顶配首选，适合极速与极高公差', '5–10次 重复换刀（综合降本 40%+）']
+          ]
+        }
+      },
+      {
+        heading: '2. Total Cost of Ownership: 40%+ Savings Across 3–5 Years',
+        headingZh: '二、 全生命周期成本模型：3–5 年综合降本 40% 以上',
+        content: [
+          'While the initial procurement cost of a sandwich die is higher than a wooden board, its total cost of ownership (TCO) drops dramatically over repeat production cycles. Because the rigid sandwich frame does not warp, packaging converters only need to send the frame back to Zhongcheng for re-ruling with fresh blades.',
+          'Over a typical 3–5 year operational lifespan with 5 to 10 re-ruling cycles, tooling procurement costs are reduced by more than 40% compared to repeatedly buying new wooden dies.',
+          'Material Choice: Clients can select between the cost-effective Resin Sandwich Die (high durability for folding cartons) and the premium Carbon Fiber Sandwich Die (maximum thermal stability and lightweight handling for extreme speeds).'
+        ],
+        contentZh: [
+          '尽管三明治刀模的首次制作成本高于普通木板模，但其全生命周期综合成本（TCO）随翻单次数增加而急剧下降。由于高刚性模框永久不发生翘曲变形，包装厂在模具磨损后只需将模框寄回众诚重新装嵌全新刀线即可。',
+          '在典型的 3–5 年使用周期中，一套模框支持 5 至 10 次重复换刀，相比每次翻单重新制作完整木板模，工厂综合刀模采购支出直降 40% 以上。',
+          '材质客户自选：客户可根据订单预算自选高性价比的树脂三明治刀模（经济实用型），或高端顶配的碳纤维三明治刀模（超轻量、超高刚性与耐温稳定性）。'
+        ]
+      },
+      {
+        heading: '3. Three Shop-Floor Techniques to Double Sandwich Die Longevity',
+        headingZh: '三、 众诚车间实战经验：让三明治刀模寿命翻倍的 3 大绝招',
+        content: [
+          'Based on thirty years of die-making engineering since 1997, Zhongcheng recommends three critical operational practices for press operators:',
+          '1. Early First Re-Ruling: Replace the cutting rules around the first 1,000,000 impressions before edge fatigue causes excessive friction on the frame slots.',
+          '2. Dedicated Press Assignment: Run the sandwich die on the same dedicated machine (BOBST, Heidelberg, ETERNA, Dayuan, Guowang, etc.) to eliminate wear caused by minor platen parallelism variances across different presses.',
+          '3. Progressive Pressure Compensation at 65%–80% Penetration: When test sheets indicate 65%–80% cutting depth, perform precise die pressure compensation (local make-ready patching) rather than increasing total press tonnage. This protects blade edges and preserves platen health.'
+        ],
+        contentZh: [
+          '依托自 1997 年创立至今近 30 年的模具制造沉淀，众诚工程团队总结了延长三明治模具寿命的 3 大车间操作铁律：',
+          '1. 首次 100 万压提前换刀：在第一批长版达到 100 万压左右及时更换刀线，在模框槽口产生微疲劳前形成保护；',
+          '2. 专模专机固定使用：将三明治模固定在特定机台（BOBST、海德堡长荣、旭恒、大源、国望等）上使用，避免因不同机台底板平行度微差造成偏磨；',
+          '3. 刀片穿透深度达到 65%–80% 时进行模具的压力补偿：以精准局部垫纸进行压力补偿，代替盲目增加整机总吨位，既保护刀刃又保护模切机底板。'
+        ]
+      },
+      {
+        heading: '4. Universal Machine Compatibility: International & Domestic Press Platforms',
+        headingZh: '四、 全机型 100% 适配：覆盖国际主流与国内知名品牌模切机',
+        content: [
+          'Zhongcheng sandwich dies and steel counter plates are precision-machined to Centerline II standards (±0.05mm register pin tolerance). They seamlessly lock into international presses (BOBST Novacut/Expertcut, Heidelberg Masterwork Promatrix, Sanwa) as well as leading Chinese die-cutters including Dayuan (大源), Guowang (国望), Huatai (华泰), and ETERNA (旭恒).',
+          'Simply share your machine chase specifications or die drawing (DXF/DWG/PDF), and our CAD team will deliver pre-aligned, zero-tuning tooling ready for full-speed production.'
+        ],
+        contentZh: [
+          '众诚三明治刀模与淬硬钢底模全面依循 Centerline II 中心线标准（±0.05mm 销钉公差），不仅完美匹配 BOBST Novacut/Expertcut、海德堡长荣 Promatrix、三和等国际机型，同样 100% 精准适配大源（Dayuan）、国望（Guowang）、华泰（Huatai）、旭恒（ETERNA）等国内知名品牌全自动模切机。',
+          '客户只需提供机台模框尺寸或模切工程图（DXF/DWG/PDF），众诚工程团队即可提供免调校即装即切的全套工装解决方案。'
         ]
       }
     ]
