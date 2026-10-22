@@ -421,7 +421,7 @@ export const ARTICLES: Article[] = [
             ['Blade Re-Ruling', '1–2 times maximum', '5–10 times repeated blade replacement'],
             ['Dimensional Stability', 'Sensitive to humidity & temperature shifts', '100% stable; zero humidity expansion'],
             ['Typical Run Volume', 'Small to medium runs (< 500k boxes)', 'Long runs (500k – millions of boxes), or high-precision jobs beyond laser wood tolerance'],
-            ['Target Applications', 'Corrugated boxes, general folding cartons', 'Cigarettes, pharmaceuticals, cosmetics, luxury goods, food cartons']
+            ['Target Applications', 'Corrugated boxes, general folding paper boxes & tags', 'Cigarettes, pharmaceuticals, cosmetics, luxury goods, food paper boxes']
           ],
           rowsZh: [
             ['模框主体材质选配', '通常为 18mm 高密度多层桦木激光板', '客户自选：经济型树脂三明治（性价比高） 或 碳纤维三明治（高端顶级选择）'],
@@ -430,7 +430,7 @@ export const ARTICLES: Article[] = [
             ['重复换刀寿命', '最多 1–2 次', '支持 5–10 次换刀，结构不损'],
             ['尺寸稳定性', '易受车间温湿度变化微量形变', '100% 尺寸恒定，零温湿度膨胀'],
             ['最佳适用订单量', '中小批量（50 万盒以内）', '长版高频翻单（50 万至数百万盒）或对精度要求高、木板模无法达到的产品'],
-            ['主要应用领域', '通用瓦楞纸箱、普通吊牌、彩盒', '烟标、药盒、高端化妆品盒、奢品礼盒、食品纸盒']
+            ['主要应用领域', '各类卡纸彩盒、通用瓦楞纸盒、普通吊牌', '烟标、药盒、高端化妆品盒、奢品礼盒、食品纸盒']
           ]
         }
       },
@@ -438,11 +438,11 @@ export const ARTICLES: Article[] = [
         heading: 'Purchasing & Operational Recommendations',
         headingZh: '采购与生产运营选型建议',
         content: [
-          'Choose Wooden Dies when: producing seasonal packaging, short-to-medium runs under 500,000 units, or standard-tolerance folding cartons where upfront tooling investment must be kept low.',
+          'Choose Wooden Dies when: producing seasonal packaging, short-to-medium runs under 500,000 units, or standard-tolerance folding cardboard boxes where upfront tooling investment must be kept low.',
           'Choose Sandwich Dies when: running long-run recurring jobs (500,000 to millions of boxes), high-speed automated packaging lines, or demanding applications (cigarettes, pharmaceuticals, cosmetics, food) where ultra-precision (±0.05mm) is required and laser wooden dies cannot meet tolerance standards.'
         ],
         contentZh: [
-          '选用激光木板模：适用于季节性包装、短版及单批次 50 万盒以内的中小批量订单，以及版面经常迭代改版、对公差要求在标准范围内的常规纸箱纸盒场景。',
+          '选用激光木板模：适用于季节性包装、短版及单批次 50 万盒以内的中小批量订单，以及版面经常迭代改版、对公差要求在标准范围内的常规卡纸与瓦楞纸盒场景。',
           '选用三明治模：适用于 50 万至数百万盒的长版高频翻单、高速自动化包装产线，或对精细度、折痕直角度有严苛要求（±0.05mm 微公差）、激光木板模具精度无法达到的卷烟、医药、高端化妆品及食品包装产品。'
         ]
       }

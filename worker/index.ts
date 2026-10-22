@@ -59,7 +59,7 @@ const PRODUCT_META: Record<string, { title: string; description: string }> = {
   },
   'wooden-die': {
     title: 'Wooden Cutting Die | Zhongcheng',
-    description: 'Custom wooden steel-rule dies for cartons, corrugated boxes, tags and leather. Built to your shape, size and machine requirements.',
+    description: 'Custom wooden steel-rule dies for folding paper boxes, cardboard cartons, corrugated boxes, tags and crafts. Built to your shape, size and machine requirements.',
   },
   'steel-counter-plate': {
     title: 'Steel Counter Plate | Zhongcheng',
@@ -71,11 +71,11 @@ const PRODUCT_META: Record<string, { title: string; description: string }> = {
   },
   'stripping-tools': {
     title: 'Stripping Tools | Zhongcheng',
-    description: 'Manual and pneumatic stripping tools for removing inner-hole waste from cartons, gift boxes and food packaging production lines.',
+    description: 'Manual and pneumatic stripping tools for removing inner-hole waste from paper boxes, folding cartons, gift boxes and food packaging lines.',
   },
   'blanking-tools': {
     title: 'Blanking Tools | Zhongcheng',
-    description: 'Pneumatic and automatic blanking tools for separating die-cut box blanks from cardboard waste in packaging production.',
+    description: 'Pneumatic and automatic blanking tools for separating die-cut paper box blanks from cardboard waste skeleton in packaging production.',
   },
   'hot-stamping-embossing-die': {
     title: 'Hot Stamping & Embossing Die | Zhongcheng',

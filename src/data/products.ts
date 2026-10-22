@@ -110,9 +110,9 @@ export const products: Product[] = [
     name: 'Wooden Die (Steel Rule Flat Die)',
     nameZh: '木板刀模',
     description:
-      'Custom wooden dies (steel rule flat dies) made of plywood board with precision steel rule blades, used for die cutting cartons, corrugated boxes, paper boxes, tags, leather crafts, fabric accessories and jigsaw puzzles. Supports full customization of shape and thickness for flexo carton die cutting machines and packaging production lines.',
+      'Custom wooden dies (steel rule flat dies) made of plywood board with precision steel rule blades, used for die cutting paper boxes, folding cardboard boxes, corrugated boxes, tags, leather crafts, fabric accessories and jigsaw puzzles. Supports full customization of shape and thickness for automatic flatbed die-cutters and paper box packaging lines.',
     descriptionZh:
-      '定制木板刀模（钢线平压刀模），以多层木板配精密钢刀线制作，适用于纸箱、瓦楞纸箱、纸盒、吊牌、皮革工艺、布艺配件及拼图等模切。形状与厚度完全可定制，适配柔版纸箱模切机及包装生产线。',
+      '定制木板刀模（钢线平压刀模），以多层高密桦木板配精密钢刀线制作，适用于各类卡纸彩盒、精细纸盒、瓦楞纸盒、吊牌、皮革工艺、布艺配件及拼图等模切。形状与厚度完全可定制，适配全自动平压平模切机及高速卡纸/瓦楞包装生产线。',
     images: [
       '/assets/images/wooden-detail-1.webp',
       '/assets/images/wooden-detail-2.webp',
@@ -141,8 +141,8 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Die cutting machine or press machine or various die cutting platforms',
-        valueZh: '柔版纸箱模切机、平压平模切机',
+        value: 'Automatic flatbed die-cutters, cardboard & corrugated paper box packaging lines',
+        valueZh: '全自动平压平模切机、卡纸与瓦楞彩盒模切线',
       },
     ],
     highlights: [
@@ -299,14 +299,14 @@ export const products: Product[] = [
       'High strength, light weight — easy handling on manual die cutting presses',
       'High-density, wear & pressure resistant resin construction',
       'Custom size & thickness, OEM/ODM matching creasing base film',
-      'High precision creasing for cartons, cigarette packs, cosmetic and luxury boxes',
+      'High precision creasing for folding paper boxes, medicine boxes, cigarette packs, cosmetic and luxury boxes',
       'Factory direct wholesale prices',
     ],
     highlightsZh: [
       '高强度、轻量化——手动模切机上操作轻松',
       '高密度树脂结构，耐磨耐压',
       '尺寸厚度可定制，OEM/ODM匹配压痕底膜',
-      '纸箱、烟包、化妆品及高端礼盒高精度压痕',
+      '精细卡纸盒、药盒、烟包、化妆品及高端礼盒高精度压痕',
       '工厂直供批发价',
     ],
     faqs: [
@@ -335,9 +335,9 @@ export const products: Product[] = [
     name: 'Stripping Tools',
     nameZh: '清废工具',
     description:
-      'Stripping tools for removing inner-hole waste from die-cut cartons and boxes. Manual and pneumatic versions remove internal scrap after die cutting — clean, low-noise, high-speed operation for gift boxes, food packaging boxes and general box manufacturing lines.',
+      'Stripping tools for removing inner-hole waste from die-cut paper boxes, folding cartons and gift boxes. Manual and pneumatic versions remove internal scrap after die cutting — clean, low-noise, high-speed operation for folding carton lines, gift boxes, food packaging and general box manufacturing.',
     descriptionZh:
-      '用于清除模切纸盒内孔废料的清废工具。手动与气动两种版本，模切后快速清除内部废料——清洁、低噪音、高速运转，适用于礼盒、食品包装盒及通用纸盒生产线。',
+      '用于清除模切纸盒内孔废料的清废工具。手动与气动两种版本，模切后快速清除内部废料——清洁、低噪音、高速运转，适用于卡纸彩盒、礼盒、食品包装盒及各类通用纸盒生产线。',
     images: [
       '/assets/images/stripping-detail-1-tight.webp',
       '/assets/images/stripping-detail-2-tight.webp',
@@ -410,9 +410,9 @@ export const products: Product[] = [
     name: 'Blanking Tools',
     nameZh: '分盒工具',
     description:
-      'Industrial blanking tools that separate die-cut boxes from waste and strip internal scrap — heavy-duty, easy-to-operate equipment for packaging production. Pneumatic and automatic models separate box blanks from the surrounding cardboard skeleton at high speed, including food packaging and multi-material (paper/plastic) applications.',
+      'Industrial blanking tools that separate die-cut paper boxes from waste skeleton — heavy-duty, high-precision equipment for automated packaging lines. Separates folding cardboard blanks, pharmaceutical boxes, cosmetic cartons and food packaging boxes at high speed.',
     descriptionZh:
-      '工业级分盒工具，将模切纸盒与废料分离并清除内部废料——重型、易操作，适用于包装生产。气动与自动机型可高速将盒坯与纸板骨架分离，支持食品包装及纸/塑等多材质应用。',
+      '工业级分盒工具，将模切纸盒与废料骨架高速分离——重型、高精度，适用于自动化包装生产线。可高速将卡纸盒坯、药盒、化妆品彩盒及食品包装盒自动分离整齐码放。',
     images: [
       '/assets/images/blanking-tools-detail-1-refined.webp',
       '/assets/images/blanking-tools-bottom-pharma.webp',
@@ -457,7 +457,7 @@ export const products: Product[] = [
       '生产线高速分盒与清废',
       '高端包装精密气动分盒',
       '分盒清废一体机',
-      '经久耐用的重型纸箱清废分离',
+      '经久耐用的卡纸盒与瓦楞包装盒高效清废分盒',
       '多材质支持：纸、塑、食品盒及一次性杯',
       'OEM/ODM可定制分盒机',
     ],
@@ -562,9 +562,9 @@ export const products: Product[] = [
     name: 'Engraving Die (Engraving Blade)',
     nameZh: '电雕版（雕刻刀）',
     description:
-      'Engraving blades / carving cutters for logo and pattern engraving on packaging boxes, corrugated cartons and gift boxes. High-hardness CNC-milled blades with customizable sizes, offered as multi-spec blade sets, single blades or steel rule die accessories for precision carving and cutting in craft and packaging applications.',
+      'Engraving blades / carving cutters for logo and pattern engraving on folding cardboard boxes, luxury packaging and gift boxes. High-hardness CNC-milled blades with customizable sizes, offered as multi-spec blade sets, single blades or steel rule die accessories for precision carving and cutting in craft and packaging applications.',
     descriptionZh:
-      '用于包装盒、瓦楞纸箱及礼盒Logo与图案雕刻的雕刻刀/雕刻刀具。高硬度CNC铣削刀片，尺寸可定制，提供多规格刀片套装、单支刀片或钢线刀模配件，适用于工艺与包装领域的精密雕刻切割。',
+      '用于卡纸包装盒、精致彩盒、瓦楞盒及礼盒Logo与图案雕刻的雕刻刀/雕刻刀具。高硬度CNC铣削刀片，尺寸可定制，提供多规格刀片套装、单支刀片或钢线刀模配件，适用于工艺与包装领域的精密雕刻切割。',
     images: [
       '/assets/images/engraving-die-detail-new-main-tight.webp',
       '/assets/images/engraving-die-detail-2-final-grid.webp',
@@ -600,14 +600,14 @@ export const products: Product[] = [
       'Multi-spec blade sets for DIY craft and woodworking',
       'High-precision CNC milled carving cutters for packaging',
       'Custom size & custom logo engraving supported',
-      'Works on carton, corrugated, gift box and paper board',
+      'Works on folding paper boxes, cardboard, corrugated boxes, gift boxes and paper board',
     ],
     highlightsZh: [
       '高硬度耐磨刀片，可反复雕刻',
       '多规格刀片套装，适用于DIY手工与木工',
       '包装用高精度CNC铣削雕刻刀',
       '支持尺寸定制与Logo雕刻',
-      '适用于纸箱、瓦楞、礼盒及纸板',
+      '适用于各类卡纸彩盒、纸盒、瓦楞盒、礼盒及特种纸板',
     ],
     faqs: [
       {
