@@ -394,8 +394,8 @@ export const products: Product[] = [
       {
         qEn: 'How do Zhongcheng stripping tools prevent waste jams at 9,000 cuts/hour?',
         qZh: '众诚清废工具如何在 9,000 压/小时高速运转下避免卡纸？',
-        aEn: 'We use 1:1 dynamic CAD interference simulation to verify waste drop trajectories and optimize gripper margin clearance (standard 9–15mm), ensuring vertical waste discharge without rebound.',
-        aZh: '我们通过 CAD 1:1 动态落料干涉校验与咬口避让余量（标准 9mm–15mm）精准设计，确保高速冲压下废料垂直顺畅下坠至输送带，防止废料飞溅反弹卡机。'
+        aEn: 'We use 1:1 dynamic CAD interference simulation to verify waste drop trajectories and optimize gripper margin clearance, ensuring vertical waste discharge without rebound. Furthermore, with three decades of die-making experience, we have developed numerous scrap removal solutions for various shapes of scrap materials.',
+        aZh: '我们通过 CAD 1:1 动态落料干涉校验与咬口避让余量精准设计，确保高速冲压下废料垂直顺畅下坠至输送带，防止废料飞溅反弹卡机。同时，依托近 30 年制模工程沉淀，我们针对各类异形废料研发了丰富的定制清废排障方案。'
       },
       {
         qEn: 'Are your stripping tools compatible with international and domestic presses?',
