@@ -1,8 +1,15 @@
-﻿export interface ProductSpec {
+export interface ProductSpec {
   key: string; // English label
   keyZh: string; // Chinese label
   value: string; // English value
   valueZh: string; // Chinese value
+}
+
+export interface ProductFAQ {
+  qEn: string;
+  qZh: string;
+  aEn: string;
+  aZh: string;
 }
 
 export interface Product {
@@ -15,6 +22,7 @@ export interface Product {
   specs: ProductSpec[];
   highlights: string[];
   highlightsZh: string[];
+  faqs?: ProductFAQ[];
 }
 
 export const WHATSAPP_URL = 'https://wa.me/8613402211941';
@@ -76,6 +84,26 @@ export const products: Product[] = [
       '异形定制：药板盒、灯笼、挂钩、迷你药盒、硬盒成型',
       '5年模具寿命，支持OEM/ODM及CAD图纸支持',
     ],
+    faqs: [
+      {
+        qEn: 'How many times can a Zhongcheng sandwich die be re-ruled, and what is the expected lifespan?',
+        qZh: '一套众诚三明治刀模可以重复换刀多少次？模框使用寿命多久？',
+        aEn: 'A Zhongcheng sandwich die frame supports 5 to 10 knife replacements over a 3–5 year operational lifespan. Re-ruling the existing rigid frame lowers total tooling procurement costs by over 40% compared to repeatedly buying new wooden dies.',
+        aZh: '一套众诚高刚性三明治模框支持重复换刀 5 至 10 次，模框服役寿命长达 3 至 5 年。相比每次翻单重新制作完整木板模，仅更换刀线能够帮助工厂降低 40% 以上的综合刀模采购成本。'
+      },
+      {
+        qEn: 'What base materials can clients choose for the sandwich die structure?',
+        qZh: '三明治刀模有哪些基底材质可供客户自选？',
+        aEn: 'Clients can select between the cost-effective Resin Composite Sandwich Die (ideal for high-volume commercial folding cartons) and the premium Aerospace Carbon Fiber Sandwich Die (maximum thermal stability, lightweight handling, and ±0.05mm ultra-precision). Steel and aluminum alloy plates are also available.',
+        aZh: '客户可根据订单预算自选高性价比的树脂三明治刀模（经济实用型，适合常规彩盒大批量翻单），或高端顶配的碳纤维三明治刀模（超轻量、超高刚性与耐温稳定性，公差严控在 ±0.05mm）。亦提供钢板与铝合金板定制选项。'
+      },
+      {
+        qEn: 'What is the standard production lead time and supported CAD drawing formats?',
+        qZh: '三明治刀模的标准生产交期是多久？支持哪些格式的图纸？',
+        aEn: 'Standard manufacturing lead time is 3–7 days upon drawing confirmation. We support DXF, DWG, AI, PDF, CDR, and STEP file formats with free engineering pre-flight checks.',
+        aZh: '在图纸确认后，标准生产交期为 3–7 天。我们支持 DXF, DWG, AI, PDF, CDR, STEP 等主流工程格式，并提供免费的工程前置审图与排版核验服务。'
+      }
+    ]
   },
   {
     slug: 'wooden-die',
@@ -131,6 +159,26 @@ export const products: Product[] = [
       '应用广泛：包装盒、吊牌、拼图、皮革、饰品及家居装饰',
       '刀线定位精准，加工快速',
     ],
+    faqs: [
+      {
+        qEn: 'What type of wood board is used for Zhongcheng wooden laser dies?',
+        qZh: '众诚激光木板刀模使用什么材质的板材？',
+        aEn: 'We use 18mm high-density multilayer birch laser plywood equipped with hardened precision steel cutting rules (2 Pt / 3 Pt), ensuring ±0.1mm standard tolerance without board warping or delamination.',
+        aZh: '我们采用 18mm 高密度多层激光桦木板，装嵌淬硬精密钢刀线（2 Pt / 3 Pt），加工公差严控在 ±0.1mm 标准精度以内，板材平整不易变形开裂。'
+      },
+      {
+        qEn: 'When is a wooden laser die the best choice for packaging converters?',
+        qZh: '激光木板模最适合什么样的包装印刷订单？',
+        aEn: 'Wooden laser dies (±0.1mm tolerance) are the most cost-effective choice for short and medium runs under 500,000 cartons, fast prototyping, and general corrugated carton die-cutting.',
+        aZh: '激光木板模（±0.1mm 公差）是 50 万盒以内的中小批量短版订单、快速打样验证以及常规瓦楞纸箱模切极具性价比的经济选择。'
+      },
+      {
+        qEn: 'Does Zhongcheng custom-engineer dies for specific machine chaser dimensions?',
+        qZh: '众诚木板模是否支持根据特定设备模框图纸定制？',
+        aEn: 'Yes. We custom-engineer dies for all global and domestic flatbed presses (BOBST, Heidelberg, Sanwa, ETERNA, Dayuan, Guowang, Huatai) to exact machine chase drawings.',
+        aZh: '完全支持。我们可根据 BOBST、海德堡、三和、旭恒以及大源、国望、华泰等国内外各品牌模切机的机台模框图纸 100% 精准定制交付。'
+      }
+    ]
   },
   {
     slug: 'steel-counter-plate',
@@ -186,6 +234,26 @@ export const products: Product[] = [
       '支持OEM/ODM及CAD图纸（.DWG/.DXF/.PDF/.CDR）',
       '2-5天交期',
     ],
+    faqs: [
+      {
+        qEn: 'What steel grade and hardness standard are used for Zhongcheng counter plates?',
+        qZh: '众诚淬硬钢底模使用什么材质与硬度标准？',
+        aEn: 'We precision-mill hardened alloy steel plates with 42–52 HRC hardness in standard thicknesses of 1.0mm, 1.2mm, and 1.5mm, delivering micro-milling groove tolerances of ±0.05mm.',
+        aZh: '我们采用硬度达 42–52 HRC 的优质淬硬特种合金钢板，提供 1.0mm / 1.2mm / 1.5mm 等标准厚度，数控微铣压痕槽公差严控在 ±0.05mm 以内。'
+      },
+      {
+        qEn: 'What are the main benefits of using a steel counter plate over matrix tape?',
+        qZh: '相比普通压痕模条，使用淬硬钢底模有哪些核心优势？',
+        aEn: 'Steel counter plates eliminate groove wear across millions of high-speed cuts (6,000–9,000 cuts/hr), prevent crease bursting, reduce make-ready setup time to under 15 minutes, and guarantee 100% crease consistency on repeat runs.',
+        aZh: '淬硬钢底模可承受数百万次高速冲压（6,000–9,000 压/小时）而不产生槽口磨损，彻底杜绝压痕爆线与分层，将机台调压校版时间缩短至 15 分钟以内，并保障翻单压痕品质 100% 高度一致。'
+      },
+      {
+        qEn: 'Does the steel counter plate follow Centerline II alignment standards?',
+        qZh: '钢底模是否依循 Centerline II 中心定位标准？',
+        aEn: 'Yes. All counter plates feature CNC-machined Centerline II registration pinholes (±0.05mm tolerance) for instant zero-tuning lock-in on BOBST, Heidelberg and leading Chinese presses.',
+        aZh: '完全依循。所有钢底模均精密加工 Centerline II 中心定位销钉孔（±0.05mm 销钉公差），可在 BOBST、海德堡长荣及各大国产主流设备上实现即装即切、免调校快速锁紧。'
+      }
+    ]
   },
   {
     slug: 'pertinax-counter-plate',
@@ -241,6 +309,26 @@ export const products: Product[] = [
       '纸箱、烟包、化妆品及高端礼盒高精度压痕',
       '工厂直供批发价',
     ],
+    faqs: [
+      {
+        qEn: 'What packaging applications are best suited for Pertinax resin counter plates?',
+        qZh: '树脂底模（Pertinax 压痕板）最适合哪些包装领域？',
+        aEn: 'Pertinax counter plates are ideal for high-precision pharmaceutical medicine boxes, cosmetics cartons, and cigarette packs running on high-speed folder-gluers (400–650 cartons/min) to achieve zero paper dust and burr-free creasing.',
+        aZh: '树脂底模极适用于对成型要求严苛的医药药盒、化妆品包装盒及精品烟包，配合运行车速达 400–650 盒/分钟的高速自动折盒装盒机，实现无纸屑粉尘、无毛刺的高洁净度顺畅折叠。'
+      },
+      {
+        qEn: 'How does Pertinax compare with hardened steel counter plates?',
+        qZh: '树脂底模与淬硬钢底模相比有什么特点与优势？',
+        aEn: 'Pertinax offers rapid CNC milling turn-around (2–3 days), lower initial tooling cost, and high groove accuracy (±0.05mm), making it ideal for medium-to-long runs up to 1,000,000 impressions.',
+        aZh: '树脂底模具有加工周期极快（2–3 天交期）、初始投入成本低、铣槽精度高（±0.05mm）等优势，是 100 万压以内中长版高精包装订单极具性价比的底模方案。'
+      },
+      {
+        qEn: 'Can Pertinax counter plates be reused for repeat orders?',
+        qZh: '树脂底模是否支持翻单重复使用？',
+        aEn: 'Yes. With proper workshop cleaning and flat storage away from direct moisture, Pertinax plates can be remounted multiple times with consistent registration.',
+        aZh: '完全可以。车间只需在下机后清理槽内纸屑并在避光防潮环境下平整存放，翻单时即可重新快速装机定位使用，保持稳定的套准精度。'
+      }
+    ]
   },
   {
     slug: 'stripping-tools',
@@ -296,6 +384,26 @@ export const products: Product[] = [
       '食品与礼品包装盒洁净清废',
       '工业级耐磨重型型号',
     ],
+    faqs: [
+      {
+        qEn: 'What is included in a Zhongcheng dynamic stripping tool set?',
+        qZh: '众诚全套动态清废工具包含哪些部件？',
+        aEn: 'A complete set includes the upper dynamic stripping board with quick-lock pins/pushers and the lower custom steel/wood stripping grid, designed as an integrated pair with ±0.1mm alignment precision.',
+        aZh: '全套动态清废工具包含带快速锁紧清废顶针/压块的上清废板，以及高刚性下清废金属网格底框，采用上下模 1:1 联动匹配设计，网格公差控制在 ±0.1mm 以内。'
+      },
+      {
+        qEn: 'How do Zhongcheng stripping tools prevent waste jams at 9,000 cuts/hour?',
+        qZh: '众诚清废工具如何在 9,000 压/小时高速运转下避免卡纸？',
+        aEn: 'We use 1:1 dynamic CAD interference simulation to verify waste drop trajectories and optimize gripper margin clearance (standard 9–15mm), ensuring vertical waste discharge without rebound.',
+        aZh: '我们通过 CAD 1:1 动态落料干涉校验与咬口避让余量（标准 9mm–15mm）精准设计，确保高速冲压下废料垂直顺畅下坠至输送带，防止废料飞溅反弹卡机。'
+      },
+      {
+        qEn: 'Are your stripping tools compatible with international and domestic presses?',
+        qZh: '清废模具是否适配国内外各大主流品牌模切机？',
+        aEn: 'Yes. We supply pre-aligned stripping frames for BOBST (Novacut/Expertcut), Heidelberg MK Promatrix, ETERNA, Sanwa, Dayuan, Guowang, and Huatai.',
+        aZh: '完全支持。我们为 BOBST、海德堡长荣 Promatrix、旭恒、三和以及大源、国望、华泰等国内外设备提供免调校的预对齐清废模组。'
+      }
+    ]
   },
   {
     slug: 'blanking-tools',
@@ -353,6 +461,26 @@ export const products: Product[] = [
       '多材质支持：纸、塑、食品盒及一次性杯',
       'OEM/ODM可定制分盒机',
     ],
+    faqs: [
+      {
+        qEn: 'What is the main function of upper and lower dynamic blanking tools?',
+        qZh: '动态分盒模具（Blanking Tools）的主要功能是什么？',
+        aEn: 'Dynamic blanking tools automatically separate multi-up nested carton blanks from the sheet skeleton, stacking clean, non-overlapping carton bundles directly onto the delivery table for immediate folder-gluing.',
+        aZh: '动态分盒模具能够在模切机全清废分盒工位上，将多联排版中的成品盒坯自动与废边骨架分离，整齐码放成叠并直接输出，大幅节省后道人工撕边成本。'
+      },
+      {
+        qEn: 'What precision tolerance is maintained on blanking grids?',
+        qZh: '分盒模具的网格对齐公差是多少？',
+        aEn: 'Our upper pushers and lower universal/dedicated grid bars are CNC-machined to ±0.1mm grid tolerance, preventing carton edge scuffing or tab snagging.',
+        aZh: '上模推块与下模专用金属网格均采用高精数控加工，网格尺寸公差严控在 ±0.1mm 以内，杜绝盒片边缘刮花或折翼勾挂卡顿。'
+      },
+      {
+        qEn: 'What lead time and machine specifications are needed for order placement?',
+        qZh: '订购分盒模具需要提供什么参数？交期是多久？',
+        aEn: 'Simply provide your die-cutting CAD layout (DXF/DWG/PDF) and machine model name. Standard manufacturing lead time is 3–7 days.',
+        aZh: '客户只需提供模切工程排版图（DXF/DWG/PDF）以及设备型号，标准生产交期为 3–7 天。'
+      }
+    ]
   },
   {
     slug: 'hot-stamping-embossing-die',
@@ -408,6 +536,26 @@ export const products: Product[] = [
       '化妆品、烟包与礼盒高精度压凸',
       '适用于DIY手工、布料装饰及工业烫金',
     ],
+    faqs: [
+      {
+        qEn: 'What materials are available for hot stamping and embossing dies?',
+        qZh: '烫金压纹版有哪些材质可选？',
+        aEn: 'We provide precision CNC-engraved solid brass plates (highest durability for luxury cosmetics & cigarette packs), magnesium plates (fast turnaround for medium runs), and aerospace aluminum alloy plates.',
+        aZh: '我们提供高精度数控雕刻实心黄铜版（耐磨耐高温，最适用于高端化妆品与烟包长版订单）、镁板（经济快捷型）以及特种铝合金板。'
+      },
+      {
+        qEn: 'Can hot stamping and micro-embossing be combined into a single pass?',
+        qZh: '烫金与微雕压凸是否支持一版一次成型？',
+        aEn: 'Yes. We engineer combination brass dies (stamping + embossing in one stroke) with micro-relief depth calibration (±0.05mm) to save press run time.',
+        aZh: '完全支持。我们可制作烫金压凸一体雕刻版，雕刻深度公差达 ±0.05mm，实现烫金与微浮雕立体成型一次冲压完成，大幅提升生产效率。'
+      },
+      {
+        qEn: 'What is the lead time for custom logo and texture embossing blocks?',
+        qZh: '定制 Logo 与纹理雕刻烫金版的交期是多久？',
+        aEn: 'Standard production lead time is 2–5 days upon CAD vector approval.',
+        aZh: '在矢量图稿确认后，标准加工制作交期为 2–5 天。'
+      }
+    ]
   },
   {
     slug: 'engraving-die',
@@ -443,7 +591,7 @@ export const products: Product[] = [
       {
         key: 'Compatible Machines',
         keyZh: '适配机型',
-        value: 'Die cutting machine or press machine or various die cutting platforms',
+        value: 'Die cutting machine or press machine or various die-cutting platforms',
         valueZh: '刀模制作/模切配件',
       },
     ],
@@ -461,6 +609,20 @@ export const products: Product[] = [
       '支持尺寸定制与Logo雕刻',
       '适用于纸箱、瓦楞、礼盒及纸板',
     ],
+    faqs: [
+      {
+        qEn: 'What steel hardness and cutting edge profiles are used on engraving dies?',
+        qZh: '电雕雕刻刀采用什么钢材硬度与刃口工艺？',
+        aEn: 'We use high-hardness tool steel (58–62 HRC) with high-precision CNC micro-milling, delivering smooth carving edges for packaging and craft carton production.',
+        aZh: '我们采用高硬度工具钢（硬度达 58–62 HRC）并经精密数控微铣加工，刃口锋利耐久，保障包装雕刻边缘光滑细腻。'
+      },
+      {
+        qEn: 'What is the lead time for custom engraving blade sets?',
+        qZh: '定制电雕刀组的交期通常是多久？',
+        aEn: 'Depending on complexity and set size, standard lead time ranges from 3 to 25 days.',
+        aZh: '根据刀组规格复杂度和定制数量，标准交期通常在 3 至 25 天之间。'
+      }
+    ]
   },
   {
     slug: 'die-making-materials',
@@ -516,6 +678,20 @@ export const products: Product[] = [
       '印刷与标签生产线高速高效打孔',
       '可定制设计，坚固耐用，寿命长',
     ],
+    faqs: [
+      {
+        qEn: 'What types of tube punches and spring punches does Zhongcheng supply?',
+        qZh: '众诚提供哪些规格的制模冲孔五金耗材？',
+        aEn: 'We supply precision-ground mirror-finish steel tube punches and spring punches with inside diameters from 1.0mm to 20mm+, ideal for optical film, cardboard, label, and leather hole punching.',
+        aZh: '我们供应内径 1.0mm 至 20mm+ 各类镜面精磨钢管冲、带顶针弹簧冲等，广泛应用于光学膜、纸板、标签及皮革制品的高精打孔。'
+      },
+      {
+        qEn: 'What is the minimum order quantity (MOQ) and lead time for punch accessories?',
+        qZh: '冲孔五金配件的起订量与交期是多久？',
+        aEn: 'MOQ for standard punch sizes is 100 pcs, and manufacturing lead time is typically 3–7 days.',
+        aZh: '标准规格冲子起订量为 100 件，标准生产交期为 3–7 天。'
+      }
+    ]
   },
 ];
 

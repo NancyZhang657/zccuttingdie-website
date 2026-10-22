@@ -205,17 +205,35 @@ export default function ProductDetail() {
     const seoTitle = isZh ? `${productName} | 众诚精密刀模` : (seo?.title ?? `${productName} | Zhongcheng Cutting Die`);
     const seoDescription = isZh ? (seo?.descriptionZh ?? productDescription) : (seo?.description ?? productDescription);
 
+    const faqSchema = product?.faqs && product.faqs.length > 0 ? {
+      '@type': 'FAQPage',
+      'mainEntity': product.faqs.map(f => ({
+        '@type': 'Question',
+        'name': isZh ? f.qZh : f.qEn,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': isZh ? f.aZh : f.aEn
+        }
+      }))
+    } : null;
+
     updatePageMeta({
       title: seoTitle,
       description: seoDescription,
       path: productPath,
       lang,
       schema: product
-          ? buildBreadcrumbSchema({
-            name: productName,
-            path: productPath,
-            lang,
-          })
+        ? {
+            '@context': 'https://schema.org',
+            '@graph': [
+              buildBreadcrumbSchema({
+                name: productName,
+                path: productPath,
+                lang,
+              }),
+              ...(faqSchema ? [faqSchema] : [])
+            ]
+          }
         : undefined,
     });
   }, [lang, product, slug]);
@@ -609,6 +627,47 @@ export default function ProductDetail() {
                     {copy.viewDetails} →
                   </span>
                 </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 7. Product FAQs for Buyer Decision & GEO */}
+        {product.faqs && product.faqs.length > 0 && (
+          <section className="mt-20" data-section="product-faqs">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="accent-bar" />
+              <h2
+                className="text-2xl md:text-3xl"
+                style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary-light)', fontWeight: 800, letterSpacing: '-0.02em' }}
+              >
+                {copy.faqTitle}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {product.faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="p-6 transition-all duration-200"
+                  style={{
+                    background: 'var(--surface-dark)',
+                    border: '1px solid var(--border-light)',
+                    borderRadius: 'var(--radius-card)',
+                  }}
+                >
+                  <h3 className="text-base font-bold mb-3 flex items-start gap-3" style={{ color: 'var(--text-primary-light)' }}>
+                    <span
+                      className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white mt-0.5"
+                      style={{ background: 'var(--accent)' }}
+                    >
+                      Q
+                    </span>
+                    <span>{isZh ? faq.qZh : faq.qEn}</span>
+                  </h3>
+                  <p className="text-sm leading-relaxed pl-9" style={{ color: 'var(--text-secondary-light)' }}>
+                    {isZh ? faq.aZh : faq.aEn}
+                  </p>
+                </div>
               ))}
             </div>
           </section>
