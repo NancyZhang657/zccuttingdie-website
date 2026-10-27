@@ -139,8 +139,12 @@ const ARTICLE_META: Record<string, { title: string; description: string }> = {
     description: 'Shop-floor guide to fix board cracking, nicking failures and stripping jams on BOBST, Heidelberg, Dayuan, Guowang and ETERNA presses.',
   },
   'preventing-die-board-warping-high-speed-sandwich-die-roi-guide': {
-    title: 'Preventing Die Board Warping at High Speed: ROI & Sandwich Die Guide | Zhongcheng',
-    description: 'Why wooden dies warp at 6,000-9,000 cuts/hr and how resin/carbon sandwich dies deliver ±0.05mm tolerance, 5-10 re-rules and 40%+ cost savings.',
+    title: 'Preventing Die Board Warping at High Press Speeds | Zhongcheng',
+    description: 'Technical analysis on avoiding die-cutting board distortion under high speeds (6,000-9,000 cuts/hr) and ROI breakdown for sandwich tooling.',
+  },
+  'tropical-climate-humidity-sandwich-die-cutting-guide': {
+    title: 'High-Humidity Tropical Die-Cutting Guide: Sandwich Dies | Zhongcheng',
+    description: 'Why Southeast Asian packaging converters eliminate 0.2mm-0.3mm+ plywood moisture warping by adopting water-impermeable resin and carbon fiber sandwich dies.',
   },
 };
 
