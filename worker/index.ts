@@ -146,10 +146,6 @@ const ARTICLE_META: Record<string, { title: string; description: string }> = {
     title: 'High-Humidity Tropical Die-Cutting Guide: Sandwich Dies | Zhongcheng',
     description: 'Why Southeast Asian packaging converters eliminate 0.2mm-0.3mm+ plywood moisture warping by adopting water-impermeable resin and carbon fiber sandwich dies.',
   },
-  'sandwich-die-vs-wooden-laser-die-tco-roi-comparison': {
-    title: 'Sandwich Die vs. Wooden Laser Die: 5-Year TCO & ROI Comparison | Zhongcheng',
-    description: '10-million-impression financial teardown: 18-up folding carton tooling cost, Pertinax matrix wear vs. hardened steel counter plate, and 84.8% lifecycle savings.',
-  },
 };
 
 function escapeHtml(value: string) {
